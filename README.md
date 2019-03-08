@@ -1,4 +1,4 @@
-# Projeto-ES
+# Propes
 Projeto criado para a disciplina de Engenharia de Software IF977
 
 # Screencast
