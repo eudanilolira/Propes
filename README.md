@@ -16,3 +16,6 @@ O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de um
 * Gabriel Estevam Longuinhos (Desenvolvedor e Scrum Master)
 * Ivan Ferreira da Silva Lima  (Desenvolvedor)
 * Leonardo de Oliveira Lima (Desenvolvedor)
+
+# Wiki
+Mais informações disponíveis na wiki do projeto.
