@@ -3,9 +3,13 @@ class SessionsController < ApplicationController
   end
   
   def create
+    @user = params[:session].permit(email, password)
+    @user.save
+    redirect_to @user
   end
   
   def show
+    
   end
   
   def destroy
