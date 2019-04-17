@@ -3,9 +3,11 @@ class SessionsController < ApplicationController
   end
   
   def create
-    @user = params[:session].permit(email, password)
-    @user.save
-    redirect_to @user
+    @user = User.find_by(email: params[:session][:email].downcase)
+    if @user && user.authenticate(params[:session][:password])
+      sign_in @user
+    end
+    
   end
   
   def show

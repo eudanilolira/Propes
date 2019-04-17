@@ -1,2 +1,42 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1> Cadastro </h1>
+<%= form_for @user do |f| %>
+    
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <div class="alert-error">
+                O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
+            </div>
+            
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    
+    <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </div>
+    
+    <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
+    
+    <div>
+        <%= f.label :confirmation_password %>
+        <%= f.password_field :confirmation_password %>
+    </div>
+    
+    <div>
+        <%= f.submit  "Cadastrar" %>
+    </div>
+    
+<% end %>
