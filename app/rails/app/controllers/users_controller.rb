@@ -10,12 +10,13 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
-      if @user.save
-        redirect_to @user, notice: "Criação bem sucedida !"
-        sign_in 
-      else 
-        render action: :new
+      @user = User.new(user_params)
+
+    if @user.save
+      redirect_to @user, notice: "Criação bem sucedida !"
+      sign_in 
+    else
+      render 'new'
     end
   end
   
