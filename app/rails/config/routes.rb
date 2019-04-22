@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  get 'welcomes/new'
   get 'users/new'
-  get 'home' => 'welcome/index'
-  root 'welcome#index'
+  root 'welcomes#new'
   
   get 'sign_in' => 'sessions#new'
   post 'sign_in' => 'sessions#create'
