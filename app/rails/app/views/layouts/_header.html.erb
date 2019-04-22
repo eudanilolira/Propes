@@ -1,0 +1,18 @@
+<header>
+    <div>
+        <nav>
+            <% if logged_in? %>
+            <ul>
+               <li> <%= link_to "Todos os usuários", users_path %> </li>
+               <li> <%= link_to "Meu Perfil", current_user %> </li>
+               <li> <%= link_to "Sair", sign_out_path, method: "delete" %> </li>
+            </ul>
+            
+            <% else %>
+            <ul>
+                <li> <%= link_to "Login", sign_in_path %> </li>
+            </ul>
+            <% end %>
+        </nav>
+    </div>
+</header>
