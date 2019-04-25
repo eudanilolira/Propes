@@ -1,21 +1,34 @@
-<h1> Login </h1>
- 
-<%= form_for :session, url: sign_in_path do |form| %>
-    <div class='field'>
-        <%= form.label :email %><br>
-        <%= form.email_field :email %>
-    </div>
+
+<div>
+    <header>
+        <%= image_tag('logo.png') %> 
+        <h1> Propes </h1>
+    </header>
     
-    <br>
+</div> 
     
-    <div class ='field'>
-        <%= form.label :password %><br>
-        <%= form.password_field :password %>
+    <div>
+        <%= form_for :session, url: sign_in_path do |form| %>
+        
+        <div class='field'>
+            <%= form.label :email %><br>
+            <%= form.email_field :email %>
+        </div>
+        
+        <div class ='field'>
+            <%= form.label :password %><br>
+            <%= form.password_field :password %>
+        </div>
+
+        <button type="button" class='btn btn-primary'><%= form.submit%> Entrar </button>
+        <!-- Ajeitar visualização do botão, não to conseguindo bota formatação no botão -->
+        <% end %>
+        
+        <div class='btn btn-default'><%= 'Cadastrar-se'  %></div>
+        <div 
     </div>
 
-    <br>
-    
-    <div class='actions'><%= form.submit 'Login' %></div>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-link">Link</button>
 
-<% end %>
 

@@ -27,6 +27,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Including Bootstrap to front-end 
+gem 'bootstrap'
+
+# Jquery to use the Bootstrap
+gem 'jquery-rails'
+
+# For bootstrap
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
