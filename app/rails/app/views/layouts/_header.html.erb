@@ -1,11 +1,11 @@
 <header>
     <div>
-        <nav>
+        <nav class="navbar navbar-dark bg-dark">
             <% if logged_in? %>
-            <ul>
-               <li> <%= link_to "Todos os usuários", users_path %> </li>
-               <li> <%= link_to "Meu Perfil", current_user %> </li>
-               <li> <%= link_to "Sair", sign_out_path, method: "delete" %> </li>
+            <ul >
+               <li style="float:left; margin-left: 30px;"><%= link_to "Todos os usuários", users_path %></li>
+               <li style="float:left; margin-left: 30px;"> <%= link_to "Meu Perfil", current_user %> </li>
+               <li style="float:left; margin-left: 30px;"> <%= link_to "Sair", sign_out_path, method: "delete" %> </li>
             </ul>
             
             <% else %>
