@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
       redirect_to @user
     
     else
-      #render html: "<script>alert('Usuário ou senha incorreto(s)')</script>".html_safe  <-- code to alert the user that he can't login
       render 'new'
       
     end

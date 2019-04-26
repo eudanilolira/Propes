@@ -1,5 +1,4 @@
-
-<div style="border-style: solid; text-align: center;">
+<div class="login">
     
     <div>
         <header>
@@ -13,20 +12,35 @@
             <%= form_for :session, url: sign_in_path do |form| %>
             
             <div class='field'>
-                <%= form.label :email %><br>
-                <%= form.email_field :email %>
+                <%= form.label :email, :class => '' %><br>
+                <%= form.email_field :email, :class => 'tamanho-form' %>
             </div>
             
             <div class ='field'>
-                <%= form.label :password %><br>
-                <%= form.password_field :password %>
+                <%= form.label :password, 'Senha', :class => '' %><br>
+                <%= form.password_field :password, :class => 'tamanho-form'%>
             </div>
-    
-            <div ><%= form.submit 'Entrar' , :class => 'btn btn-primary' %></div>
+                
+            <br>
+                
+            <div >
+                <%= form.submit 'Entrar' , :class => 'btn btn-primary tamanho-form' %>
+            </div>
+            
+            <br>
+            
             <% end %>
             
-            <div><%= link_to 'Cadastrar-se', users_new_path , method: :get,  :class => 'btn btn-danger' %></div>
-            <div 
+            <div>
+                <%= link_to 'Cadastrar-se', users_new_path , method: :get, :class => 'btn btn-danger tamanho-form' %>
+            </div>
+            
+            <br>
+            
+            <div>
+                <%= link_to 'Esqueceu a senha ?',  :class => 'link' %>
+            </div>
+            
         </div>
 
 </div>
