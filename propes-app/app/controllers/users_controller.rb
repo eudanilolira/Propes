@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # PROIBIR QUE USUÁRIO EXCLUA SUA PROPRIA CONTA 
+    # Forbid user to delete his own account
     @user = User.find(params[:id])
     @user.destroy
     redirect_to '/users'
