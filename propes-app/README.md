@@ -1,7 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aqui listamos o que é necessário para executar essa aplicação 
+
+# Programas Necessários
+- [Ruby v2.6.1](https://www.ruby-lang.org/pt/)
+- [Rails v5.2.3](https://rubyonrails.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+
 
 Things you may want to cover:
 
