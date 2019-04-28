@@ -1,0 +1,19 @@
+<table class="table table-dark ">
+    <thead> 
+        <th scope='col'> ID</th>
+        <th scope='col'> Nome </th>
+        <th scope='col'> E-mail </th>
+        <th scope='col'> Deletar </th>
+    </thead>
+    
+    <tbody>
+        <% @users.each do |u| %>
+            <tr>
+                <th scope='row'> <%= u.id %></th>
+                <td> <%= u.name %> </td>
+                <td> <%= u.email %> </td>
+                <td> <%= button_to 'Delete', u , method: :delete , :class => 'btn btn-danger' %></td>
+            </tr>
+        <% end %>        
+    </tbody>
+</table>

@@ -1,5 +1,6 @@
+![logo](assets/logo.png)
 # Propes 
-Projeto criado para a disciplina de Engenharia de Software IF977
+Projeto da disciplina (IF977) Engenharia de Software, do curso de graduação em Sistemas de Informação do Centro de Informática da Universidade Federal de Pernambuco (UFPE).
 
 # Screencast
 
@@ -12,11 +13,11 @@ O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de um
 
 # Equipe
 
-* Danilo da Rocha Lira Araújo (Desenvolvedor e Product Owner)
-* Gabriel Estevam Longuinhos (Desenvolvedor e Scrum Master)
-* Ivan Ferreira da Silva Lima  (Desenvolvedor)
-* Leonardo de Oliveira Lima (Desenvolvedor)
+* [Danilo da Rocha Lira Araújo](https://github.com/DaniloLira) (Desenvolvedor e Product Owner)
+* [Gabriel Estevam Longuinhos](https://github.com/biel302) (Desenvolvedor e Scrum Master)
+* [Ivan Ferreira da Silva Lima](https://github.com/ifsl2)  (Desenvolvedor)
+* [Leonardo de Oliveira Lima](https://github.com/Leolimamack) (Desenvolvedor e Tester)
 
 # Wiki
-Mais informações disponíveis na wiki do projeto.
+Mais informações disponíveis na [Wiki](https://github.com/DaniloLira/Propes/wiki)
 
