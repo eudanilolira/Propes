@@ -19,5 +19,5 @@ O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de um
 * [Leonardo de Oliveira Lima](https://github.com/Leolimamack) (Desenvolvedor e Tester)
 
 # Wiki
-Mais informações disponíveis na wiki do projeto.
+Mais informações disponíveis na [Wiki](https://github.com/DaniloLira/Propes/wiki)
 
