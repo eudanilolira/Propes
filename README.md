@@ -1,3 +1,4 @@
+![alt text](https://github.com/DaniloLira/Propes/tree/Danilo/assets/logo.png)
 # Propes 
 Projeto criado para a disciplina de Engenharia de Software IF977
 
