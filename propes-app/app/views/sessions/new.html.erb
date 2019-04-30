@@ -1,46 +1,33 @@
-<div class="login">
+<div class="login container">
     
-    <div>
-        <header>
+    <div class='row'>
+        <header class='col-md-12 center '>
             <%= image_tag('logo.png') %> 
-            <h1 class= "titulo"> Propes </h1>
+            <h1> Login </h1>
         </header>
-        
-    </div> 
-        
-        <div>
+    </div > 
+
+    
+    <div class='row'>
+        <div class='center col-md-12'>
             <%= form_for :session, url: sign_in_path do |form| %>
             
-            <div class='field'>
-                <%= form.label :email, :class => '' %><br>
-                <%= form.email_field :email, :class => 'tamanho-form' %>
-            </div>
+                <p>
+                    <%= form.label :email %>
+                    <%= form.email_field :email, :class => 'col-md-12' %>
+                </p>
             
-            <div class ='field'>
-                <%= form.label :password, 'Senha', :class => '' %><br>
-                <%= form.password_field :password, :class => 'tamanho-form'%>
-            </div>
-                
-            <br>
-                
-            <div >
-                <%= form.submit 'Entrar' , :class => 'btn btn-primary tamanho-form' %>
-            </div>
-            
-            <br>
-            
+                <p>
+                    <%= form.label :password, 'Senha', :class => '' %><br>
+                    <%= form.password_field :password, :class => 'col-md-12'%>
+                </p>
+                    
+                <p><%= form.submit 'Entrar' , :class => 'btn btn-primary col-md-12 ' %></p>
+           
             <% end %>
             
-            <div>
-                <%= link_to 'Cadastrar-se', users_new_path , method: :get, :class => 'btn btn-danger tamanho-form' %>
-            </div>
-            
-            <br>
-            
-            <div>
-                <%= link_to 'Esqueceu a senha ?',  :class => 'link' %>
-            </div>
-            
+            <p><%= link_to 'Cadastrar-se', users_new_path , method: :get, :class => 'btn btn-danger col-md-12' %></p>
+            <p><%= link_to 'Esqueceu a senha ?',  :class => 'link' %></p>
         </div>
-
+    </div>
 </div>

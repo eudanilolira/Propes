@@ -12,7 +12,7 @@
                 <th scope='row'> <%= u.id %></th>
                 <td> <%= u.name %> </td>
                 <td> <%= u.email %> </td>
-                <td> <%= button_to 'Delete', u , method: :delete , :class => 'btn btn-danger' %></td>
+                <td> <%= button_to 'Delete', u , method: :delete, data: { confirm: "Tem certeza que deseja excluir ?" }, :class => 'btn btn-danger' %></td>
             </tr>
         <% end %>        
     </tbody>

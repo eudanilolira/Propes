@@ -1,50 +1,100 @@
-<div class='login'>
+<div class='login container'>
 
-  <header>
-      <%= image_tag('logo.png') %> 
-      <h1 class= "titulo"> Cadastro </h1>
-  </header>
+  <div class='row'>
+    <header class='col-md-12 center'>
+        <%= image_tag('logo.png')%>
+        <h1> Cadastro </h1>
+    </header>
+  </div>  
+
+
+  <div class='row'>
+    
+    <div class='col-md-6 col-sd-12'>
+      <%= form_with model: @user, local: true do |form| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@user.errors.count, "error") %> prohibited
+              this article from being saved:
+            </h2>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+       
+        <p>
+          <%= form.label :name, 'Nome' %><br>
+          <%= form.text_field :name, :placeholder => 'Nome' , :class => 'col-md-12' %>
+        </p>
+        
+        <p>
+          <%= form.label :email, 'Email' %><br>
+          <%= form.email_field :email, :placeholder => 'Ex: seu@email.com' , :class => 'col-md-12' %>
+        </p>
+        
+        <p>
+          <%= form.label :cpf, 'CPF' %><br>
+          <%= form.text_field :cpf, :placeholder => '999.999.999-99',:class => 'col-md-12' %>
+        </p>
+    
+        <p>
+          <%= form.label :data_nascimento, 'Data de Nascimento' %><br>
+          <%= form.date_field :data_nascimento, :class => 'col-md-12' %>
+        </p>
+        
+        <p>
+          <%= form.label :rua %><br>
+          <%= form.text_field :rua, :placeholder => 'Rua Exemplo', :class => 'col-md-12' %>
+        </p>
+    
+        <p>
+          <%= form.label :bairro %><br>
+          <%= form.text_field :bairro, :placeholder => 'Bairro' ,:class => 'col-md-12' %>
+        </p>
+        
+    </div>
+    
+    <div class='col-md-6 col-sd-12'>
+    
+        <p>
+          <%= form.label :cep %><br>
+          <%= form.text_field :cep, :placeholder => '55-555-555', :class => 'col-md-12' %>
+        </p>
+        
+        <p>
+          <%= form.label :numero %><br>
+          <%= form.text_field :numero, :placeholder => '123', :class => 'col-md-12' %>
+        </p>
+        
+        <p>
+          <%= form.label :celular %><br>
+          <%= form.telephone_field :celular, :placeholder => '(00) 999999999' , :class => 'col-md-12' %>
+        </p>
+    
+        <p>
+          <%= form.label :password, 'Senha' %><br>
+          <%= form.password_field :password, :class => 'col-md-12' %>
+        </p>
+       
+        <p>
+          <%= form.label :password_confirmation, 'Confirmação da Senha' %><br>
+          <%= form.password_field :password_confirmation, :class => 'col-md-12' %>
+        </p>
+        
+    </div>
+  </div>
   
-  <%= form_with model: @user, local: true do |form| %>
-   
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@user.errors.count, "error") %> prohibited
-          this article from being saved:
-        </h2>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-   
-    <p>
-      <%= form.label :name, 'Nome' %><br>
-      <%= form.text_field :name, :class => 'tamanho-form' %>
-    </p>
-  
-    <p>
-      <%= form.label :email %><br>
-      <%= form.email_field :email, :class => 'tamanho-form' %>
-    </p>
+  <div class='row'>
+      <p class='col-md-12'>
+        <%= form.submit "Cadastrar", :class => 'btn btn-primary col-md-12'  %>
+      </p>
+  </div>
       
-    <p>
-      <%= form.label :password, 'Senha' %><br>
-      <%= form.text_field :password, :class => 'tamanho-form' %>
-    </p>
-   
-    <p>
-      <%= form.label :password_confirmation, 'Confirmação da Senha' %><br>
-      <%= form.text_field :password_confirmation, :class => 'tamanho-form' %>
-    </p>    
-  
-    <p>
-      <%= form.submit "Cadastrar", :class => 'btn btn-primary tamanho-form' %>
-    </p>
-   
-  <% end %>
-
+      <% end %>
+      
+  </div>
 </div>

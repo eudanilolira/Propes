@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :block_access, only: [:new, :create]
   
   def new
   end
@@ -8,10 +9,8 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       sign_in 
       redirect_to @user
-    
     else
-      render 'new'
-      
+      redirect_to '/sign_in'
     end
   end
   
