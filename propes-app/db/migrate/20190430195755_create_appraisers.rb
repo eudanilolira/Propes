@@ -1,6 +1,5 @@
 class CreateAppraisers < ActiveRecord::Migration[5.2]
   def change
-    drop_table :appraisers
     create_table :appraisers do |t|
       t.string :name
       t.string :email

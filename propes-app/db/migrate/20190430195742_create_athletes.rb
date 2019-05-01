@@ -1,6 +1,5 @@
 class CreateAthletes < ActiveRecord::Migration[5.2]
   def change
-    drop_table :athletes
     create_table :athletes do |t|
       t.string :name
       t.string :email
