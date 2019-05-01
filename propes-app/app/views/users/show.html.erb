@@ -1,4 +1,26 @@
-<!-- Page intended to be the user main page -->
-<%= @user.name %> <br>
-<%= @user.email %> <br>
+<html>
+    <body style='background-color: #3D81B3;'>
+        <div  class='container  col-md-8' style='background-color: white; margin-top: 2%; border-radius: 30px 30px 30px 30px; border: solid; border-color: white;'>
+            
+            <div class='row'>
+                <h1 class='col-md-12 text-center' style='color: #70C4FF;'>
+                    Seu Perfil
+                </h1>                
+            </div>
+            
+            <div class='row '>
+                <div class='col-md-11'>
+                    <% for attr in @user.attributes %>
+                        <% if not ['id', 'password', 'password_digest', 'created_at', 'updated_at'].include? attr[0] %>
+                            <p><strong> <%= attr[0] %>:</strong> <%= attr[1] %></p>
+                        <% end %>
+                    <% end %>                      
+                </div>
+            </div>
+            
+            <p class='text-center'><%= link_to "Editar", edit_user_path(current_user), class: 'btn btn-primary' %></p>
+        </div>
+        
+    </body>
+</html>
 
