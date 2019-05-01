@@ -1,46 +1,54 @@
-<div class="login">
-    
-    <div>
-        <header>
-            <%= image_tag('logo.png') %> 
-            <h1 class= "titulo"> Propes </h1>
-        </header>
-        
-    </div> 
-        
-        <div>
-            <%= form_for :session, url: sign_in_path do |form| %>
+<html >
+    <body >
+        <div class='container text-center col-md-8 panel'>
             
-            <div class='field'>
-                <%= form.label :email, :class => '' %><br>
-                <%= form.email_field :email, :class => 'tamanho-form' %>
+            <div class='row'>
+              <header class='col-md-12'>
+                  <%= image_tag('logo.png') %> 
+                  <h1> Propes </h1>
+              </header>
             </div>
             
-            <div class ='field'>
-                <%= form.label :password, 'Senha', :class => '' %><br>
-                <%= form.password_field :password, :class => 'tamanho-form'%>
+            <div class='row justify-content-md-center'>
+              <div class="col-md-11" >
+                <%= form_for :session, url: sign_in_path  do |form| %>
+                    
+                    <p class='text-left'>
+                      <%= form.label :email%> 
+                      <%= form.email_field :email, class: 'form-control' %>
+                    </p>
+                    
+                    <p class ='text-left'>
+                      <%= form.label :password%>
+                      <%= form.password_field :password, class:'form-control' %> 
+                    </p>
+                    
+                    <div class='row'>
+                      <div class='col-md-12'>
+                          <%= form.submit 'Entrar', class: 'btn btn-primary tamanho-form' %>
+                      </div>                      
+                    </div>
+                     
+                    <div class='row'>
+                      <div class='col-md-12'>
+                        <%= link_to 'Cadastrar-se', users_new_path , method: :get, :class => 'btn btn-danger tamanho-form' %>
+                      </div>
+                    </div>    
+                    
+                    <div class='row'>
+                      <div class='col-md-12'>
+                        <%= link_to 'Esqueceu a senha ?',  :class => 'link' %>
+                      </div>
+                    </div>  
+                  
+                <% end %>
+              </div>
             </div>
-                
-            <br>
-                
-            <div >
-                <%= form.submit 'Entrar' , :class => 'btn btn-primary tamanho-form' %>
-            </div>
             
-            <br>
+
             
-            <% end %>
             
-            <div>
-                <%= link_to 'Cadastrar-se', users_new_path , method: :get, :class => 'btn btn-danger tamanho-form' %>
-            </div>
-            
-            <br>
-            
-            <div>
-                <%= link_to 'Esqueceu a senha ?',  :class => 'link' %>
-            </div>
             
         </div>
-
-</div>
+    </body>
+</html>

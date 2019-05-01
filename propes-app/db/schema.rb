@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_031430) do
+ActiveRecord::Schema.define(version: 2019_05_01_211737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +37,6 @@ ActiveRecord::Schema.define(version: 2019_05_01_031430) do
   end
 
   create_table "appraisers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
     t.integer "cpf"
     t.date "date_birth"
     t.string "gender"
@@ -54,13 +51,11 @@ ActiveRecord::Schema.define(version: 2019_05_01_031430) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_appraisers_on_user_id"
   end
 
   create_table "athletes", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
     t.integer "cpf"
     t.date "date_birth"
     t.integer "age"
@@ -93,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_031430) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_athletes_on_user_id"
   end
 

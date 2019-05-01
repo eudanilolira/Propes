@@ -4,30 +4,18 @@
             
             <div class='row'>
                 <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Cadastre-se
+                    Cadastre-se como atleta
                 </h1>
             </div>
             
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
                 <%= form_with model: @athlete, local: true do |f| %>
-              
-                  <p class='text-left'><%= f.label :avatar, 'Foto de perfil' %>
-                   <%= f.file_field :avatar, class: 'form-control' %></p>
-            
+                
                   <p class='text-left'><%= f.label :name, 'Nome' %>
                   <%= f.text_field :name, class: 'form-control' %></p>
-            
-                  <p class='text-left'><%= f.label :email %>
-                  <%= f.email_field :text, class: 'form-control' %></p>
-                
-                  <p class='text-left '><%= f.label :password, 'Senha (para confirmar alterações)' %>
-                  <%= f.password_field :password, class: 'form-control' %></p>
-                  
-                  <p class='text-left '><%= f.label :password_confirmation, 'Confirmar Senha' %>
-                  <%= f.password_field :password_confirmation, class: 'form-control' %></p>
 
-                  <p class='text-left'><%= f.label :cpf, 'Cpf' %>
+                  <p class='text-left'><%= f.label :cpf, 'CPF' %>
                   <%= f.text_field :text, class: 'form-control' %></p>
                   
                   <p class='text-left'><%= f.label :date_brth, 'Data de nascimento' %>
@@ -114,9 +102,8 @@
                   <p class='text-left'><%= f.label :others, 'Outros' %>
                   <%= f.text_field :text, class: 'form-control' %></p>
 
-                  <p>
-                      <%= f.submit 'Cadastrar', class: 'btn salvar' %>
-                  </p>
+                  <p><%= f.submit 'Cadastrar', class: 'btn salvar' %></p>
+                  
                 <% end %>
               </div>
             </div>

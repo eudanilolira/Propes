@@ -9,12 +9,10 @@ class AppraisersController < ApplicationController
   end
   
   def create
-    @appraiser = Athlete.new(appraiser_params)
-    @user = User.new(user_params)
+    @appraiser = Appraiser.new(appraiser_params)
     
     if @appraiser.save
-      redirect_to @user
-      sign_in 
+      render 'index'
     else
       render 'new'
     end
@@ -26,12 +24,8 @@ class AppraisersController < ApplicationController
 
   private
   def appraiser_params
-    params.require(:appraiser).permit(:name, :email, :password, :password_confirmation, :cpf, :date_birth, :gender, :profession,
+    params.require(:appraiser).permit(:name, :cpf, :date_birth, :gender, :profession,
      :address, :city, :neighborhood, :state, :cep, :home_phone, :cell_phone)
-  end
-  
-  def user_params
-    params.require(:user).permit(:name, :email, :new_password, :password, :password_confirmation, :avatar)
   end
     
 end

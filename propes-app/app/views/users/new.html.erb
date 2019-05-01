@@ -1,21 +1,28 @@
 <html>
-  <body>
-    <div class='container'>
+  <body class='site-background'>
+    <div class='container text-center col-md-8 panel'>
       <div class='row'>
-          <header>
+          <header class='col-md-12'>
               <%= image_tag('logo.png') %> 
               <h1 class= "titulo"> Cadastro </h1>
           </header>
       </div>
       
       <div class='row'>
-        <div class='col-md-3'>
-          <%= link_to 'Avaliador', '/appraisers/new' , method: :get, :class => 'btn btn-primary' %>
+        <div class='col-md-12'>
+          <p> Escolha sua forma de cadastro. Se você for um avaliador, precisará da autorização do administrador ao final da criação da conta</p>
+        </div>
+      </div>
+      
+      <div class='row'>
+        <div class='col-md-6'>
+          <%= link_to 'Avaliador', '/appraisers/new' , method: :get, class: 'btn btn-primary tamanho-form' %>
         </div>
         
-        <div class='col-md-3'>
-          <%= link_to 'Atleta', '/athletes/new' , method: :get, :class => 'btn btn-danger' %>
+        <div class='col-md-6'>
+          <%= link_to 'Atleta', '/athletes/new' , method: :get, class: 'btn btn-danger tamanho-form' %>
         </div>
+        
       </div>
       
       
