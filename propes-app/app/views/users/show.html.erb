@@ -8,13 +8,19 @@
                 </h1>                
             </div>
             
+            <div class='row'>
+                <div class='col-md-12 text-center'>
+                    <image class='rounded-circle' <%= image_tag(@user.avatar, :size => "200x200") %> 
+                </div>
+            </div>
+            
             <div class='row '>
                 <div class='col-md-11'>
                     <% for attr in @user.attributes %>
-                        <% if not ['id', 'password', 'password_digest', 'created_at', 'updated_at'].include? attr[0] %>
+                        <% if not ['id', 'password', 'password_digest', 'created_at', 'updated_at', 'avatar'].include? attr[0] %>
                             <p><strong> <%= attr[0] %>:</strong> <%= attr[1] %></p>
                         <% end %>
-                    <% end %>                      
+                    <% end %>
                 </div>
             </div>
             

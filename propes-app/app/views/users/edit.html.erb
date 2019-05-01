@@ -9,8 +9,11 @@
             </div>
             
             <div class='row justify-content-md-center'>
-              <div class="col-md-11 " >
+              <div class="col-md-11" >
                 <%= form_for(@user) do |f| %>
+              
+                  <p class='text-left'><%= f.label :avatar, 'Foto de perfil' %>
+                   <%= f.file_field :avatar, class: 'form-control' %></p>
             
                   <p class='text-left'><%= f.label :name, 'Nome' %>
                   <%= f.text_field :name, class: 'form-control' %></p>
@@ -20,9 +23,7 @@
                 
                   <p class='text-left '><%= f.label :password, 'Senha (para confirmar alterações)' %>
                   <%= f.password_field :password, class: 'form-control' %></p>
-            
 
-            
                   <p><%= f.submit 'Salvar Mudanças', class: 'btn salvar'%></p>
                 <% end %>
               </div>
