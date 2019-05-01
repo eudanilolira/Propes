@@ -1,19 +1,19 @@
 class AthletesController < ApplicationController
   
   def index
-    @athletes = athlete.all
+    @athletes = Athlete.all
   end
   
   def new
-    @athlete = athlete.new
+    @athlete = Athlete.new
   end
   
   def create
-    @athlete = athlete.new(athlete_params)
+    @athlete = Athlete.new(athlete_params)
   end
   
   def show
-    @athlete = athlete.find(params[:id])
+    @athlete = Athlete.find(params[:id])
   end
 
   private
