@@ -1,5 +1,5 @@
-<table class="table table-dark ">
-    <thead> 
+<table class="table table-striped ">
+    <thead class='thead-dark'> 
         <th scope='col'> ID</th>
         <th scope='col'> Nome </th>
         <th scope='col'> E-mail </th>
@@ -8,12 +8,14 @@
     
     <tbody>
         <% @users.each do |u| %>
-            <tr>
-                <th scope='row'> <%= u.id %></th>
-                <td> <%= u.name %> </td>
-                <td> <%= u.email %> </td>
-                <td> <%= button_to 'Delete', u , method: :delete , :class => 'btn btn-danger' %></td>
-            </tr>
+            <% if u.id != current_user.id %>
+                <tr>
+                    <th scope='row'> <%= u.id %></th>
+                    <td> <%= u.name %> </td>
+                    <td> <%= u.email %> </td>
+                    <td> <%= button_to 'Delete', u , method: :delete , :class => 'btn btn-danger' %></td>
+                </tr>
+            <% end %>
         <% end %>        
     </tbody>
 </table>

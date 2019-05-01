@@ -1,0 +1,19 @@
+<table class="table table-striped ">
+    <thead class='thead-dark'> 
+        <th scope='col'> ID </th>
+        <th scope='col'> Nome </th>
+        <th scope='col'> Visualizar </th>
+        <th scope='col'> Deletar </th>
+    </thead>
+    
+    <tbody>
+        <% @athletes.each do |u| %>
+            <tr>
+                <th scope='row'> <%= u.id %></th>
+                <td> <%= u.name %> </td>
+                <td> <%= button_to 'Visualizar', u , method: :get , :class => 'btn btn-primary' %></td>
+                <td> <%= button_to 'Delete', u , method: :delete , :class => 'btn btn-danger' %></td>
+            </tr>
+        <% end %>        
+    </tbody>
+</table>
