@@ -6,10 +6,20 @@ class AthletesController < ApplicationController
   
   def new
     @athlete = Athlete.new
+    @user = User.new
   end
   
   def create
     @athlete = Athlete.new(athlete_params)
+    @user = User.new(user_params)
+    
+    if @athlete.save and @user.save
+      redirect_to @user
+      sign_in 
+    else
+      render 'new'
+    end
+    
   end
   
   def show
@@ -18,7 +28,7 @@ class AthletesController < ApplicationController
 
   private
   def athlete_params
-    params.require(:athlete).permit(:name, :email, :password, :password_confirmation, :cpf, :date_brth,  
+    params.require(:athlete).permit(:name, :email, :password, :cpf, :date_birth,  
      :age,  
      :gender,  
      :civil_status,  
@@ -47,4 +57,9 @@ class AthletesController < ApplicationController
      :fami_cardio,  
      :others)
   end
+  
+  def user_params
+    params.require(:athlete).permit(:name, :email, :password, :password_confirmation, :avatar)
+  end
+  
 end

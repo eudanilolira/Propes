@@ -4,7 +4,7 @@
             
             <div class='row'>
                 <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Atualize seu perfil 
+                    Cadastre-se
                 </h1>
             </div>
             
@@ -23,6 +23,9 @@
                 
                   <p class='text-left '><%= f.label :password, 'Senha (para confirmar alterações)' %>
                   <%= f.password_field :password, class: 'form-control' %></p>
+                  
+                  <p class='text-left '><%= f.label :password_confirmation, 'Confirmar Senha' %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %></p>
 
                   <p class='text-left'><%= f.label :cpf, 'Cpf' %>
                   <%= f.text_field :text, class: 'form-control' %></p>
@@ -111,7 +114,9 @@
                   <p class='text-left'><%= f.label :others, 'Outros' %>
                   <%= f.text_field :text, class: 'form-control' %></p>
 
-                  <p><%= f.submit 'Salvar Mudanças', class: 'btn salvar'%></p>
+                  <p>
+                      <%= f.submit 'Cadastrar', class: 'btn salvar' %>
+                  </p>
                 <% end %>
               </div>
             </div>
