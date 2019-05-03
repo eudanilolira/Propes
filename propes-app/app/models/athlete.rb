@@ -1,8 +1,8 @@
 class Athlete < ApplicationRecord
-    VALID_CPF_FORMAT= /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2})$/
+
     validates :name, presence: true, length: {maximum: 60}
-    validates :cpf, presence: true, length: {maximum: 11, minimum: 11}, format: { with: VALID_CPF_FORMAT}, uniqueness: {case_sensitive: false }
-    validates :date_brth, presence: true
+    validates :cpf, presence: true, length: {maximum: 11, minimum: 11}, uniqueness: {case_sensitive: false }
+    validates :date_birth, presence: true
     validates :age, presence: true
     validates :gender, presence: true
     validates :civil_status, presence: true

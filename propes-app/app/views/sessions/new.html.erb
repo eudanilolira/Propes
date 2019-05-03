@@ -1,5 +1,5 @@
 <html >
-    <body >
+    <body class='site-background'>
         <div class='container text-center col-md-8 panel'>
             
             <div class='row'>
@@ -8,6 +8,13 @@
                   <h1> Propes </h1>
               </header>
             </div>
+            
+            
+            <% flash.each do |key, value| %>
+              <div class="alert alert-danger"<%= flash_class(key) %>>
+                <%= value %>
+              </div>
+            <% end %>
             
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
@@ -19,7 +26,7 @@
                     </p>
                     
                     <p class ='text-left'>
-                      <%= form.label :password%>
+                      <%= form.label :password, 'Senha'%>
                       <%= form.password_field :password, class:'form-control' %> 
                     </p>
                     
@@ -28,10 +35,11 @@
                           <%= form.submit 'Entrar', class: 'btn btn-primary tamanho-form' %>
                       </div>                      
                     </div>
+                    
                      
                     <div class='row'>
                       <div class='col-md-12'>
-                        <%= link_to 'Cadastrar-se', users_new_path , method: :get, :class => 'btn btn-danger tamanho-form' %>
+                        <%= link_to 'Cadastrar-se', registers_new_path , method: :get, :class => 'btn btn-danger tamanho-form' %>
                       </div>
                     </div>    
                     

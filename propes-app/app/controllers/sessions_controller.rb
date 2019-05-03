@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       redirect_to @user
     
     else
+      flash[:alert] = 'E-mail ou senha incorretos !'
       render 'new'
       
     end

@@ -22,7 +22,7 @@ class AthletesController < ApplicationController
     @athlete = Athlete.new(athlete_params)
     
     if @athlete.save
-      redirect_to root_url
+      redirect_to registers_registred_path
     else
       render 'new'
     end

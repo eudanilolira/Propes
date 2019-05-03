@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'users/new'
+  get 'registers/new'
+  get 'registers/registred'
   root 'sessions#new'
   
   get 'sign_in' => 'sessions#new'

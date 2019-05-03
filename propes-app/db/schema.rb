@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_211737) do
+ActiveRecord::Schema.define(version: 2019_05_02_190044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,27 +36,8 @@ ActiveRecord::Schema.define(version: 2019_05_01_211737) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "appraisers", force: :cascade do |t|
-    t.integer "cpf"
-    t.date "date_birth"
-    t.string "gender"
-    t.string "profession"
-    t.string "address"
-    t.string "city"
-    t.string "neighborhood"
-    t.string "state"
-    t.integer "cep"
-    t.integer "home_phone"
-    t.integer "cell_phone"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.index ["user_id"], name: "index_appraisers_on_user_id"
-  end
-
   create_table "athletes", force: :cascade do |t|
-    t.integer "cpf"
+    t.string "cpf"
     t.date "date_birth"
     t.integer "age"
     t.string "gender"
@@ -67,9 +48,9 @@ ActiveRecord::Schema.define(version: 2019_05_01_211737) do
     t.string "city"
     t.string "neighborhood"
     t.string "state"
-    t.integer "cep"
-    t.integer "home_phone"
-    t.integer "cell_phone"
+    t.string "cep"
+    t.string "home_phone"
+    t.string "cell_phone"
     t.string "modality"
     t.string "position"
     t.string "dum"
@@ -99,9 +80,19 @@ ActiveRecord::Schema.define(version: 2019_05_01_211737) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.binary "avatar"
+    t.string "cpf"
+    t.string "date_birth"
+    t.string "gender"
+    t.string "profession"
+    t.string "address"
+    t.string "city"
+    t.string "neighborhood"
+    t.string "state"
+    t.string "cep"
+    t.string "home_phone"
+    t.string "cell_phone"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "appraisers", "users"
   add_foreign_key "athletes", "users"
 end
