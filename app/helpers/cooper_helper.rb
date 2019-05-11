@@ -1,0 +1,2 @@
+module CooperHelper
+end

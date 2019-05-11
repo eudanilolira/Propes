@@ -1,0 +1,2 @@
+class BridgeExtension < ApplicationRecord
+end

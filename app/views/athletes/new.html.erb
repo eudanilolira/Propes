@@ -1,0 +1,121 @@
+<html >
+    <body>
+        <div class='container text-center col-md-8 panel'>
+            
+            <div class='row'>
+                <h1 class='col-md-12' style='color: #70C4FF;'>
+                    Cadastre-se como atleta
+                </h1>
+            </div>
+            
+             <% if @athlete.errors.any? %>
+                 <ul class='alert alert-danger'>
+                    <% @athlete.errors.full_messages.each do |message| %>
+                      <li ><%= message %></li>
+                    <% end %>                     
+                 </ul>
+             <% end %>            
+            
+            
+            <div class='row justify-content-md-center'>
+              <div class="col-md-11" >
+                <%= form_with model: @athlete, local: true do |f| %>
+                
+                  <p class='text-left'><%= f.label :name, 'Nome' %>
+                  <%= f.text_field :name, class: 'form-control' %></p>
+
+                  <p class='text-left'><%= f.label :cpf, 'CPF' %>
+                  <%= f.text_field :cpf, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :date_birth, 'Data de nascimento' %>
+                  <%= f.text_field :date_birth, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :age, 'Idade' %>
+                  <%= f.text_field :age, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :gender, 'Gênero' %>
+                  <%= f.text_field :gender, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :civil_status, 'Estado Civil' %>
+                  <%= f.text_field :civil_status, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :degree_education, 'Grau de Instrução' %>
+                  <%= f.text_field :degree_education, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :profession, 'Profissão' %>
+                  <%= f.text_field :profession, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :address, 'Endereço' %>
+                  <%= f.text_field :address, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :city, 'Cidade' %>
+                  <%= f.text_field :city, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :neighborhood, 'Bairro' %>
+                  <%= f.text_field :neighborhood, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :state, 'Estado' %>
+                  <%= f.text_field :state, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :cep, 'Cep' %>
+                  <%= f.text_field :cep, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :home_phone, 'Telefone de casa' %>
+                  <%= f.text_field :home_phone, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :cell_phone, 'Telefone de celular' %>
+                  <%= f.text_field :cell_phone, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :modality, 'Modalidade' %>
+                  <%= f.text_field :modality, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :position, 'Posição' %>
+                  <%= f.text_field :position, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :dum, 'Membro Superior Dominante' %>
+                  <%= f.text_field :dum, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :dlm, 'Membro Inferior Dominante' %>
+                  <%= f.text_field :dlm, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :smoker, 'Fumante' %>
+                  <%= f.text_field :smoker, class: 'form-control' %></p>
+
+                  <p class='text-left'><%= f.label :alcoholism, 'Etilismo' %>
+                  <%= f.text_field :alcoholism, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :sah, 'HAS' %>
+                  <%= f.text_field :sah, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :diabetes, 'Diabetes' %>
+                  <%= f.text_field :diabetes, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :cardio_deseases, 'Doença cardiovasculares' %>
+                  <%= f.text_field :cardio_deseases, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :exercise_practice, 'Prática de exercício físico além da modalidade esportiva' %>
+                  <%= f.text_field :exercise_practice, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :fami_alcoholism, 'Etilismo'%>
+                  <%= f.text_field :fami_alcoholism, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :fami_sah, 'HAS' %>
+                  <%= f.text_field :fami_sah, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :fami_diabetes, 'Diabetes' %>
+                  <%= f.text_field :fami_diabetes, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :fami_cardio, 'Doença cardiovasculares' %>
+                  <%= f.text_field :fami_cardio, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :others, 'Outros' %>
+                  <%= f.text_field :others, class: 'form-control' %></p>
+
+                  <p><%= f.submit 'Cadastrar', class: 'btn salvar' %></p>
+                  
+                <% end %>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

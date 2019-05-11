@@ -1,0 +1,2 @@
+class Anamnese < ApplicationRecord
+end

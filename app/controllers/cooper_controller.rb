@@ -1,0 +1,2 @@
+class CooperController < ApplicationController
+end

@@ -1,0 +1,79 @@
+<html >
+    <body>
+        <div class='container text-center col-md-8 panel'>
+            
+            <div class='row'>
+                <h1 class='col-md-12' style='color: #70C4FF;'>
+                    Cadastre-se como avaliador 
+                </h1>
+            </div>
+            
+             <% if @user.errors.any? %>
+                 <ul class='alert alert-danger'>
+                    <% @user.errors.full_messages.each do |message| %>
+                      <li ><%= message %></li>
+                    <% end %>                     
+                 </ul>
+             <% end %>
+            
+            
+            <div class='row justify-content-md-center'>
+              <div class="col-md-11" >
+                  <%= form_with model: @user, local: true do |f| %>
+
+                  <p class='text-left'><%= f.label :avatar, 'Foto de Perfil' %>
+                  <%= f.file_field :avatar, class: 'form-control' %></p>
+
+                  <p class='text-left'><%= f.label :email, 'E-mail' %>
+                  <%= f.text_field :email, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :password, 'Senha' %>
+                  <%= f.password_field :password, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :password_confirmation, 'Confirmação da Senha' %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %></p>                  
+                 
+                  <p class='text-left'><%= f.label :name, 'Nome' %>
+                  <%= f.text_field :name, class: 'form-control' %></p>
+    
+                  <p class='text-left'><%= f.label :cpf, 'CPF' %>
+                  <%= f.text_field :cpf, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :date_birth, 'Data de nascimento' %>
+                  <%= f.text_field :date_birth, class: 'form-control' %></p>
+      
+                  <p class='text-left'><%= f.label :gender, 'Gênero' %>
+                  <%= f.text_field :gender, class: 'form-control' %></p>
+    
+                  <p class='text-left'><%= f.label :profession, 'Profissão' %>
+                  <%= f.text_field :profession, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :address, 'Endereço' %>
+                  <%= f.text_field :address, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :city, 'Cidade' %>
+                  <%= f.text_field :city, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :neighborhood, 'Bairro' %>
+                  <%= f.text_field :neighborhood, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :state, 'Estado' %>
+                  <%= f.text_field :state, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :cep, 'Cep' %>
+                  <%= f.text_field :cep, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :home_phone, 'Telefone de casa' %>
+                  <%= f.text_field :home_phone, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :cell_phone, 'Telefone de celular' %>
+                  <%= f.text_field :cell_phone, class: 'form-control' %></p>
+              
+                  <p><%= f.submit 'Cadastrar', class: 'btn salvar'%></p>
+                  
+                 <% end %>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,2 @@
+class AnkleMobility < ApplicationRecord
+end

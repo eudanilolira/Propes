@@ -1,0 +1,2 @@
+class Cooper < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CutaneousFoldController < ApplicationController
+end

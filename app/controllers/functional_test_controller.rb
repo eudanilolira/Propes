@@ -1,0 +1,2 @@
+class FunctionalTestController < ApplicationController
+end

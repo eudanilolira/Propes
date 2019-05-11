@@ -1,0 +1,2 @@
+class Perimetry < ApplicationRecord
+end

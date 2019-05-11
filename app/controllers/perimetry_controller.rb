@@ -1,0 +1,2 @@
+class PerimetryController < ApplicationController
+end

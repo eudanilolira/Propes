@@ -1,0 +1,47 @@
+<html >
+    <body>
+        <div class='container panel'>
+            <div class='row '>
+                <div class='col-md-12 '>
+                  <%= form_tag(athletes_path, method: :get) do %>
+                    <div class='row'>
+                        <div class='col-md-4' >
+                            <%= text_field_tag :name, params[:name], class: 'form-control', placeholder: 'Pesquisar' %>
+                        </div>
+                        
+                        <div class='col-md-2'>
+                            <%= submit_tag 'Procurar', name: nil, class: 'btn btn-primary' %>
+                        </div>
+                    </div> 
+                  <% end %>    
+                </div>            
+            </div>
+            
+            <br>
+            
+            <div class='row'>
+              <div class='col-md-12'>
+                <table class="table table-striped text-center ">
+                    
+                    <thead class='thead-dark'> 
+                        <th scope='col'> Nome </th>
+                        <th scope='col'> Visualizar </th>
+                        <th scope='col'> Deletar </th>
+                    </thead>
+                 
+                    <tbody>
+                        <% @athletes.each do |a| %>
+                            <tr>
+                                <td> <%= a.name %> </td>
+                                <td> <%= button_to 'Visualizar', a , method: :get , :class => 'btn btn-primary' %></td>
+                                <td> <%= button_to 'Delete', a , method: :delete , :class => 'btn btn-danger' %></td>
+                            </tr>
+                        <% end %>        
+                    </tbody>
+                </table>                 
+              </div>
+            </div>
+            
+        </div>
+    </body>
+</html>

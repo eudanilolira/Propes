@@ -1,0 +1,5 @@
+pt:
+ hello: "Olá mundo"
+ layouts:
+  navigation:
+    Student: Aluno

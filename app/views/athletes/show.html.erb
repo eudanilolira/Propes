@@ -1,0 +1,54 @@
+<html>
+    <body>
+        <div  class='container accordion col-md-8' style='background-color: white; margin-top: 2%; border-radius: 30px 30px 30px 30px; border: solid; border-color: white;'>
+            <div class='row'>
+                <h1 class='col-md-12 text-center' style='color: #70C4FF;'>
+                    Perfil de <%= @athlete.name %>
+                </h1>                
+            </div>
+
+            <div class='row '>
+                <div class='col-md-12 card'>
+                    
+                    <p class=''>
+                      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalhesAtleta" aria-expanded="false" aria-controls="collapseExample">
+                        Dados Pessoais
+                      </button>
+                    </p>
+                    
+                    <div class='collapse card card-body' id='detalhesAtleta'>
+                        <% for attr in @athlete.attributes %>
+                            <% if not ['id','created_at','user_id', 'updated_at'].include? attr[0] %>
+                                <p><strong> <%= t attr[0] %>:</strong> <%= attr[1] %></p>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    
+                    <p class=''>
+                      <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#historicoAtleta" aria-expanded="false" aria-controls="collapseExample">
+                        Histórico de Avaliações
+                      </button>
+                    </p>
+                    
+                    <div class='collapse card card-body' id='historicoAtleta'>
+                      <select>
+                        <option>
+                          <%= current_user.created_at.to_s%>
+                        </option>
+                      </select>                  
+                    </div>
+                    
+                </div>
+            </div>
+
+            <p class='text-center'><%= link_to "Editar", edit_athlete_path(@athlete.id), class: 'btn btn-primary' %></p>
+        </div>
+        
+        
+        
+        
+        
+        
+    </body>
+</html>
+

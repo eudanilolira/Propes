@@ -1,0 +1,2 @@
+class Cutaneous < ApplicationRecord
+end
