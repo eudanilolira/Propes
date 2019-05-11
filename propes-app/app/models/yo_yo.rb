@@ -1,0 +1,2 @@
+class YoYo < ApplicationRecord
+end

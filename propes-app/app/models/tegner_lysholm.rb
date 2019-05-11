@@ -1,0 +1,2 @@
+class TegnerLysholm < ApplicationRecord
+end

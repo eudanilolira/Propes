@@ -1,0 +1,2 @@
+class FunctionalTest < ApplicationRecord
+end

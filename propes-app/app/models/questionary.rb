@@ -1,0 +1,2 @@
+class Questionary < ApplicationRecord
+end

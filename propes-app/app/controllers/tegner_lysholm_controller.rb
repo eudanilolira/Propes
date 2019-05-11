@@ -1,0 +1,2 @@
+class TegnerLysholmController < ApplicationController
+end

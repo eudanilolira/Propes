@@ -1,0 +1,2 @@
+class AnkleMobilityController < ApplicationController
+end

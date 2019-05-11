@@ -1,5 +1,5 @@
 <html >
-    <body style='background-color: #3D81B3;'>
+    <body>
         <div class='container text-center col-md-8 panel'>
             
             <div class='row'>
@@ -8,22 +8,64 @@
                 </h1>
             </div>
             
+             <% if @user.errors.any? %>
+                 <ul class='alert alert-danger'>
+                    <% @user.errors.full_messages.each do |message| %>
+                      <li ><%= message %></li>
+                    <% end %>                     
+                 </ul>
+             <% end %>
+            
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
                 <%= form_for(@user) do |f| %>
               
                   <p class='text-left'><%= f.label :avatar, 'Foto de perfil' %>
                    <%= f.file_field :avatar, class: 'form-control' %></p>
-            
+                  
+                  <p class='text-left'><%= f.label :cpf, 'CPF' %>
+                  <%= f.text_field :cpf, class: 'form-control' %></p>
+                  
                   <p class='text-left'><%= f.label :name, 'Nome' %>
                   <%= f.text_field :name, class: 'form-control' %></p>
             
                   <p class='text-left'><%= f.label :email %>
                   <%= f.email_field :email, class: 'form-control' %></p>
                 
+                  <p class='text-left'><%= f.label :date_birth, 'Data de nascimento' %>
+                  <%= f.text_field :date_birth, class: 'form-control' %></p>
+      
+                  <p class='text-left'><%= f.label :gender, 'Gênero' %>
+                  <%= f.text_field :gender, class: 'form-control' %></p>
+    
+                  <p class='text-left'><%= f.label :profession, 'Profissão' %>
+                  <%= f.text_field :profession, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :address, 'Endereço' %>
+                  <%= f.text_field :address, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :city, 'Cidade' %>
+                  <%= f.text_field :city, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :neighborhood, 'Bairro' %>
+                  <%= f.text_field :neighborhood, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :state, 'Estado' %>
+                  <%= f.text_field :state, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :cep, 'Cep' %>
+                  <%= f.text_field :cep, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :home_phone, 'Telefone de casa' %>
+                  <%= f.text_field :home_phone, class: 'form-control' %></p>
+                  
+                  <p class='text-left'><%= f.label :cell_phone, 'Telefone de celular' %>
+                  <%= f.text_field :cell_phone, class: 'form-control' %></p>
+              
                   <p class='text-left '><%= f.label :password, 'Senha (para confirmar alterações)' %>
                   <%= f.password_field :password, class: 'form-control' %></p>
-
+                  
+                  
                   <p><%= f.submit 'Salvar Mudanças', class: 'btn salvar'%></p>
                 <% end %>
               </div>

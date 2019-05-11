@@ -1,0 +1,2 @@
+module AnamnesesHelper
+end

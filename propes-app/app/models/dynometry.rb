@@ -1,0 +1,2 @@
+class Dynometry < ApplicationRecord
+end

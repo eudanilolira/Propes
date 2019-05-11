@@ -23,6 +23,15 @@
   margin-top: 2%;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #3D81B3;
+}
+
 .panel {
     background-color: white; 
     margin-top: 2%; 
@@ -33,10 +42,6 @@
 
 .confirmar_senha {
     background-color: #FF1512;
-}
-
-.site-background {
-    background-color: #3D81B3;
 }
 
 .tamanho-form {

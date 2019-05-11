@@ -1,21 +1,30 @@
-<table class="table table-striped ">
-    <thead class='thead-dark'> 
-        <th scope='col'> ID</th>
-        <th scope='col'> Nome </th>
-        <th scope='col'> E-mail </th>
-        <th scope='col'> Deletar </th>
-    </thead>
-    
-    <tbody>
-        <% @users.each do |u| %>
-            <% if u.id != current_user.id %>
-                <tr>
-                    <th scope='row'> <%= u.id %></th>
-                    <td> <%= u.name %> </td>
-                    <td> <%= u.email %> </td>
-                    <td> <%= button_to 'Delete', u , method: :delete , :class => 'btn btn-danger' %></td>
-                </tr>
-            <% end %>
-        <% end %>        
-    </tbody>
-</table>
+<html>
+    <body>
+        <div class='container panel'>
+            <div class='row'>
+              <div class='col-md-12'>
+                <table class="table table-striped table-bordered text-center ">
+                    
+                    <thead class='thead-dark'> 
+                        <th scope='col'> Nome </th>
+                        <th scope='col'> E-mail </th>
+                        <th scope='col'> Deletar </th>
+                    </thead>
+                 
+                    <tbody>
+                        <% @users.each do |u| %>
+                            <% if u.id != current_user.id %>
+                                <tr>
+                                    <td> <%= u.name %> </td>
+                                    <td> <%= u.email%></td>
+                                    <td> <%= button_to 'Deletar', u , method: :delete , :class => 'btn btn-danger' %></td>
+                                </tr>
+                            <% end %>
+                        <% end %>        
+                    </tbody>
+                </table>                 
+              </div>
+            </div>
+        </div>
+    </body>
+</html>
