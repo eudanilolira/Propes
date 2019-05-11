@@ -1,0 +1,38 @@
+<html style='height: 90%;'>
+    <body style='height: 100%;'>
+        <div style='height: 100%;', class='container align-middle border border-primary rounded'>
+            <h2> Só altere os campos que deseja modificar. </h2>
+            <form method= 'put', action=<%= user_path %> >
+                
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder= <%= @user.email %>>
+              </div>
+              
+              <div class="form-group">
+                <label for="name">Nome </label>
+                <input type="name" class="form-control" id="name" placeholder= <%= @user.name %>>
+              </div>
+              
+              <div class="form-group">
+                <label for="password">Nova Senha</label>
+                <input type="password" class="form-control" id="password" placeholder="Nova senha">
+              </div>
+              
+              <div class="form-group">
+                <label for="confirmation">Confirmação </label>
+                <input type="password" class="form-control" id="confirmation" placeholder="Confirmação nova senha">
+              </div>              
+              
+
+              <button type="submit" class="btn btn-warning center">Atualizar</button>
+            </form>
+        </div>
+    </body>
+    
+    <%= form_for @user do |form| %>
+        <%= form.email_field :email, :class => 'col-md-12' %>
+        <%= form.text_field :name, :class => 'col-md-12' %>
+        <%= link_to 'Atualizar' , user_path, method: :put, :class => 'btn btn-danger col-md-12' %>
+    <% end %>
+</html>
