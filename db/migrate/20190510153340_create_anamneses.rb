@@ -1,4 +1,4 @@
-class Create < ActiveRecord::Migration[5.2]
+class CreateAnamneses < ActiveRecord::Migration[5.2]
   def change
     create_table :anamneses do |t|
       t.string :main_complaint
