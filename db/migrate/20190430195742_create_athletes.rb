@@ -33,7 +33,7 @@ class CreateAthletes < ActiveRecord::Migration[5.2]
       t.string :fami_diabetes
       t.string :fami_cardio
       t.string :others
-      t.references :user, foreign_key: true 
+      t.references :users, foreign_key: true 
       
       t.timestamps
     end

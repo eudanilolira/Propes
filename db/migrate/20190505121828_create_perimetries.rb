@@ -19,7 +19,7 @@ class CreatePerimetries < ActiveRecord::Migration[5.2]
       t.string :hip
       t.string :result
       t.date :created_at
-      t.references :user, foreign_key: true
+      t.references :users, foreign_key: true
       t.references :athletes, foreign_key: true
 
       t.timestamps

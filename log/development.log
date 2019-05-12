@@ -41928,3 +41928,126 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 84ms (Views: 80.9ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/" for 191.187.173.199 at 2019-05-12 21:04:10 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2737.3ms)
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  Rendered layouts/_header.html.erb (69.6ms)
+Completed 200 OK in 2927ms (Views: 2894.5ms | ActiveRecord: 25.4ms)
+
+
+Started GET "/" for 191.187.173.199 at 2019-05-12 21:04:14 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 54ms (Views: 51.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registers/new" for 191.187.173.199 at 2019-05-12 21:04:18 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistersController#new as HTML
+  Parameters: {"authenticity_token"=>"jQAtPCPMt7ttKw9ZG2oqTerJKxAz7fd7BCuuVQ1B3PPwrtkhuleMpwC5vWipscgYY4h/3vMLrTdf0qvtYOaE4A=="}
+  Rendering registers/new.html.erb within layouts/application
+  Rendered registers/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 106ms (Views: 104.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/11" for 191.187.173.199 at 2019-05-12 21:04:21 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (7.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 11], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:19
+  [1m[36mActiveStorage::Blob Load (4.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  Rendered users/show.html.erb within layouts/application (74.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 123ms (Views: 100.4ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b7c2918a167e0288c136dc3479638938bc97d28d/IMG_20190324_233540_727.jpg" for 191.187.173.199 at 2019-05-12 21:04:22 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b7c2918a167e0288c136dc3479638938bc97d28d", "filename"=>"IMG_20190324_233540_727"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: uD59nDn3Tkanv9ZHg32ijAD5 (https://0de790db98a94b71aa6dd3e70ce1148c.vfs.cloud9.us-east-2.amazonaws.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRkVVExT1c1RWJqTlVhMkZ1ZGpsYVNHY3pNbWxxUVVRMUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSmhhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlTVTFIWHpJd01Ua3dNekkwWHpJek16VTBNRjgzTWpjdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXhPVEF6TWpSZk1qTXpOVFF3WHpjeU55NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAxOS0wNS0xMlQyMTowOToyMi4wMzZaIiwicHVyIjoiYmxvYl9rZXkifX0=--346a777742211b914e89f852bcf4f77ac7d28e1d/IMG_20190324_233540_727.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_20190324_233540_727.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_20190324_233540_727.jpg)[0m
+Redirected to https://0de790db98a94b71aa6dd3e70ce1148c.vfs.cloud9.us-east-2.amazonaws.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRkVVExT1c1RWJqTlVhMkZ1ZGpsYVNHY3pNbWxxUVVRMUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSmhhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlTVTFIWHpJd01Ua3dNekkwWHpJek16VTBNRjgzTWpjdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXhPVEF6TWpSZk1qTXpOVFF3WHpjeU55NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAxOS0wNS0xMlQyMTowOToyMi4wMzZaIiwicHVyIjoiYmxvYl9rZXkifX0=--346a777742211b914e89f852bcf4f77ac7d28e1d/IMG_20190324_233540_727.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_20190324_233540_727.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_20190324_233540_727.jpg
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRkVVExT1c1RWJqTlVhMkZ1ZGpsYVNHY3pNbWxxUVVRMUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSmhhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlTVTFIWHpJd01Ua3dNekkwWHpJek16VTBNRjgzTWpjdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXhPVEF6TWpSZk1qTXpOVFF3WHpjeU55NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAxOS0wNS0xMlQyMTowOToyMi4wMzZaIiwicHVyIjoiYmxvYl9rZXkifX0=--346a777742211b914e89f852bcf4f77ac7d28e1d/IMG_20190324_233540_727.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_20190324_233540_727.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_20190324_233540_727.jpg" for 191.187.173.199 at 2019-05-12 21:04:22 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"IMG_20190324_233540_727.jpg\"; filename*=UTF-8''IMG_20190324_233540_727.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRkVVExT1c1RWJqTlVhMkZ1ZGpsYVNHY3pNbWxxUVVRMUJqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSmhhVzVzYVc1bE95Qm1hV3hsYm1GdFpUMGlTVTFIWHpJd01Ua3dNekkwWHpJek16VTBNRjgzTWpjdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXhPVEF6TWpSZk1qTXpOVFF3WHpjeU55NXFjR2NHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWQT09IiwiZXhwIjoiMjAxOS0wNS0xMlQyMTowOToyMi4wMzZaIiwicHVyIjoiYmxvYl9rZXkifX0=--346a777742211b914e89f852bcf4f77ac7d28e1d", "filename"=>"IMG_20190324_233540_727"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/athletes" for 191.187.173.199 at 2019-05-12 21:04:23 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AthletesController#index as HTML
+  Rendering athletes/index.html.erb within layouts/application
+  [1m[36mAthlete Load (8.1ms)[0m  [1m[34mSELECT "athletes".* FROM "athletes"[0m
+  ↳ app/views/athletes/index.html.erb:33
+  Rendered athletes/index.html.erb within layouts/application (40.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 109ms (Views: 92.9ms | ActiveRecord: 11.7ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2409789486187153665)[0m
+  ↳ /home/ubuntu/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (4.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/ubuntu/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (6.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ubuntu/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ubuntu/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2409789486187153665)[0m
+  ↳ /home/ubuntu/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/" for 191.187.173.199 at 2019-05-12 23:01:39 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (398.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  Rendered layouts/_header.html.erb (27.8ms)
+Completed 200 OK in 583ms (Views: 571.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 191.187.173.199 at 2019-05-12 23:01:45 +0000
+Cannot render console from 191.187.173.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 50ms (Views: 48.8ms | ActiveRecord: 0.3ms)
+
+

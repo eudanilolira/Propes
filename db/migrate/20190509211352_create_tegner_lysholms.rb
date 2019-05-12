@@ -10,7 +10,7 @@ class CreateTegnerLysholms < ActiveRecord::Migration[5.2]
       t.string :limp
       t.string :support
       t.date :created_at
-      t.references :user, foreign_key: true
+      t.references :users, foreign_key: true
       t.references :athletes, foreign_key: true
 
       t.timestamps

@@ -42,7 +42,7 @@ class CreateDynometries < ActiveRecord::Migration[5.2]
       t.string :relation_extension_right
       t.string :relation_extension_left
       t.date :created_at
-      t.references :user, foreign_key: true
+      t.references :users, foreign_key: true
       t.references :athletes, foreign_key: true
       
       t.timestamps

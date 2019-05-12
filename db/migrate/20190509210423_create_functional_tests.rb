@@ -22,7 +22,7 @@ class CreateFunctionalTests < ActiveRecord::Migration[5.2]
       t.string :left_valg
       t.string :left_posture
       t.date :created_at
-      t.references :user, foreign_key: true
+      t.references :users, foreign_key: true
       t.references :athletes, foreign_key: true
       
 

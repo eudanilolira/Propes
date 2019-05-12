@@ -4,7 +4,7 @@ class CreateBridgeExtensions < ActiveRecord::Migration[5.2]
       t.string :right_side
       t.string :left_side
       t.date :created_at
-      t.references :user, foreign_key: true
+      t.references :users, foreign_key: true
       t.references :athletes, foreign_key: true
 
       t.timestamps
