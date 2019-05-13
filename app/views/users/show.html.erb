@@ -1,8 +1,5 @@
 <html>
     <body>
-        
-        <li><%= t('layouts.navigation.Student') %></li>
-        
         <div  class='container  col-md-8' style='background-color: white; margin-top: 2%; border-radius: 30px 30px 30px 30px; border: solid; border-color: white;'>
             
             <div class='row'>
@@ -13,7 +10,7 @@
             
             <div class='row'>
                 <div class='col-md-12 text-center'>
-                    <% if @user.avatar.nil? %>
+                    <% if not @user.avatar.attached? %>
                          <image class='rounded-circle' <%= image_tag('Missing_avatar.svg.png', :size => '200x200') %>
                     <% else %>    
                         <image class='rounded-circle' <%= image_tag(@user.avatar, :size => '200x200') %>

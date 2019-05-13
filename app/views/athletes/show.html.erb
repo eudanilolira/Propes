@@ -31,7 +31,25 @@
                     </p>
                     
                     <div class='collapse card card-body' id='historicoAtleta'>
-               
+                        
+                        <% testes = Anamnese.all %>
+                        <% testes.each do |teste|%>
+                            <% if teste.athletes_id == @athlete.id %>
+                                <div class='row'>
+                                  <div class='col-md-9'>
+                                    <li> Avaliador: <%= User.find(teste.user_id).name %></li>
+                                  </div>
+                                   
+                                  <div class='col-md-3'>
+                                       
+                                  </div>
+                               </div>
+                             <% end %>
+                        <% end %>
+                        
+                        
+                        
+                        
                     </div>
                     
                 </div>
