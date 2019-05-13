@@ -15,7 +15,6 @@ O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de um
 
 * [Danilo da Rocha Lira Araújo](https://github.com/DaniloLira) (Desenvolvedor e Product Owner)
 * [Gabriel Estevam Longuinhos](https://github.com/biel302) (Desenvolvedor e Scrum Master)
-* [Ivan Ferreira da Silva Lima](https://github.com/ifsl2)  (Desenvolvedor)
 * [Leonardo de Oliveira Lima](https://github.com/Leolimamack) (Desenvolvedor e Tester)
 
 # Acesso
