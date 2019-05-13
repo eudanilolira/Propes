@@ -18,6 +18,9 @@ O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de um
 * [Ivan Ferreira da Silva Lima](https://github.com/ifsl2)  (Desenvolvedor)
 * [Leonardo de Oliveira Lima](https://github.com/Leolimamack) (Desenvolvedor e Tester)
 
+# Acesso
+O site pode ser acessado através do link: http://propes-app.herokuapp.com/
+
 # Wiki
 Mais informações disponíveis na [Wiki](https://github.com/DaniloLira/Propes/wiki)
 
