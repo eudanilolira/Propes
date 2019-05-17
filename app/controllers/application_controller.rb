@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
+    include AthletesHelper
+    
     before_action :set_locale
     
     def set_locale

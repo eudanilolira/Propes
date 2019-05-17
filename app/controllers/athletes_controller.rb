@@ -30,8 +30,9 @@ class AthletesController < ApplicationController
   
   def show
     @athlete = Athlete.find(params[:id])
+    choose_athlete
+    
   end
-
 
   def destroy
     @athlete = Athlete.find(params[:id])

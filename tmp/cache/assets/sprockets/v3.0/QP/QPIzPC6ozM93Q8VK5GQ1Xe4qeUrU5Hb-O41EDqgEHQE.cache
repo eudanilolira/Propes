@@ -1,0 +1,24 @@
+I"‘(function() {
+  var ShowElements, hi;
+
+  ShowElements = function(element_to_show) {
+    var element, elements, i, len, results;
+    elements = ['athlete_history', 'athlete_data', 'athlete_evaluations'];
+    results = [];
+    for (i = 0, len = elements.length; i < len; i++) {
+      element = elements[i];
+      if (element !== element_to_show) {
+        results.push(document.getElementById(element).innerHTML = 'blah_blah');
+      } else {
+        results.push(document.getElementById(element).innerHTML = 'grroound');
+      }
+    }
+    return results;
+  };
+
+  hi = function() {
+  return [document.title, "Hello JavaScript"].join(": ");
+};
+
+}).call(this);
+:ET

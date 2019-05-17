@@ -1,64 +1,64 @@
 <html>
     <body>
-        <div  class='container accordion col-md-8' style='background-color: white; margin-top: 2%; border-radius: 30px 30px 30px 30px; border: solid; border-color: white;'>
+        <div  class='container col-md-8' style='background-color: white; margin-top: 2%; border-radius: 30px 30px 30px 30px; border: solid; border-color: white;'>
             <div class='row'>
                 <h1 class='col-md-12 text-center' style='color: #70C4FF;'>
                     Perfil de <%= @athlete.name %>
                 </h1>                
             </div>
-
+            
+            
             <div class='row '>
-                <div class='col-md-12 card'>
-                    
-                    <p class=''>
-                      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalhesAtleta" aria-expanded="false" aria-controls="collapseExample">
-                        Dados Pessoais
-                      </button>
-                    </p>
-                    
-                    <div class='collapse card card-body' id='detalhesAtleta'>
-                        <% for attr in @athlete.attributes %>
-                            <% if not ['id','created_at','user_id', 'updated_at'].include? attr[0] %>
-                                <p><strong> <%= t attr[0] %>:</strong> <%= attr[1] %></p>
-                            <% end %>
-                        <% end %>
-                    </div>
-                    
-                    <p class=''>
-                      <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#historicoAtleta" aria-expanded="false" aria-controls="collapseExample">
-                        Histórico de Avaliações
-                      </button>
-                    </p>
-                    
-                    <div class='collapse card card-body' id='historicoAtleta'>
-                        
-                        <% testes = Anamnese.all %>
-                        <% testes.each do |teste|%>
-                            <% if teste.athletes_id == @athlete.id %>
-                                <div class='row'>
-                                  <div class='col-md-9'>
-                                    <li> Avaliador: <%= User.find(teste.user_id).name %></li>
-                                  </div>
-                                   
-                                  <div class='col-md-3'>
-                                       
-                                  </div>
-                               </div>
-                             <% end %>
-                        <% end %>
-                        
-                        
-                        
-                        
-                    </div>
-                    
+                <div class='col-md-12 '>
+                    <ul class="nav nav-pills ">
+                        <li class="nav-item ">
+                             <button class="btn " type="button" data-toggle="collapse" data-target="#athlete_data" aria-expanded="false" aria-controls="athlete_data">Dados Pessoais</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn " type="button" data-toggle="collapse" data-target="#athlete_history" aria-expanded="false" aria-controls="athlete_evaluations">Histórico de Avaliações</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn " type="button" data-toggle="collapse" data-target="#athlete_evaluations" aria-expanded="false" aria-controls="athlete_history">Realizar avaliações</button>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to "Editar", edit_athlete_path(@athlete.id), class: 'nav-link' %>
+                        </li>
+                    </ul>                    
                 </div>
             </div>
-
-            <p class='text-center'><%= link_to "Editar", edit_athlete_path(@athlete.id), class: 'btn btn-primary' %></p>
+            
+            <div class='row'>
+                <div class='col-md-12'>
+                    
+                    <div class="collapse multi-collapse" id='athlete_data'> 
+                        <% athlete_attributes.each do |a| %>
+                            <p><strong> <%= t a[0] %>:</strong> <%= a[1] %></p>
+                        <% end %>
+                    </div>
+                    
+                    <div class="collapse multi-collapse" id='athlete_history'> 
+                        <% athlete_history(@athlete.id).each do |a| %>
+                          <div class='col-md-9'>
+                            <% if not a.user_id.nil?  %> <!-- RETIRAR ESSE CONDICIONAL AO FINAL DO CÓDIGO -->
+                                <li> Avaliador: <%= User.find(a.user_id).name %> </li>
+                                <li> Realizado em: <%= a.updated_at %> </li>
+                                <li> Resultado: <%=  %> </li>
+                            <% end %>
+                          </div>
+                        <% end %>
+                    </div>  
+                    
+                    <div class="collapse multi-collapse text-center" id='athlete_evaluations'> 
+                        <% athlete_evaluations.each do |e| %>
+                            <%= link_to e, '/' + e , method: :get, class: 'btn btn-primary col-md-6' %>
+                        <% end %>
+                    </div>
+                    
+                 
+                </div>
+            </div>
+        
         </div>
-        
-        
         
         
         
