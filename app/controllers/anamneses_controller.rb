@@ -10,7 +10,7 @@ class AnamnesesController < ApplicationController
         @anamnese.athletes_id = current_athlete
         
         if @anamnese.save
-          redirect_to '/users/' + @anamnese.athletes_id.to_s
+          redirect_to '/athletes'
         else
           render 'new'
         end

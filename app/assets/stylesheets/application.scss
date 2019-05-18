@@ -48,3 +48,20 @@ body {
     width: 50%;
     margin-bottom: 5px;
 }
+
+.navbarStyle {
+    background-color: #001D5D;
+
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #FCFCFC;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #FF0018;
+}
+
+.navbar-light .navbar-nav .nav-link:active {
+    color: #90181B;
+}

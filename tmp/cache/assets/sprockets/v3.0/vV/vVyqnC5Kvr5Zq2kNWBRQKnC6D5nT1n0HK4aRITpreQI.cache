@@ -1,0 +1,21 @@
+I"»(function() {
+  var fillAthlete, teste;
+
+  fillAthlete = function(received_id) {
+    var id, id_list;
+    id_list = [athlete_data, athlete_history, athlete_evaluation];
+    for (id in id_list) {
+      if (received_id === id) {
+        document.findElementById(id).display = 'block';
+      } else {
+        document.findElementById(id).display = 'none';
+      }
+    }
+  };
+
+  teste = function() {
+    console.log('Hello');
+  };
+
+}).call(this);
+:ET
