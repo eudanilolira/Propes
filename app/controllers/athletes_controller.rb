@@ -30,7 +30,7 @@ class AthletesController < ApplicationController
   
   def show
     @athlete = Athlete.find(params[:id])
-    choose_athlete
+    session[:athlete_id] = @athlete.id
     
   end
 

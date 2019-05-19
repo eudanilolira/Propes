@@ -7,7 +7,7 @@ class AnamnesesController < ApplicationController
         @anamnese = Anamnese.new(anamnese_params)
         
         @anamnese.user_id = current_user.id
-        @anamnese.athletes_id = current_athlete
+        @anamnese.athletes_id = session[:athlete_id]
         
         if @anamnese.save
           redirect_to '/athletes'

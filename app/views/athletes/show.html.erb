@@ -12,13 +12,13 @@
                 <div class='col-md-12' style='padding-bottom: 3%; padding-top: 2%;'> <!-- NavBar -->
                     <ul class="nav justify-content-center">
                         <li class="nav-item ">
-                             <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#athlete_data" aria-expanded="false" aria-controls="athlete_data">Dados Pessoais</button>
+                             <button class="btn" type="button" data-toggle="collapse" data-target="#athlete_data" aria-expanded="false" aria-controls="athlete_data">Dados Pessoais</button>
                         </li>
                         <li class="nav-item">
-                            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#athlete_history" aria-expanded="false" aria-controls="athlete_evaluations">Histórico de Avaliações</button>
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#athlete_history" aria-expanded="false" aria-controls="athlete_evaluations">Histórico de Avaliações</button>
                         </li>
                         <li class="nav-item">
-                            <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#athlete_evaluations" aria-expanded="false" aria-controls="athlete_history">Realizar avaliações</button>
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#athlete_evaluations" aria-expanded="false" aria-controls="athlete_history">Realizar avaliações</button>
                         </li>
                         <li class="nav-item">
                             <%= link_to "Editar", edit_athlete_path(@athlete.id), class: 'nav-link' %>
@@ -46,36 +46,35 @@
                     
                     <div class="collapse multi-collapse" id="athlete_history" data-parent="#athleteElements"><!-- Athlete History -->
                         <div id="accordion" > 
+                            <% actual_day = nil %>
                             <% athlete_history(@athlete.id).each do |a| %>
-                                <% if not a.user_id.nil?  %>
-                                    <div class="card ">
-                                        <div class="card-header " id="headingOne" style="border-left: green; border-left-style: solid;">
-                                            <button class="btn col-md-12" data-toggle="collapse" data-target="#history_<%= a.id.to_s %>" aria-expanded="false" aria-controls="history_<%= a.id.to_s %>">
-                                                <div class="row">
-                                                    <div class="col-md-12 text-left">
-                                                         Avaliador: <%= User.find(a.user_id).name %> </li>
-                                                         Realizado em: <%= a.updated_at %> </li>
-                                                         Resultado: <%=  %> </li>                                               
-                                                    </div>
-                                                </div>
-        
-                                            </button>
-                                        </div>
-                                    
-                                        <div id="history_<%=a.id.to_s%>" class="collapse" aria-labelledby="heading<%=a.id.to_s%>" data-parent="#accordion">
-                                             <div class="card-body">
-                                                content.......
-                                             </div>
-                                        </div>
+                                <% if not actual_day == a[0].updated_at.strftime("%d/%m/%Y") %>
+                                    <% actual_day =  a[0].updated_at.strftime("%d/%m/%Y") %>
+                                    <div class='panel-header '>
+                                        <h3> Dia: <%= actual_day %> </h3>
                                     </div>
                                 <% end %>
+                                
+                                <div class="card">
+                                    <div class="card-header" id="headingOne" style="border-left: green; border-left-style: solid;">
+                                        <button class="btn col-md-12 text-left" data-toggle="collapse" data-target="#history_<%= a[0].id.to_s %>" aria-expanded="false" aria-controls="history_<%= a[0].id.to_s %>">
+                                            <a> <%= t a[1] %> - <%= a[0].updated_at.strftime('%H:%M') %> </a>
+                                        </button>
+                                    </div>
+                                
+                                    <div id="history_<%=a[0].id.to_s%>" class="collapse" aria-labelledby="heading<%=a[0].id.to_s%>" data-parent="#accordion">
+                                         <div class="card-body">
+                                            content.......
+                                         </div>
+                                    </div>
+                                </div>
                             <% end %> 
                         </div>                    
                     </div>
                 
                     <div class="collapse multi-collapse text-center" id='athlete_evaluations' data-parent="#athleteElements"> <!-- Athlete Evaluation -->
                         <% athlete_evaluations.each do |e| %>
-                            <%= link_to e, '/' + e , method: :get, class: 'btn btn-primary col-md-6' %>
+                            <%= link_to e, '/' + e , method: :get, class: 'btn col-md-6' %>
                         <% end %>
                     </div>
                     

@@ -1,5 +1,5 @@
 module AthletesHelper
-    
+
     def evaluation_list
         return evaluation_list = [Anamnese, AnkleMobility, BridgeExtension, Cooper, CutaneousFold, 
         Dynometry, FunctionalTest, Impulsion, Perimetry, Physical, Questionary, TegnerLysholm, YoYo]
@@ -21,8 +21,9 @@ module AthletesHelper
         
         for evaluation in evaluation_list
             evaluation.all.each do |e|
-                if e.athletes_id = athlete_id
-                    athlete_evaluations.append(e)
+                if e.athletes_id == athlete_id
+                    athlete_evaluations.append([e,evaluation.table_name])
+                    
                 end
             end
         end
@@ -35,12 +36,5 @@ module AthletesHelper
         'dynometry/new', 'functional_test/new', 'impulsion/new', 'perimetry/new', 'physical/new', 'questionary/new', 'tegner_lysholm/new', 'yo_yo/new']    
     end
 
-    def choose_athlete
-        session[:athlete_id] = @athlete.id
-    end
-    
-    def current_athlete
-        @current_athlete ||= Athlete.find_by(id: session[:athlete_id])
-    end
     
 end

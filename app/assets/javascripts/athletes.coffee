@@ -17,5 +17,5 @@ fillAthlete = (received_id) ->
   
 
 teste = ->
-  console.log 'Hello'
+  alert "Hello"
   return
