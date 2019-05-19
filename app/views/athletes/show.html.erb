@@ -1,6 +1,10 @@
 <html>
+    <head>
+        <script type="text/javascript" src="/athletes.js"></script>
+    </head>
+    
     <body>
-        <div class='container' style='background-color: white; margin-top: 2%; border-radius: 30px 30px 30px 30px; border: solid; border-color: white;'>
+        <div class='container'>
             <div class='row'>
                 <h1 class='col-md-12 text-center' style='color: #70C4FF;'>
                     Perfil de <%= @athlete.name %>
@@ -9,19 +13,19 @@
             
             <div class='row' id="athleteElements">
                 
-                <div class='col-md-12' style='padding-bottom: 3%; padding-top: 2%;'> <!-- NavBar -->
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item ">
-                             <button class="btn" type="button" data-toggle="collapse" data-target="#athlete_data" aria-expanded="false" aria-controls="athlete_data">Dados Pessoais</button>
+                <div class='col-md-12' style='padding-bottom: 3%; padding-top: 2%;' id='nav-menu'> <!-- NavBar -->
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-link active btn-nav-menu">
+                             <button class="btn" onclick="change_to_active()"  type="button" data-toggle="collapse" data-target="#athlete_data" aria-expanded="false" aria-controls="athlete_data">Dados Pessoais</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="btn" type="button" data-toggle="collapse" data-target="#athlete_history" aria-expanded="false" aria-controls="athlete_evaluations">Histórico de Avaliações</button>
+                        <li class="nav-link btn-nav-menu">
+                            <button class="btn" onclick="change_to_active()" type="button" data-toggle="collapse" data-target="#athlete_history" aria-expanded="false" aria-controls="athlete_evaluations">Histórico de Avaliações</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="btn" type="button" data-toggle="collapse" data-target="#athlete_evaluations" aria-expanded="false" aria-controls="athlete_history">Realizar avaliações</button>
+                        <li class="nav-link btn-nav-menu">
+                            <button class="btn" onclick="change_to_active()" type="button" data-toggle="collapse" data-target="#athlete_evaluations" aria-expanded="false" aria-controls="athlete_history">Realizar avaliações</button>
                         </li>
-                        <li class="nav-item">
-                            <%= link_to "Editar", edit_athlete_path(@athlete.id), class: 'nav-link' %>
+                        <li class="nav-link btn-nav-menu">
+                            <button class="btn" type="button"><%= link_to "Editar", edit_athlete_path(@athlete.id)%></button>
                         </li>
                     </ul>                    
                 </div>
@@ -72,10 +76,23 @@
                         </div>                    
                     </div>
                 
-                    <div class="collapse multi-collapse text-center" id='athlete_evaluations' data-parent="#athleteElements"> <!-- Athlete Evaluation -->
-                        <% athlete_evaluations.each do |e| %>
-                            <%= link_to e, '/' + e , method: :get, class: 'btn col-md-6' %>
-                        <% end %>
+                    <div class="collapse multi-collapse" id='athlete_evaluations' data-parent="#athleteElements"> <!-- Athlete Evaluation -->
+                        <div class='row justify-content-center'>
+                            <table class='table table-sm col-md-8 text-center'>
+                                <tbody>
+                                    <% athlete_evaluations.each do |e| %>
+                                        <tr>
+                                            <td><input type='checkbox'></input></td>
+                                            <td><%= link_to t(e[0..-5]), '/' + e , method: :get, class: 'btn col-md-12 font-weight-bold' %></td>
+                                        </tr> 
+                                    <% end %>
+                                </tbody>
+                            </table>     
+                            
+                            <button class='col-md-8 btn btn-primary'> Realizar Testes </button>
+                        </div>
+
+
                     </div>
                     
                 </div>
