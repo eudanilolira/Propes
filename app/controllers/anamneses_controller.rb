@@ -17,14 +17,14 @@ class AnamnesesController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
+        @anamnese = Anamnese.find(params[:id])
     end
   
     def update
-        @anamnese = User.find(params[:id])
+        @anamnese = Anamnese.find(params[:id])
         
         if @anamnese.update_attributes(anamnese_params)
-            render 'show'
+            redirect_to '/athletes'
         else
             render 'edit'
         end

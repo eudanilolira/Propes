@@ -47,18 +47,20 @@
                 <div class='col-md-12'>
                     <div class="collapse multi-collapse show" id='athlete_data' data-parent="#athleteElements"> <!-- Athlete Data -->
                         <div class='row justify-content-center'>
-                            <table class="table table-sm col-md-8">
-                              <tbody>
-                                <% athlete_attributes.each do |a| %>
-                                    <tr>
-                                      <td><strong> <%= t a[0] %>:</strong></td>
-                                      <td><%= a[1] %></td>
-                                    </tr>
-                                <% end %>
-                              </tbody>
-                            </table>
-                            
-                            <p class="text-right col-md-8"><%= link_to "Editar", edit_athlete_path(@athlete.id), class: "btn btn-primary" %></p>
+                            <div class='col-md-12'>
+                                <table class="table table-sm">
+                                  <tbody>
+                                    <% athlete_attributes.each do |a| %>
+                                        <tr>
+                                          <td><strong> <%= t a[0] %>:</strong></td>
+                                          <td><%= a[1] %></td>
+                                        </tr>
+                                    <% end %>
+                                  </tbody>
+                                </table>
+                                
+                                <p class="text-center"><%= link_to "Editar", edit_athlete_path(@athlete.id), class: "btn btn-primary" %></p>                                
+                            </div>
                         </div>
 
                         
@@ -76,7 +78,7 @@
                                     </div>
                                 <% end %>
                                 
-                                <div class="card">
+                                <div class="card" style='margin-bottom: 2%;'>
                                     <div class="card-header" id="headingOne" style="border-left: green; border-left-style: solid;">
                                         <button class="btn col-md-12 text-left" data-toggle="collapse" data-target="#history_<%= a[0].id.to_s %>" aria-expanded="false" aria-controls="history_<%= a[0].id.to_s %>">
                                             <a> <%= t a[1] %> - <%= a[0].updated_at.strftime('%H:%M') %> </a>
