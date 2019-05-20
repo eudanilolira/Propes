@@ -16,7 +16,7 @@ O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de um
 * [Danilo da Rocha Lira Araújo](https://github.com/DaniloLira) (Desenvolvedor e Product Owner)
 * [Gabriel Estevam Longuinhos](https://github.com/biel302) (Desenvolvedor e Scrum Master)
 * [Leonardo de Oliveira Lima](https://github.com/Leolimamack) (Desenvolvedor e Tester)
-
+* Antônio Almeida
 
 # Acesso
 O site pode ser acessado através do link: http://propes-app.herokuapp.com/
