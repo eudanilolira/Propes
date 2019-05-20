@@ -1,10 +1,27 @@
 <html>
     <head>
-        <script type="text/javascript" src="/athletes.js"></script>
+        <script>
+            function change_to_active(){
+                // Get the container element
+                var btnContainer = document.getElementById("nav-menu");
+                
+                // Get all buttons with class="btn" inside the container
+                var btns = btnContainer.getElementsByClassName("btn-nav-menu");
+                
+                // Loop through the buttons and add the active class to the current/clicked button
+                for (var i = 0; i < btns.length; i++) {
+                  btns[i].addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                  });
+                }    
+            }
+        </script>
     </head>
-    
     <body>
-        <div class='container'>
+
+        <div class='container col-md-7'>
             <div class='row'>
                 <h1 class='col-md-12 text-center' style='color: #70C4FF;'>
                     Perfil de <%= @athlete.name %>
@@ -16,7 +33,7 @@
                 <div class='col-md-12' style='padding-bottom: 3%; padding-top: 2%;' id='nav-menu'> <!-- NavBar -->
                     <ul class="nav nav-tabs justify-content-center">
                         <li class="nav-link active btn-nav-menu">
-                             <button class="btn" onclick="change_to_active()"  type="button" data-toggle="collapse" data-target="#athlete_data" aria-expanded="false" aria-controls="athlete_data">Dados Pessoais</button>
+                            <button class="btn" onclick="change_to_active()" type="button" data-toggle="collapse" data-target="#athlete_data" aria-expanded="false" aria-controls="athlete_data">Dados Pessoais</button>
                         </li>
                         <li class="nav-link btn-nav-menu">
                             <button class="btn" onclick="change_to_active()" type="button" data-toggle="collapse" data-target="#athlete_history" aria-expanded="false" aria-controls="athlete_evaluations">Histórico de Avaliações</button>
@@ -24,14 +41,11 @@
                         <li class="nav-link btn-nav-menu">
                             <button class="btn" onclick="change_to_active()" type="button" data-toggle="collapse" data-target="#athlete_evaluations" aria-expanded="false" aria-controls="athlete_history">Realizar avaliações</button>
                         </li>
-                        <li class="nav-link btn-nav-menu">
-                            <button class="btn" type="button"><%= link_to "Editar", edit_athlete_path(@athlete.id)%></button>
-                        </li>
                     </ul>                    
                 </div>
                 
                 <div class='col-md-12'>
-                    <div class="collapse multi-collapse" id='athlete_data' data-parent="#athleteElements"> <!-- Athlete Data -->
+                    <div class="collapse multi-collapse show" id='athlete_data' data-parent="#athleteElements"> <!-- Athlete Data -->
                         <div class='row justify-content-center'>
                             <table class="table table-sm col-md-8">
                               <tbody>
@@ -43,9 +57,12 @@
                                 <% end %>
                               </tbody>
                             </table>
-                                                        
+                            
+                            <p class="text-right col-md-8"><%= link_to "Editar", edit_athlete_path(@athlete.id), class: "btn btn-primary" %></p>
                         </div>
 
+                        
+                        
                     </div>
                     
                     <div class="collapse multi-collapse" id="athlete_history" data-parent="#athleteElements"><!-- Athlete History -->
@@ -55,7 +72,7 @@
                                 <% if not actual_day == a[0].updated_at.strftime("%d/%m/%Y") %>
                                     <% actual_day =  a[0].updated_at.strftime("%d/%m/%Y") %>
                                     <div class='panel-header '>
-                                        <h3> Dia: <%= actual_day %> </h3>
+                                        <h5> Dia: <%= actual_day %> </h5>
                                     </div>
                                 <% end %>
                                 

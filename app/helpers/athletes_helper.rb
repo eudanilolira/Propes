@@ -8,7 +8,7 @@ module AthletesHelper
     def athlete_attributes
         attributes = []
         for attr in @athlete.attributes
-            if not ['id','created_at','user_id', 'updated_at'].include? attr[0]
+            if not ['id','created_at','user_id', 'updated_at', 'avatar'].include? attr[0]
                 attributes.append(attr)
             end
         end

@@ -48,6 +48,9 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+
+gem "client_side_validations"
+
 # CanCan
 gem "cancan"
 

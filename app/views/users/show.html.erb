@@ -1,33 +1,32 @@
 <html>
     <body>
-        <div  class='container  col-md-8' style='background-color: white; margin-top: 2%; border-radius: 30px 30px 30px 30px; border: solid; border-color: white;'>
+        <div class="container col-md-7">
             
-            <div class='row'>
-                <h1 class='col-md-12 text-center' style='color: #70C4FF;'>
+            <div class="row">
+                <h1 class="col-md-12 text-center" style="color: #70C4FF;">
                     Seu Perfil
                 </h1>                
             </div>
             
-            <div class='row'>
-                <div class='col-md-12 text-center'>
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-bottom: 2%; margin-top: 2%;">
                     <% if not @user.avatar.attached? %>
-                         <image class='rounded-circle' <%= image_tag('Missing_avatar.svg.png', :size => '200x200') %>
+                        <image class="rounded-circle" <%= image_tag("Missing_avatar.svg.png", :size => "200x200") %> 
                     <% else %>    
-                        <image class='rounded-circle' <%= image_tag(@user.avatar, :size => '200x200') %>
+                        <image class="rounded-circle" <%= image_tag(@user.avatar, :size => "200x200") %>
                     <% end %>
                 </div>
             </div>
             
-            <br><hr>
-            
-            <div class='row '>
-                <div class='col-md-12'>
-                    <table class="table table-bordered table-striped ">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-sm">
                         <tbody>
                             <% for attr in @user.attributes %>
-                                <% if not ['id', 'password', 'password_digest', 'created_at', 'updated_at', 'avatar'].include? attr[0] %>
+                                <% if not ["id", "password", "password_digest", "created_at", "updated_at", "avatar"].include? attr[0] %>
                                     <tr>
-                                        <td><p><strong> <%= attr[0] %>:</strong> <%= attr[1] %></p></td>
+                                        <td><p><strong> <%= t attr[0] %>:</strong></p></td>
+                                        <td>  <%= attr[1] %> </td>
                                     </tr>
                                 <% end %>
                             <% end %>
@@ -36,10 +35,10 @@
                 </div>
             </div>
 
-            <hr>
             
             
-            <p class='text-center'><%= link_to "Editar", edit_user_path(current_user), class: 'btn btn-primary' %></p>
+            
+            <p class="text-center"><%= link_to "Editar", edit_user_path(current_user), class: "btn btn-primary" %></p>
         </div>
         
     </body>

@@ -16,6 +16,22 @@ class AnamnesesController < ApplicationController
         end
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+  
+    def update
+        @anamnese = User.find(params[:id])
+        
+        if @anamnese.update_attributes(anamnese_params)
+            render 'show'
+        else
+            render 'edit'
+        end
+    end
+
+
+
     private
     def anamnese_params
         params.require(:anamnese).permit(:main_complaint, :history_complaint, :nature_complaint, :history_injuries, :is_accompanying)

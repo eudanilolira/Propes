@@ -1,41 +1,42 @@
-<html >
-
+<html>
     <body>
-        <div class='container panel'>
-            <div class='row '>
-                <div class='col-md-12 '>
-                  <%= form_tag(athletes_path, method: :get) do %>
-                    <div class='row'>
-                        <div class='col-md-4' >
-                            <%= text_field_tag :name, params[:name], class: 'form-control', placeholder: 'Pesquisar' %>
-                        </div>
+        <div class="container col-md-7">
+            
+            <div class="row" style='margin-bottom: 2%;'>
+                <div class="col-md-12">
+                    <%= form_tag(athletes_path, method: :get) do %>
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Pesquisar" %>
+                            </div>
                         
-                        <div class='col-md-2'>
-                            <%= submit_tag 'Procurar', name: nil, class: 'btn btn-primary' %>
-                        </div>
-                    </div> 
-                  <% end %>    
+                            <div class="col-md-2 ">
+                                <%= submit_tag "Procurar", name: nil, class: "btn btn-primary" %>
+                            </div>
+                        </div> 
+                    <% end %>    
                 </div>            
             </div>
             
-            <br>
-            
-            <div class='row'>
-              <div class='col-md-12'>
+            <div class="row">
+              <div class="col-md-12">
                 <table class="table table-sm text-center ">
                     
-                    <thead class='thead'> 
-                        <th scope='col'> Nome </th>
-                        <th scope='col'> Visualizar </th>
-                        <th scope='col'> Deletar </th>
+                    <thead class="thead"> 
+                        <th width="70%" scope="col" > Atleta</th>
+                        <th scope="col"> Visualizar </th>
+                        <th scope="col"> Deletar </th>
                     </thead>
                  
                     <tbody>
                         <% @athletes.each do |a| %>
                             <tr>
-                                <td> <%= a.name %> </td>
-                                <td> <%= button_to 'Visualizar', a , method: :get , :class => 'btn btn-primary' %></td>
-                                <td> <%= button_to 'Delete', a , method: :delete , :class => 'btn btn-danger' %></td>
+                                <td class='text-left'> 
+                                    <image class="rounded-circle" <%= image_tag( User.find(11).avatar, :size => "40x40") %></image> 
+                                    <a><%= a.name %></a> 
+                                </td>
+                                <td> <%= button_to "Visualizar", a , method: :get , :class => "btn btn-primary" %></td>
+                                <td> <%= button_to "Delete", a , method: :delete , :class => "btn btn-danger" %></td>
                             </tr>
                         <% end %>        
                     </tbody>

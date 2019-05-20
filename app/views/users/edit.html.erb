@@ -1,8 +1,8 @@
 <html >
     <body>
-        <div class='container text-center col-md-8 panel'>
+        <div class='container col-md-7'>
             
-            <div class='row'>
+            <div class='row text-center'>
                 <h1 class='col-md-12' style='color: #70C4FF;'>
                     Atualize seu perfil 
                 </h1>
@@ -21,7 +21,7 @@
                 <%= form_for(@user) do |f| %>
               
                   <p class='text-left'><%= f.label :avatar, 'Foto de perfil' %>
-                   <%= f.file_field :avatar, class: 'form-control' %></p>
+                   <%= f.file_field :avatar, class: 'form-control-file' %></p>
                   
                   <p class='text-left'><%= f.label :cpf, 'CPF' %>
                   <%= f.text_field :cpf, class: 'form-control' %></p>
@@ -66,7 +66,7 @@
                   <%= f.password_field :password, class: 'form-control' %></p>
                   
                   
-                  <p><%= f.submit 'Salvar Mudanças', class: 'btn salvar'%></p>
+                  <p class='text-center'><%= f.submit 'Salvar Mudanças', class: '  btn salvar'%></p>
                 <% end %>
               </div>
             </div>

@@ -21,8 +21,10 @@
                 <%= form_with model: @anamnese, local: true do |f| %>
                   <% for field in @anamnese.attributes %>
                       <% if not ['id','created_at', 'updated_at', 'user_id','athletes_id'].include? field[0] %>
-                        <p class='text-left'><%= f.label field[0] %>
-                        <%= f.text_field field[0], class: 'form-control' %></p>
+                        <p class='text-left'>
+                            <%= f.label field[0] %>
+                            <%= f.text_field field[0], class: 'form-control' %>
+                        </p>
                       <% end %>
                   <% end %>
                   
@@ -30,7 +32,6 @@
                 <% end %>
               </div>
             </div>
-
         </div>
     </body>
 </html>

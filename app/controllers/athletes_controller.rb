@@ -24,7 +24,7 @@ class AthletesController < ApplicationController
     if @athlete.save
       redirect_to registers_registred_path
     else
-      render 'new'
+      render :new
     end
   end
   
@@ -46,6 +46,6 @@ class AthletesController < ApplicationController
      :degree_education, :profession, :address, :city, :neighborhood, :state, :cep,  
      :home_phone, :cell_phone, :modality, :position, :dum , :dlm, :smoker , :alcoholism,  
      :sah, :diabetes, :cardio_deseases, :exercise_practice, :fami_alcoholism, :fami_sah,  
-     :fami_diabetes, :fami_cardio, :others)
+     :fami_diabetes, :fami_cardio, :others, :avatar)
   end
 end

@@ -76,3 +76,23 @@ body {
     border: solid; 
     border-color: white; 
 }
+
+.btn {
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+	&:active {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+.card-header {
+    background: #F3FFF3;
+}
+
+.field_with_errors label {
+    @extend .text-muted;
+}
+
