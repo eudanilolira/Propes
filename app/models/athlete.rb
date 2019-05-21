@@ -1,5 +1,5 @@
 class Athlete < ApplicationRecord
-    has_one_attached :avatar
+
     validates :name, presence: true, length: {maximum: 60}
     validates :cpf, presence: true, length: {maximum: 11, minimum: 11}, uniqueness: {case_sensitive: false }
     validates :date_birth, presence: true
