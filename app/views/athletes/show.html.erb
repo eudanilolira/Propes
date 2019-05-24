@@ -79,6 +79,12 @@
                     
                     <div class="collapse multi-collapse" id="athlete_history" data-parent="#athleteElements"><!-- Athlete History -->
                         <div id="accordion" > 
+                            <% if athlete_history(@athlete.id).length == 0 %>
+                                <div class='text-center'>
+                                    <h3> Nenhuma avaliação feita, vamos fazer agora :) </h3>
+                                </div>
+                            <% end %>
+                            
                             <% actual_day = nil %>
                             <% athlete_history(@athlete.id).each do |a| %>
                                 <% if not actual_day == a[0].updated_at.strftime("%d/%m/%Y") %>
@@ -96,8 +102,13 @@
                                     </div>
                                 
                                     <div id="history_<%=a[0].id.to_s%>" class="collapse" aria-labelledby="heading<%=a[0].id.to_s%>" data-parent="#accordion">
-                                         <div class="card-body">
-                                            content.......
+                                         <div class="card-body row">
+                                             <div class='col-md-8'>
+                                                 content....
+                                             </div>
+                                             <div class='col-md-4'>
+                                                 <%= button_to "Deletar", a[0] , method: :delete , class: "btn btn-primary"%>
+                                             </div>
                                          </div>
                                     </div>
                                 </div>
@@ -118,7 +129,7 @@
                                 </tbody>
                             </table>     
                             
-                            <button class='col-md-8 btn btn-primary'> Realizar Testes </button>
+                            <button class='col-md-8 btn btn-primary'> Realizar Avaliações</button>
                         </div>
 
 
