@@ -32,14 +32,6 @@ body {
     background-color: #3D81B3;
 }
 
-.panel {
-    background-color: white; 
-    margin-top: 2%; 
-    border-radius: 30px 30px 30px 30px; 
-    border: solid; 
-    border-color: white;
-}
-
 .confirmar_senha {
     background-color: #FF1512;
 }
@@ -95,4 +87,3 @@ body {
 .field_with_errors label {
     @extend .text-muted;
 }
-
