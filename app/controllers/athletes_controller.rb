@@ -22,7 +22,7 @@ class AthletesController < ApplicationController
     @athlete = Athlete.new(athlete_params)
     
     if @athlete.save
-      redirect_to registers_registred_path
+      redirect_to '/sign_in'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class AthletesController < ApplicationController
   def show
     @athlete = Athlete.find(params[:id])
     session[:athlete_id] = @athlete.id
-    
+    puts session[:athlete_id]
   end
 
   def destroy

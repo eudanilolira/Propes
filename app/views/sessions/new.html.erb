@@ -1,9 +1,9 @@
 <html >
     <body>
-        <div class="container text-center col-md-7">
+        <div class="container text-center col-lg-7 col-md-12">
             
             <div class="row">
-                <header class="col-md-12">
+                <header class="col-lg-12">
                     <%= image_tag("logo.png") %> 
                     <h1> Propes </h1>
                 </header>
@@ -17,7 +17,7 @@
             <% end %>
             
             <div class="row justify-content-md-center">
-                <div class="col-md-11" >
+                <div class="col-lg-11" >
                     <%= form_for :session, url: sign_in_path  do |form| %>
                         <p class="text-left">
                           <%= form.label :email%> 
@@ -30,20 +30,20 @@
                         </p>
                         
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-lg-12">
                                 <%= form.submit "Entrar", class: "btn btn-primary tamanho-form" %>
                             </div>                      
                         </div>
                     
                      
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-lg-12">
                                 <%= link_to "Cadastrar-se", registers_new_path , method: :get, :class => "btn btn-danger tamanho-form" %>
                             </div>
                         </div>    
                     
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-lg-12">
                                 <%= link_to "Esqueceu a senha ?",  :class => "link" %>
                             </div>
                         </div>  

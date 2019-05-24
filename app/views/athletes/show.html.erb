@@ -28,6 +28,16 @@
                 </h1>                
             </div>
             
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-bottom: 2%; margin-top: 2%;">
+                    <% if not @athlete.avatar.attached? %>
+                        <image class="rounded-circle" <%= image_tag("Missing_avatar.svg.png", :size => "200x200") %> 
+                    <% else %>    
+                        <image class="rounded-circle" <%= image_tag(@athlete.avatar, :size => "200x200") %>
+                    <% end %>
+                </div>
+            </div>    
+            
             <div class='row' id="athleteElements">
                 
                 <div class='col-md-12' style='padding-bottom: 3%; padding-top: 2%;' id='nav-menu'> <!-- NavBar -->
@@ -101,8 +111,8 @@
                                 <tbody>
                                     <% athlete_evaluations.each do |e| %>
                                         <tr>
+                                            <td><%= link_to t(e[0..-5]), '/' + e , method: :get, class: 'btn col-md-12 font-weight-bold text-left' %></td>
                                             <td><input type='checkbox'></input></td>
-                                            <td><%= link_to t(e[0..-5]), '/' + e , method: :get, class: 'btn col-md-12 font-weight-bold' %></td>
                                         </tr> 
                                     <% end %>
                                 </tbody>

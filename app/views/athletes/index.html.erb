@@ -32,7 +32,11 @@
                         <% @athletes.each do |a| %>
                             <tr>
                                 <td class='text-left'> 
-                                    <image class="rounded-circle" <%= image_tag( User.find(11).avatar, :size => "40x40") %></image> 
+                                    <% if not a.avatar.attached? %>
+                                        <image class="rounded-circle" <%= image_tag("Missing_avatar.svg.png", :size => "40x40") %> 
+                                    <% else %>    
+                                        <image class="rounded-circle" <%= image_tag(a.avatar, :size => "40x40") %>
+                                    <% end %>
                                     <a><%= a.name %></a> 
                                 </td>
                                 <td> <%= button_to "Visualizar", a , method: :get , :class => "btn btn-primary" %></td>

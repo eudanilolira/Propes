@@ -1,6 +1,9 @@
 <html >
+    <head>
+        <%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+    </head>
     <body>
-        <div class='container text-center col-md-8 panel'>
+        <div class='container text-center col-lg-7 col-md-12'>
             
             <div class='row'>
                 <h1 class='col-md-12' style='color: #70C4FF;'>
@@ -38,10 +41,14 @@
                         </p>   
                         
                       
-                    <p><%= f.submit 'Cadastrar', class: 'btn salvar' %></p>
+                        <input type="submit" name="commit" value="Cadastrar" class="btn salvar" data-disable-with="Cadastrar" class="btn btn-primary">
+                    
                 <% end %>
               </div>
             </div>
         </div>
+        
     </body>
 </html>
+
+
