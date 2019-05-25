@@ -25,9 +25,8 @@ class CreateFunctionalTests < ActiveRecord::Migration[5.2]
       t.decimal :left_valg
       t.decimal :left_posture
       t.string :left_step_result
-      t.date :created_at
-      t.references :users, foreign_key: true
-      t.references :athletes, foreign_key: true
+      t.bigint :user_id
+      t.bigint :athlete_id
       
 
       t.timestamps

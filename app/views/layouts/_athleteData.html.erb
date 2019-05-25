@@ -1,0 +1,16 @@
+<div class='row justify-content-center'>
+    <div class='col-md-12'>
+        <table class="table table-sm">
+          <tbody>
+            <% athlete_attributes.each do |a| %>
+                <tr>
+                  <td><strong> <%= t a[0] %>:</strong></td>
+                  <td><%= a[1] %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+        <p class="text-center"><%= link_to "Editar", edit_athlete_path(@athlete.id), class: "btn btn-primary" %></p>                                
+    </div>
+</div>

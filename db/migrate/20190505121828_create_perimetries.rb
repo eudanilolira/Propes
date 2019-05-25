@@ -18,9 +18,8 @@ class CreatePerimetries < ActiveRecord::Migration[5.2]
       t.decimal :waist
       t.decimal :hip
       t.string :result
-      t.date :created_at
-      t.references :users, foreign_key: true
-      t.references :athletes, foreign_key: true
+      t.bigint :user_id
+      t.bigint :athlete_id
 
       t.timestamps
     end

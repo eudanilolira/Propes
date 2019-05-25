@@ -41,9 +41,8 @@ class CreateDynometries < ActiveRecord::Migration[5.2]
       t.decimal :IDM_flexion
       t.decimal :relation_extension_right
       t.decimal :relation_extension_left
-      t.date :created_at
-      t.references :users, foreign_key: true
-      t.references :athletes, foreign_key: true
+      t.bigint :user_id
+      t.bigint :athlete_id
       
       t.timestamps
     end

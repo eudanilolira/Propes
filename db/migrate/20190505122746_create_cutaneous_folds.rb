@@ -18,9 +18,8 @@ class CreateCutaneousFolds < ActiveRecord::Migration[5.2]
       t.decimal :fat_mass
       t.decimal :muscle_mass
       t.decimal :lean_mass
-      t.date :created_at
-      t.references :users, foreign_key: true
-      t.references :athletes, foreign_key: true
+      t.bigint :user_id
+      t.bigint :athlete_id
 
       t.timestamps
     end

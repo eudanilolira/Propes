@@ -21,7 +21,7 @@ module AthletesHelper
         
         for evaluation in evaluation_list
             evaluation.all.each do |e|
-                if e.athletes_id == athlete_id
+                if e.athlete_id == athlete_id
                     athlete_evaluations.append([e,evaluation.table_name])
                     
                 end

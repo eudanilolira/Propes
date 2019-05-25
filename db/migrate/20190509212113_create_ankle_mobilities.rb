@@ -3,9 +3,8 @@ class CreateAnkleMobilities < ActiveRecord::Migration[5.2]
     create_table :ankle_mobilities do |t|
       t.decimal :right_ankle
       t.decimal :left_ankle
-      t.date :created_at
-      t.references :users, foreign_key: true
-      t.references :athletes, foreign_key: true
+      t.bigint :user_id
+      t.bigint :athlete_id
 
       t.timestamps
     end

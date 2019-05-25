@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_023812) do
+ActiveRecord::Schema.define(version: 2019_05_13_020153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,24 +42,23 @@ ActiveRecord::Schema.define(version: 2019_05_24_023812) do
     t.string "nature_complaint"
     t.string "history_injuries"
     t.boolean "is_accompanying"
+    t.bigint "user_id"
+    t.bigint "athlete_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "athletes_id"
   end
 
   create_table "ankle_mobilities", force: :cascade do |t|
-    t.string "right_ankle"
-    t.string "left_ankle"
-    t.datetime "created_at", null: false
+    t.decimal "right_ankle"
+    t.decimal "left_ankle"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_ankle_mobilities_on_athletes_id"
-    t.index ["user_id"], name: "index_ankle_mobilities_on_user_id"
   end
 
   create_table "athletes", force: :cascade do |t|
+    t.string "name"
     t.string "cpf"
     t.date "date_birth"
     t.integer "age"
@@ -89,235 +88,215 @@ ActiveRecord::Schema.define(version: 2019_05_24_023812) do
     t.string "fami_diabetes"
     t.string "fami_cardio"
     t.string "others"
-    t.bigint "user_id"
+    t.binary "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.binary "avatar"
-    t.index ["user_id"], name: "index_athletes_on_user_id"
   end
 
   create_table "bridge_extensions", force: :cascade do |t|
     t.string "right_side"
     t.string "left_side"
-    t.datetime "created_at", null: false
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_bridge_extensions_on_athletes_id"
-    t.index ["user_id"], name: "index_bridge_extensions_on_user_id"
   end
 
   create_table "coopers", force: :cascade do |t|
-    t.string "distance"
-    t.string "aerobic_capacity"
-    t.string "v2max"
-    t.datetime "created_at", null: false
+    t.decimal "distance"
+    t.decimal "aerobic_capacity"
+    t.decimal "v2max"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_coopers_on_athletes_id"
-    t.index ["user_id"], name: "index_coopers_on_user_id"
   end
 
   create_table "cutaneous_folds", force: :cascade do |t|
-    t.string "tricipital"
-    t.string "subescapular"
-    t.string "average_axilar"
-    t.string "breastplate"
-    t.string "supra_ilcia"
-    t.string "abdomen"
-    t.string "thigh"
+    t.decimal "tricipital"
+    t.decimal "subescapular"
+    t.decimal "average_axilar"
+    t.decimal "breastplate"
+    t.decimal "supra_ilcia"
+    t.decimal "abdomen"
+    t.decimal "thigh"
     t.string "result"
-    t.string "bone_mass_BE"
-    t.string "bone_mass_BU"
-    t.string "bone_mass_BF"
-    t.string "bone_mass_BM"
-    t.string "bm_Result"
-    t.string "residual_mass"
-    t.string "fat_mass"
-    t.string "muscle_mass"
-    t.string "lean_mass"
-    t.datetime "created_at", null: false
+    t.decimal "bone_mass_BE"
+    t.decimal "bone_mass_BU"
+    t.decimal "bone_mass_BF"
+    t.decimal "bone_mass_BM"
+    t.decimal "bm_Result"
+    t.decimal "residual_mass"
+    t.decimal "fat_mass"
+    t.decimal "muscle_mass"
+    t.decimal "lean_mass"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_cutaneous_folds_on_athletes_id"
-    t.index ["user_id"], name: "index_cutaneous_folds_on_user_id"
   end
 
   create_table "dynometries", force: :cascade do |t|
-    t.string "peak_extension_right"
-    t.string "peak_extension_left"
-    t.string "peak_extension_deficit"
-    t.string "peak_flexion_right"
-    t.string "peak_flexion_left"
-    t.string "peak_flexion_deficit"
-    t.string "power_extension_right_180"
-    t.string "power_extension_left_180"
-    t.string "power_extesion_deficit_180"
-    t.string "power_flexion_right_180"
-    t.string "power_flexion_left_180"
-    t.string "power_flexion_deficit_180"
-    t.string "power_extension_right_300"
-    t.string "power_extension_left_300"
-    t.string "power_extesion_deficit_300"
-    t.string "power_flexion_right_300"
-    t.string "power_flexion_left_300"
-    t.string "power_flexion_deficit_300"
-    t.string "job_extension_right_180"
-    t.string "job_extension_left_180"
-    t.string "job_extesion_deficit_180"
-    t.string "job_flexion_right_180"
-    t.string "job_flexion_left_180"
-    t.string "job_flexion_deficit_180"
-    t.string "job_extension_right_300"
-    t.string "job_extension_left_300"
-    t.string "job_extesion_deficit_300"
-    t.string "job_flexion_right_300"
-    t.string "job_flexion_left_300"
-    t.string "job_flexion_deficit_300"
-    t.string "fatigue_extension_right_300"
-    t.string "fatigue_extension_left_300"
-    t.string "fatigue_extesion_deficit_300"
-    t.string "fatigue_flexion_right_300"
-    t.string "fatigue_flexion_left_300"
-    t.string "fatigue_flexion_deficit_300"
-    t.string "IDM_extension"
-    t.string "IDM_flexion"
-    t.string "relation_extension_right"
-    t.string "relation_extension_left"
-    t.datetime "created_at", null: false
+    t.decimal "peak_extension_right"
+    t.decimal "peak_extension_left"
+    t.decimal "peak_extension_deficit"
+    t.decimal "peak_flexion_right"
+    t.decimal "peak_flexion_left"
+    t.decimal "peak_flexion_deficit"
+    t.decimal "power_extension_right_180"
+    t.decimal "power_extension_left_180"
+    t.decimal "power_extesion_deficit_180"
+    t.decimal "power_flexion_right_180"
+    t.decimal "power_flexion_left_180"
+    t.decimal "power_flexion_deficit_180"
+    t.decimal "power_extension_right_300"
+    t.decimal "power_extension_left_300"
+    t.decimal "power_extesion_deficit_300"
+    t.decimal "power_flexion_right_300"
+    t.decimal "power_flexion_left_300"
+    t.decimal "power_flexion_deficit_300"
+    t.decimal "job_extension_right_180"
+    t.decimal "job_extension_left_180"
+    t.decimal "job_extesion_deficit_180"
+    t.decimal "job_flexion_right_180"
+    t.decimal "job_flexion_left_180"
+    t.decimal "job_flexion_deficit_180"
+    t.decimal "job_extension_right_300"
+    t.decimal "job_extension_left_300"
+    t.decimal "job_extesion_deficit_300"
+    t.decimal "job_flexion_right_300"
+    t.decimal "job_flexion_left_300"
+    t.decimal "job_flexion_deficit_300"
+    t.decimal "fatigue_extension_right_300"
+    t.decimal "fatigue_extension_left_300"
+    t.decimal "fatigue_extesion_deficit_300"
+    t.decimal "fatigue_flexion_right_300"
+    t.decimal "fatigue_flexion_left_300"
+    t.decimal "fatigue_flexion_deficit_300"
+    t.decimal "IDM_extension"
+    t.decimal "IDM_flexion"
+    t.decimal "relation_extension_right"
+    t.decimal "relation_extension_left"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_dynometries_on_athletes_id"
-    t.index ["user_id"], name: "index_dynometries_on_user_id"
   end
 
   create_table "functional_tests", force: :cascade do |t|
-    t.string "right_PA"
-    t.string "right_PM"
-    t.string "right_PL"
-    t.string "right_CM"
-    t.string "left_PA"
-    t.string "left_PM"
-    t.string "left_PL"
-    t.string "left_CM"
-    t.string "right_MMSS"
-    t.string "right_moviment"
-    t.string "right_pelvis_plane"
-    t.string "right_knee_position"
-    t.string "right_valg"
-    t.string "rightt_posture"
-    t.string "left_MMSS"
-    t.string "left_moviment"
-    t.string "left_pelvis_plane"
-    t.string "left_knee_position"
-    t.string "left_valg"
-    t.string "left_posture"
-    t.datetime "created_at", null: false
+    t.decimal "right_PA"
+    t.decimal "right_PM"
+    t.decimal "right_PL"
+    t.decimal "right_CM"
+    t.string "right_result"
+    t.decimal "left_PA"
+    t.decimal "left_PM"
+    t.decimal "left_PL"
+    t.decimal "left_CM"
+    t.string "left_result"
+    t.decimal "right_MMSS"
+    t.decimal "right_moviment"
+    t.decimal "right_pelvis_plane"
+    t.decimal "right_knee_position"
+    t.decimal "right_valg"
+    t.decimal "right_posture"
+    t.string "right_step_result"
+    t.decimal "left_MMSS"
+    t.decimal "left_moviment"
+    t.decimal "left_pelvis_plane"
+    t.decimal "left_knee_position"
+    t.decimal "left_valg"
+    t.decimal "left_posture"
+    t.string "left_step_result"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_functional_tests_on_athletes_id"
-    t.index ["user_id"], name: "index_functional_tests_on_user_id"
   end
 
   create_table "impulsions", force: :cascade do |t|
-    t.string "distance"
-    t.string "P"
-    t.datetime "created_at", null: false
+    t.decimal "distance"
+    t.decimal "P"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_impulsions_on_athletes_id"
-    t.index ["user_id"], name: "index_impulsions_on_user_id"
   end
 
   create_table "perimetries", force: :cascade do |t|
-    t.string "left_arm_relaxed"
-    t.string "right_arm_relaxed"
-    t.string "left_contracted_arm"
-    t.string "right_contracted_arm"
-    t.string "chest"
-    t.string "abdomen"
-    t.string "left_proximal_thigh"
-    t.string "right_proximal_thigh"
-    t.string "left_middle_thigh"
-    t.string "right_middle_thigh"
-    t.string "left_distal_thigh"
-    t.string "right_distal_thigh"
-    t.string "left_leg"
-    t.string "right_leg"
-    t.string "waist"
-    t.string "hip"
+    t.decimal "left_arm_relaxed"
+    t.decimal "right_arm_relaxed"
+    t.decimal "left_contracted_arm"
+    t.decimal "right_contracted_arm"
+    t.decimal "chest"
+    t.decimal "abdomen"
+    t.decimal "left_proximal_thigh"
+    t.decimal "right_proximal_thigh"
+    t.decimal "left_middle_thigh"
+    t.decimal "right_middle_thigh"
+    t.decimal "left_distal_thigh"
+    t.decimal "right_distal_thigh"
+    t.decimal "left_leg"
+    t.decimal "right_leg"
+    t.decimal "waist"
+    t.decimal "hip"
     t.string "result"
-    t.datetime "created_at", null: false
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_perimetries_on_athletes_id"
-    t.index ["user_id"], name: "index_perimetries_on_user_id"
   end
 
   create_table "physicals", force: :cascade do |t|
-    t.string "blood_pressure"
-    t.string "respiratory_frequency"
-    t.string "heart_rate"
-    t.string "SpO2"
-    t.string "weight"
-    t.string "height"
-    t.string "imc"
-    t.datetime "created_at", null: false
+    t.decimal "blood_pressure"
+    t.decimal "respiratory_frequency"
+    t.decimal "heart_rate"
+    t.decimal "SpO2"
+    t.decimal "weight"
+    t.decimal "height"
+    t.decimal "imc"
+    t.string "result"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_physicals_on_athletes_id"
-    t.index ["user_id"], name: "index_physicals_on_user_id"
   end
 
   create_table "questionaries", force: :cascade do |t|
-    t.integer "question1a"
-    t.integer "question1b"
-    t.integer "question2a"
-    t.integer "question2b"
-    t.integer "question3a"
-    t.integer "question3b"
+    t.decimal "question1a"
+    t.decimal "question1b"
+    t.decimal "question2a"
+    t.decimal "question2b"
+    t.decimal "question3a"
+    t.decimal "question3b"
     t.string "question4a"
     t.string "question4b"
-    t.datetime "created_at", null: false
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_questionaries_on_athletes_id"
-    t.index ["user_id"], name: "index_questionaries_on_user_id"
   end
 
   create_table "tegner_lysholms", force: :cascade do |t|
-    t.string "instability"
-    t.string "pain"
-    t.string "swelling"
-    t.string "climb_stairs"
-    t.string "squat"
-    t.string "locking"
-    t.string "limp"
-    t.string "support"
-    t.datetime "created_at", null: false
+    t.decimal "instability"
+    t.decimal "pain"
+    t.decimal "swelling"
+    t.decimal "climb_stairs"
+    t.decimal "squat"
+    t.decimal "locking"
+    t.decimal "limp"
+    t.decimal "support"
+    t.string "result"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_tegner_lysholms_on_athletes_id"
-    t.index ["user_id"], name: "index_tegner_lysholms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.binary "avatar"
     t.string "cpf"
     t.string "date_birth"
     t.string "gender"
@@ -329,43 +308,19 @@ ActiveRecord::Schema.define(version: 2019_05_24_023812) do
     t.string "cep"
     t.string "home_phone"
     t.string "cell_phone"
+    t.binary "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "yo_yos", force: :cascade do |t|
-    t.string "distance"
-    t.string "v2max"
-    t.datetime "created_at", null: false
+    t.decimal "distance"
+    t.decimal "v2max"
     t.bigint "user_id"
-    t.bigint "athletes_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["athletes_id"], name: "index_yo_yos_on_athletes_id"
-    t.index ["user_id"], name: "index_yo_yos_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "ankle_mobilities", "athletes", column: "athletes_id"
-  add_foreign_key "ankle_mobilities", "users"
-  add_foreign_key "athletes", "users"
-  add_foreign_key "bridge_extensions", "athletes", column: "athletes_id"
-  add_foreign_key "bridge_extensions", "users"
-  add_foreign_key "coopers", "athletes", column: "athletes_id"
-  add_foreign_key "coopers", "users"
-  add_foreign_key "cutaneous_folds", "athletes", column: "athletes_id"
-  add_foreign_key "cutaneous_folds", "users"
-  add_foreign_key "dynometries", "athletes", column: "athletes_id"
-  add_foreign_key "dynometries", "users"
-  add_foreign_key "functional_tests", "athletes", column: "athletes_id"
-  add_foreign_key "functional_tests", "users"
-  add_foreign_key "impulsions", "athletes", column: "athletes_id"
-  add_foreign_key "impulsions", "users"
-  add_foreign_key "perimetries", "athletes", column: "athletes_id"
-  add_foreign_key "perimetries", "users"
-  add_foreign_key "physicals", "athletes", column: "athletes_id"
-  add_foreign_key "physicals", "users"
-  add_foreign_key "questionaries", "athletes", column: "athletes_id"
-  add_foreign_key "questionaries", "users"
-  add_foreign_key "tegner_lysholms", "athletes", column: "athletes_id"
-  add_foreign_key "tegner_lysholms", "users"
-  add_foreign_key "yo_yos", "athletes", column: "athletes_id"
-  add_foreign_key "yo_yos", "users"
 end

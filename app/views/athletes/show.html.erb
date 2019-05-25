@@ -1,24 +1,9 @@
 <html>
     <head>
-        <script>
-            function change_to_active(){
-                // Get the container element
-                var btnContainer = document.getElementById("nav-menu");
-                
-                // Get all buttons with class="btn" inside the container
-                var btns = btnContainer.getElementsByClassName("btn-nav-menu");
-                
-                // Loop through the buttons and add the active class to the current/clicked button
-                for (var i = 0; i < btns.length; i++) {
-                  btns[i].addEventListener("click", function() {
-                    var current = document.getElementsByClassName("active");
-                    current[0].className = current[0].className.replace(" active", "");
-                    this.className += " active";
-                  });
-                }    
-            }
-        </script>
+        <%= javascript_include_tag 'athletes'%>
+        <%= stylesheet_link_tag 'athletes'%>
     </head>
+    
     <body>
 
         <div class='container col-md-7'>
@@ -56,83 +41,15 @@
                 
                 <div class='col-md-12'>
                     <div class="collapse multi-collapse show" id='athlete_data' data-parent="#athleteElements"> <!-- Athlete Data -->
-                        <div class='row justify-content-center'>
-                            <div class='col-md-12'>
-                                <table class="table table-sm">
-                                  <tbody>
-                                    <% athlete_attributes.each do |a| %>
-                                        <tr>
-                                          <td><strong> <%= t a[0] %>:</strong></td>
-                                          <td><%= a[1] %></td>
-                                        </tr>
-                                    <% end %>
-                                  </tbody>
-                                </table>
-                                
-                                <p class="text-center"><%= link_to "Editar", edit_athlete_path(@athlete.id), class: "btn btn-primary" %></p>                                
-                            </div>
-                        </div>
-
-                        
-                        
+                        <%= render '/layouts/athleteData' %> 
                     </div>
                     
                     <div class="collapse multi-collapse" id="athlete_history" data-parent="#athleteElements"><!-- Athlete History -->
-                        <div id="accordion" > 
-                            <% if athlete_history(@athlete.id).length == 0 %>
-                                <div class='text-center'>
-                                    <h3> Nenhuma avaliação feita, vamos fazer agora :) </h3>
-                                </div>
-                            <% end %>
-                            
-                            <% actual_day = nil %>
-                            <% athlete_history(@athlete.id).each do |a| %>
-                                <% if not actual_day == a[0].updated_at.strftime("%d/%m/%Y") %>
-                                    <% actual_day =  a[0].updated_at.strftime("%d/%m/%Y") %>
-                                    <div class='panel-header '>
-                                        <h5> Dia: <%= actual_day %> </h5>
-                                    </div>
-                                <% end %>
-                                
-                                <div class="card" style='margin-bottom: 2%;'>
-                                    <div class="card-header" id="headingOne" style="border-left: green; border-left-style: solid;">
-                                        <button class="btn col-md-12 text-left" data-toggle="collapse" data-target="#history_<%= a[0].id.to_s %>" aria-expanded="false" aria-controls="history_<%= a[0].id.to_s %>">
-                                            <a> <%= t a[1] %> - <%= a[0].updated_at.strftime('%H:%M') %> </a>
-                                        </button>
-                                    </div>
-                                
-                                    <div id="history_<%=a[0].id.to_s%>" class="collapse" aria-labelledby="heading<%=a[0].id.to_s%>" data-parent="#accordion">
-                                         <div class="card-body row">
-                                             <div class='col-md-8'>
-                                                 content....
-                                             </div>
-                                             <div class='col-md-4'>
-                                                 <%= button_to "Deletar", a[0] , method: :delete , class: "btn btn-primary"%>
-                                             </div>
-                                         </div>
-                                    </div>
-                                </div>
-                            <% end %> 
-                        </div>                    
+                        <%= render '/layouts/athleteHistory' %>         
                     </div>
                 
                     <div class="collapse multi-collapse" id='athlete_evaluations' data-parent="#athleteElements"> <!-- Athlete Evaluation -->
-                        <div class='row justify-content-center'>
-                            <table class='table table-sm col-md-8 text-center'>
-                                <tbody>
-                                    <% athlete_evaluations.each do |e| %>
-                                        <tr>
-                                            <td><%= link_to t(e[0..-5]), '/' + e , method: :get, class: 'btn col-md-12 font-weight-bold text-left' %></td>
-                                            <td><input type='checkbox'></input></td>
-                                        </tr> 
-                                    <% end %>
-                                </tbody>
-                            </table>     
-                            
-                            <button class='col-md-8 btn btn-primary'> Realizar Avaliações</button>
-                        </div>
-
-
+                        <%= render '/layouts/evaluationList' %>
                     </div>
                     
                 </div>

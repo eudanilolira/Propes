@@ -2,9 +2,7 @@ class CreateAthletes < ActiveRecord::Migration[5.2]
   def change
     create_table :athletes do |t|
       t.string :name
-      t.string :email
-      t.string :password
-      t.integer :cpf
+      t.string :cpf
       t.date :date_birth
       t.integer :age
       t.string :gender
@@ -15,9 +13,9 @@ class CreateAthletes < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :neighborhood
       t.string :state
-      t.integer :cep
-      t.integer :home_phone
-      t.integer :cell_phone
+      t.string :cep
+      t.string :home_phone
+      t.string :cell_phone
       t.string :modality
       t.string :position
       t.string :dum
@@ -33,7 +31,7 @@ class CreateAthletes < ActiveRecord::Migration[5.2]
       t.string :fami_diabetes
       t.string :fami_cardio
       t.string :others
-      t.references :users, foreign_key: true 
+      t.binary :avatar, :limit => 10.megabyte
       
       t.timestamps
     end

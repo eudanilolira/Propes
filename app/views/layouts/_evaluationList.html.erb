@@ -1,0 +1,13 @@
+<div class='row justify-content-center'>
+    <table class='table table-sm col-md-8 text-center'>
+        <tbody>
+            <% athlete_evaluations.each do |e| %>
+            <tr>
+                <td><%= link_to t(e[0..-5]), '/' + e , method: :get, class: 'btn col-md-12 font-weight-bold text-left' %></td>
+                <td><input type='checkbox'></input></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <button class='col-md-8 btn btn-primary'> Realizar Avaliações</button>
+</div>

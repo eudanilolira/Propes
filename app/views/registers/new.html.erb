@@ -1,32 +1,35 @@
 <html>
-  <body class='site-background'>
-    <div class='container text-center col-md-7'>
-      <div class='row'>
-          <header class='col-md-12'>
-              <%= image_tag('logo.png') %> 
-              <h1 class= "titulo"> Cadastro </h1>
-          </header>
-      </div>
-      
-      <div class='row'>
-        <div class='col-md-12'>
-          <p> Escolha sua forma de cadastro. Se você for um avaliador, precisará da autorização do administrador ao final da criação da conta</p>
-        </div>
-      </div>
-      
-      <div class='row'>
-        <div class='col-md-6'>
-          <%= link_to 'Avaliador', '/users/new' , method: :get, class: 'btn btn-primary tamanho-form' %>
-        </div>
+    <head>
+        <%= javascript_include_tag 'registers'%>
+        <%= stylesheet_link_tag 'registers'%>
+    </head>
+    
+    <body>
         
-        <div class='col-md-6'>
-          <%= link_to 'Atleta', '/athletes/new' , method: :get, class: 'btn btn-danger tamanho-form' %>
+        <div class='container text-center col-md-7'>
+            
+            <div class='row'>
+                <header class='col-md-12'>
+                    <%= image_tag('logo.png') %> 
+                    <h1 class= "titulo"> Cadastro </h1>
+                </header>
+            </div>
+            
+            <div class='row'>
+                <div class='col-md-12'>
+                    <p> Escolha sua forma de cadastro. Se você for um avaliador, precisará da autorização do administrador ao final da criação da conta</p>
+                </div>
+            </div>
+            
+            <div class='row'>
+                <div class='col-md-6'>
+                    <%= link_to 'Avaliador', '/users/new' , method: :get, class: 'btn btn-primary tamanho-form' %>
+                </div>
+                <div class='col-md-6'>
+                    <%= link_to 'Atleta', '/athletes/new' , method: :get, class: 'btn btn-danger tamanho-form' %>
+                </div>
+            </div>
+            
         </div>
-        
-      </div>
-      
-      
-      
-    </div>
-  </body>
+    </body>
 </html>

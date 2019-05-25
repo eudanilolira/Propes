@@ -7,10 +7,10 @@ class AnamnesesController < ApplicationController
         @anamnese = Anamnese.new(anamnese_params)
         
         @anamnese.user_id = current_user.id
-        @anamnese.athletes_id = session[:athlete_id]
+        @anamnese.athlete_id = session[:athlete_id]
         
         if @anamnese.save
-          redirect_to '/athletes/' + @anamnese.athletes_id.to_s
+          redirect_to '/athletes/' + @anamnese.athlete_id.to_s
         else
           render 'new'
         end
@@ -24,7 +24,7 @@ class AnamnesesController < ApplicationController
         @anamnese = Anamnese.find(params[:id])
         
         if @anamnese.update_attributes(anamnese_params)
-            redirect_to '/athletes/' + @anamnese.athletes_id.to_s
+            redirect_to '/athletes/' + @anamnese.athlete_id.to_s
         else
             render 'edit'
         end
@@ -33,7 +33,7 @@ class AnamnesesController < ApplicationController
   def destroy
     @anamnese = Anamnese.find(params[:id])
     @anamnese.destroy
-    redirect_to '/athletes/' + @anamnese.athletes_id.to_s
+    redirect_to '/athletes/' + @anamnese.athlete_id.to_s
   end
 
 
