@@ -1,11 +1,13 @@
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
-
+    
     function drawChart() {
       // Define the chart to be drawn.
       var data = new google.visualization.DataTable();
+     
       data.addColumn('string', 'Element');
       data.addColumn('number', 'Percentage');
       data.addRows([
@@ -13,19 +15,24 @@
         ['Oxygen', 0.21],
         ['Other', 0.01]
       ]);
-
+      var options = {'title':'How Much Pizza I Ate Last Night', 'height': 300, 'weight': 200 , 'backgroundColor.strokeWidth': 'black'
+};
       // Instantiate and draw the chart.
       var chart = new google.visualization.ColumnChart(document.getElementById('myColumnChart'));
-      chart.draw(data, null);
+      
+      chart.draw(data, options);
     }
-  </script>
+</script>
 
-<div id="accordion" > 
+
+<div id="accordion" >
+    
     <% if athlete_history(@athlete.id).length == 0 %>
         <div class='text-center'>
             <h3> Nenhuma avaliação feita, vamos fazer agora :) </h3>
         </div>
     <% end %>
+    
     
     <% actual_day = nil %>
     <% athlete_history(@athlete.id).each do |a| %>
@@ -39,41 +46,52 @@
         <div class="card" style='margin-bottom: 2%;'>
             <div class="card-header" id="headingOne" style="border-left: green; border-left-style: solid;">
                 <button class="btn col-md-12 text-left" data-toggle="collapse" data-target="#history_<%= a[0].id.to_s %>" aria-expanded="false" aria-controls="history_<%= a[0].id.to_s %>">
-                     <div class='col-md-5'>
-                         <a> <%= t a[1] %> - <%= a[0].updated_at.strftime('%H:%M') %> </a>
-                     </div>
-                    
-                     <div class='col-md-4'>
-                         <%= button_to "Deletar", a[0] , method: :delete , class: "btn btn-primary"%>
-                     </div>
+                    <div class='row'>
+                        <div class='col-md-6'>
+                            <a> <%= t a[1] %> - <%= a[0].updated_at.strftime('%H:%M') %> </a>
+                        </div>
+                        <div class='col-md-6'>
+                            <div class='row '>
+                                <div class='col-md-8 text-right'>
+                                    <%= button_to "Editar", a[0] , method: :edit , class: "btn btn-warning"%>
+                                </div>
+                                
+                                <div class='col-md-4 '>
+                                    <%= button_to "Deletar", a[0] , method: :delete , class: "btn btn-danger"%>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>                        
+                    </div>
                 </button>
             </div>
-        
             <div id="history_<%=a[0].id.to_s%>" class="collapse" aria-labelledby="heading<%=a[0].id.to_s%>" data-parent="#accordion">
-                 <div class="card-body row">
-                     <div class='col-md-6'>
-                         
-                        <table class="table table-sm">
-                          <tbody>
-                            <% a[0].attributes.each do |at| %>
-                                <% if not ["id", "athlete_id", "updated_at", "created_at", "user_id"].include? at[0] %>
-                                    <tr>
-                                      <td><strong> <%= t at[0] %>:</strong></td>
-                                      <td><%= at[1] %></td>
-                                    </tr>
-                                <% end %>    
-                            <% end %>
-                          </tbody>
-                        </table>
-                         
-                     </div>
-                     
-                     <div class='col-md-4'>
-                         <div id="myColumnChart"/>
-                     </div>
+                <div class="card-body row">
+                    
+                    
+                    <div class='col-md-12'>
+                        <div id="myColumnChart"  class='text-center'></div>
+                    </div>
 
-                 </div>
+                    
+                    <div class='col-md-12'>
+                        <table class="table table-sm">
+                            <tbody>
+                                <% a[0].attributes.each do |at| %>
+                                    <% if not ["id", "athlete_id", "updated_at", "created_at", "user_id"].include? at[0] %>
+                                        <tr>
+                                            <td><strong> <%= t at[0] %>:</strong></td>
+                                            <td><%= at[1] %></td>
+                                        </tr>
+                                    <% end %>    
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
             </div>
         </div>
     <% end %> 
-</div> 
+</div>

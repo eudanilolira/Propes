@@ -1,6 +1,19 @@
 class Athlete < ApplicationRecord
     has_one_attached :avatar
+    
     has_many :anamneses
+    has_many :questionaries
+    has_many :physicals
+    has_many :perimetries
+    has_many :cutaneous_folds
+    has_many :functional_tests
+    has_many :tegner_lysholms
+    has_many :coopers
+    has_many :yo_yos
+    has_many :impulsions
+    has_many :ankle_mobilities
+    has_many :bridge_extensions
+    has_many :dynometries
     
     validates :name, presence: true, length: {maximum: 60}
     validates :cpf, presence: true, length: {maximum: 11, minimum: 11}, uniqueness: {case_sensitive: false }

@@ -6,4 +6,5 @@ class Physical < ApplicationRecord
     validates :weight, presence: true
     validates :height, presence: true
     validates :imc, presence: true
+    validates :result, presence: false
 end

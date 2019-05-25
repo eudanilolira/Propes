@@ -3,20 +3,24 @@ class FunctionalTest < ApplicationRecord
     validates :right_PM, presence: true
     validates :right_PL, presence: true
     validates :right_CM, presence: true
+    validates :right_result, presence: false
     validates :left_PA, presence: true
     validates :left_PM, presence: true
     validates :left_PL, presence: true
     validates :left_CM, presence: true
+    validates :left_result, presence: false
     validates :right_MMSS, presence: true
     validates :right_moviment, presence: true
     validates :right_pelvis_plane, presence: true
     validates :right_knee_position, presence: true
     validates :right_valg, presence: true
     validates :right_posture, presence: true
+    validates :right_step_result, presence: false
     validates :left_MMSS, presence: true
     validates :left_moviment, presence: true
     validates :left_pelvis_plane, presence: true
     validates :left_knee_position, presence: true
     validates :left_valg, presence: true
     validates :left_posture, presence: true
+    validates :left_step_result, presence: false
 end

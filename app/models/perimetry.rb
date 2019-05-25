@@ -15,4 +15,5 @@ class Perimetry < ApplicationRecord
     validates :right_leg, presence: true
     validates :waist, presence: true
     validates :hip, presence: true
+    validates :result, presence: false
 end
