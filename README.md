@@ -11,6 +11,26 @@ O Propes é uma aplicação mobile com o intuito de armazenar dados de testes re
 # Justificativa do Projeto
 O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de uma ferramenta para a análise de dados. Atualmente o Lacaf utiliza tabelas Excel para armazenamento de dados e recuperação dos mesmos. Essa estrutura é, de certa forma, eficiente para o armazenamento dos dados, porém a visualização fica bastante complicada. Além disso não há uma forma rápida de acessar os dados armazenados a não ser por um site que da acesso a tabela. Nesse contexto verificamos a necessidade de uma forma fácil e gráfica de acesso aos dados, por isso pensamos na criação de uma aplicação mobile com dados na núvem para que o acesso seja feito instantaneamente e disponibilize ao cliente os dados armazenados.
 
+# GQM
+
+  # Goal/Objetivo  
+   * Criar uma plataforma onde seja possível dispor os resultados de avaliações de atletas para melhor análise para as pessoas da área de fisioterapia e educação física. 
+
+  # Questions/Questões 
+   * Como são feitas as avaliações dos atletas?
+   * Como será disposto os resultados das avaliações?
+   * Como será feito o controle dos usuários na aplicação?
+   * Como é a qualidade dos testes?
+
+
+  # Metrics/Metricas
+   * Quantidade de avaliações que estarão no sistema.
+   * Testes das funcionalidades da aplicação.
+   * Verificar análise estatística e formulário.
+   * Quantidade de cadastros no sistema.
+   * Depende a experiência do programador.
+   * Verificar o ‘SMELL’ dos códigos.
+
 # Equipe
 
 * [Danilo da Rocha Lira Araújo](https://github.com/DaniloLira) (Desenvolvedor e Product Owner)
