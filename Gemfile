@@ -59,6 +59,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
   gem 'pg', '>= 0.18', '< 2.0'
+  gem 'cucumber', '~> 3.1.0'
 end
 
 group :production do

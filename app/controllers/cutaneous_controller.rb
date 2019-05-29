@@ -1,2 +1,0 @@
-class CutaneousController < ApplicationController
-end
