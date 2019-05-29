@@ -1,0 +1,37 @@
+<html >
+    <body>
+        <div class='container col-md-7'>
+            
+            <div class='row text-center'>
+                <h1 class='col-md-12' style='color: #70C4FF;'>
+                    Modificação da Avaliação
+                </h1>
+            </div>
+            
+            <div class='row justify-content-md-center'>
+                <div class="col-md-11" >
+                    <%= form_for(@yo_yo) do |f| %>
+                        <% for field in @yo_yo.attributes %>
+                            
+                            <% if not ['id','created_at','user_id','athletes_id','updated_at'].include? field[0] %>
+                                <p class='text-left'>
+                                    <label><%= t field[0] %></label>
+                                    <%= f.text_field field[0], class: 'form-control'%> 
+                                </p>                                
+    
+                            <% elsif field[0] == 'avatar' %>
+                                <p class='text-left'>
+                                    <label><%= t field[0] %></label>
+                                    <p class='text-left'><%= f.file_field field[0], class: 'file_field' %></p>
+                                </p>
+                            <% end %>
+                        <% end %>
+                        
+
+                        <p class='text-center'><%= f.submit 'Salvar Alterações', class: 'btn btn-primary' %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

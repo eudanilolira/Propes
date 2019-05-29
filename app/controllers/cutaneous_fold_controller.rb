@@ -1,10 +1,10 @@
 class CutaneousFoldController < ApplicationController
     def new
-        @cutaneous_fold = Cutaneous_fold.new
+        @cutaneous_fold = CutaneousFold.new
     end
     
     def create
-        @cutaneous_fold = Cutaneous_fold.new(cutaneous_fold_params)
+        @cutaneous_fold = CutaneousFold.new(cutaneous_fold_params)
         
         @cutaneous_fold.user_id = current_user.id
         @cutaneous_fold.athlete_id = session[:athlete_id]
@@ -17,11 +17,11 @@ class CutaneousFoldController < ApplicationController
     end
 
     def edit
-        @cutaneous_fold = Cutaneous_fold.find(params[:id])
+        @cutaneous_fold = CutaneousFold.find(params[:id])
     end
   
     def update
-        @cutaneous_fold = Cutaneous_fold.find(params[:id])
+        @cutaneous_fold = CutaneousFold.find(params[:id])
         
         if @cutaneous_fold.update_attributes(cutaneous_fold_params)
             redirect_to '/athletes/' + @cutaneous_fold.athlete_id.to_s
@@ -31,7 +31,7 @@ class CutaneousFoldController < ApplicationController
     end
 
   def destroy
-    @cutaneous_fold = Cutaneous_fold.find(params[:id])
+    @cutaneous_fold = CutaneousFold.find(params[:id])
     @cutaneous_fold.destroy
     redirect_to '/athletes/' + @cutaneous_fold.athlete_id.to_s
   end

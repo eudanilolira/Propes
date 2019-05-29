@@ -1,10 +1,10 @@
 class YoYoController < ApplicationController
     def new
-        @yo_yo = Yo_yo.new
+        @yo_yo = YoYo.new
     end
     
     def create
-        @yo_yo = Yo_yo.new(yo_yo_params)
+        @yo_yo = YoYo.new(yo_yo_params)
         
         @yo_yo.user_id = current_user.id
         @yo_yo.athlete_id = session[:athlete_id]
@@ -17,11 +17,11 @@ class YoYoController < ApplicationController
     end
 
     def edit
-        @yo_yo = Yo_yo.find(params[:id])
+        @yo_yo = YoYo.find(params[:id])
     end
   
     def update
-        @yo_yo = Yo_yo.find(params[:id])
+        @yo_yo = YoYo.find(params[:id])
         
         if @yo_yo.update_attributes(yo_yo_params)
             redirect_to '/athletes/' + @yo_yo.athlete_id.to_s
@@ -31,7 +31,7 @@ class YoYoController < ApplicationController
     end
 
   def destroy
-    @yo_yo = Yo_yo.find(params[:id])
+    @yo_yo = YoYo.find(params[:id])
     @yo_yo.destroy
     redirect_to '/athletes/' + @yo_yo.athlete_id.to_s
   end

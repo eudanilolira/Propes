@@ -40,5 +40,5 @@ class PerimetryController < ApplicationController
     private
     def perimetry_params
         params.require(:perimetry).permit()
-    __END__
+    end
 end

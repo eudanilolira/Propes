@@ -1,10 +1,10 @@
 class BridgeExtensionController < ApplicationController
     def new
-        @bridge_extension = Bridge_extension.new
+        @bridge_extension = BridgeExtension.new
     end
     
     def create
-        @bridge_extension = Bridge_extension.new(bridge_extension_params)
+        @bridge_extension = BridgeExtension.new(bridge_extension_params)
         
         @bridge_extension.user_id = current_user.id
         @bridge_extension.athlete_id = session[:athlete_id]
@@ -17,11 +17,11 @@ class BridgeExtensionController < ApplicationController
     end
 
     def edit
-        @bridge_extension = Bridge_extension.find(params[:id])
+        @bridge_extension = BridgeExtension.find(params[:id])
     end
   
     def update
-        @bridge_extension = Bridge_extension.find(params[:id])
+        @bridge_extension = BridgeExtension.find(params[:id])
         
         if @bridge_extension.update_attributes(bridge_extension_params)
             redirect_to '/athletes/' + @bridge_extension.athlete_id.to_s
@@ -31,7 +31,7 @@ class BridgeExtensionController < ApplicationController
     end
 
   def destroy
-    @bridge_extension = Bridge_extension.find(params[:id])
+    @bridge_extension = BridgeExtension.find(params[:id])
     @bridge_extension.destroy
     redirect_to '/athletes/' + @bridge_extension.athlete_id.to_s
   end
