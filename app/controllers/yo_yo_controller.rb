@@ -39,6 +39,6 @@ class YoYoController < ApplicationController
 
     private
     def yo_yo_params
-        params.require(:yo_yo).permit()
+        params.require(:yo_yo).permit( :distance, :v2max)
     end
 end

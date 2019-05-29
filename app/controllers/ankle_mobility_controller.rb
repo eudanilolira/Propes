@@ -39,6 +39,6 @@ class AnkleMobilityController < ApplicationController
 
     private
     def ankle_mobility_params
-        params.require(:ankle_mobility).permit()
+        params.require(:ankle_mobility).permit(:right_ankle, :left_ankle)
     end
 end

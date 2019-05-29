@@ -39,6 +39,6 @@ class TegnerLysholmController < ApplicationController
 
     private
     def tegner_lysholm_params
-        params.require(:tegner_lysholm).permit()
+        params.require(:tegner_lysholm).permit( :instability, :pain, :swelling, :climb_stairs, :squat, :locking, :limp, :support)
     end
 end

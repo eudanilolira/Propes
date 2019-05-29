@@ -39,6 +39,6 @@ class ImpulsionController < ApplicationController
 
     private
     def impulsion_params
-        params.require(:impulsion).permit()
+        params.require(:impulsion).permit(:distance, :P)
     end
 end

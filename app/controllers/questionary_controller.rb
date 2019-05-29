@@ -39,6 +39,6 @@ class QuestionaryController < ApplicationController
 
     private
     def questionary_params
-        params.require(:questionary).permit()
+        params.require(:questionary).permit( :question1a, :question1b, :question2a, :question2b, :question3a, :question3b, :question4a, :question4b)
     end
 end

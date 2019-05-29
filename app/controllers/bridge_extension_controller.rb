@@ -39,6 +39,6 @@ class BridgeExtensionController < ApplicationController
 
     private
     def bridge_extension_params
-        params.require(:bridge_extension).permit()
+        params.require(:bridge_extension).permit(:right_side, :left_side)
     end
 end

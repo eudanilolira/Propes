@@ -39,6 +39,6 @@ class CooperController < ApplicationController
 
     private
     def cooper_params
-        params.require(:cooper).permit()
+        params.require(:cooper).permit(:distance, :aerobic_capacity, :v2max)
     end
 end

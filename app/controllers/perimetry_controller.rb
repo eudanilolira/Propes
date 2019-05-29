@@ -39,6 +39,7 @@ class PerimetryController < ApplicationController
 
     private
     def perimetry_params
-        params.require(:perimetry).permit()
+        params.require(:perimetry).permit(:left_arm_relaxed, :right_arm_relaxed, :left_contracted_arm, :right_contracted_arm, :chest, :abdomen, :left_proximal_thigh, :right_proximal_thigh,
+                                          :left_middle_thigh, :right_middle_thigh, :left_distal_thigh, :right_distal_thigh, :left_leg, :right_leg, :waist, :hip, :result)
     end
 end

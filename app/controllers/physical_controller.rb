@@ -39,6 +39,6 @@ class PhysicalController < ApplicationController
 
     private
     def physical_params
-        params.require(:physical).permit()
+        params.require(:physical).permit( :blood_pressure, :respiratory_frequency, :heart_rate, :SpO2, :weight, :height, :imc, :result)
     end
 end
