@@ -18,7 +18,7 @@
             
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
-                <%= form_with model: @bridgeExtension, local: true do |f| %>
+                <%= form_with model: @bridge_extension, local: true do |f| %>
                   <% for field in @bridge_extension.attributes %>
                       <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id'].include? field[0] %>
                         <p class='text-left'>

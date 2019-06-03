@@ -80,8 +80,26 @@ body {
 	}
 }
 
-.card-header {
-    background: #F3FFF3;
+.goodResult {
+    border-left-color: green; 
+    border-left-style: solid;
+    border-left-width: 5px;
+
+}
+
+.averageResult {
+    border-left-color: yellow; 
+    border-left-style: solid;
+
+}
+.badResult {
+    border-left-color: red; 
+    border-left-style: solid;
+
+}
+
+.card-header{
+    background: white;
 }
 
 .field_with_errors label {

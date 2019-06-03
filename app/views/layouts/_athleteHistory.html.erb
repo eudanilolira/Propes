@@ -3,9 +3,16 @@
 <script type="text/javascript">
     google.charts.load('current', {packages: ['corechart']});
     //google.charts.setOnLoadCallback(drawChart);
+    var on = false;
     
     function drawChart(id, resultado, titulo) {
-
+      if (on){
+          document.getElementById('myColumnChart' + id).innerHTML = "";
+          on = false;
+      } else {
+          //ESSA FUNÇÃO É PARA SUMIR COM O GRÁFICO SE APERTAR DE NOVO   
+          on = true;
+      }    
       // Define the chart to be drawn.
       var data = new google.visualization.DataTable();
      
@@ -35,7 +42,9 @@
     
     
     <% actual_day = nil %>
+    <% counter = 0 %>
     <% athlete_history(@athlete.id).each do |a| %>
+    
         <% if not actual_day == a[0].updated_at.strftime("%d/%m/%Y") %>
             <% actual_day =  a[0].updated_at.strftime("%d/%m/%Y") %>
             <div class='panel-header '>
@@ -44,8 +53,8 @@
         <% end %>
         
         <div class="card" style='margin-bottom: 2%;'>
-            <div class="card-header" id="headingOne" style="border-left: green; border-left-style: solid;">
-                <button class="btn col-md-12 text-left" data-toggle="collapse" data-target="#history_<%= a[0].id.to_s %>" aria-expanded="false" aria-controls="history_<%= a[0].id.to_s %>">
+            <div class="card-header" id="headingOne<%=counter%>">
+                <button class="btn col-md-12 text-left" data-toggle="collapse" data-target="#history_<%= counter %>" aria-expanded="false" aria-controls="history_<%= a[0].id.to_s %>">
                     <div class='row'>
                         <div class='col-md-6'>
                             <a> <%= t a[1] %> - <%= a[0].updated_at.strftime('%H:%M') %> </a>
@@ -66,16 +75,37 @@
                     </div>
                 </button>
             </div>
-            <div id="history_<%=a[0].id.to_s%>" class="collapse" aria-labelledby="heading<%=a[0].id.to_s%>" data-parent="#accordion" >
-                <div class="card-body row">
+            
+            <div id="history_<%=counter%>" class="collapse" aria-labelledby="heading<%=counter%>" data-parent="#accordion" >
+                <div class="card-body row ">
                     
+                    <% if a[0].attributes.include? 'result' %>
+                        <button onclick="drawChart(<%=counter%>, 9, '<%= t a[1] %>')" class='btn btn-link ' > Ver Gráfico </button> 
+                        
+                        <script language="javascript" type="text/javascript">
+                            var element = document.getElementById("headingOne<%=counter%>");
+                            var result = "<%= a[0].result %>";
+                            
+                            switch (result){
+                                // SWITCH PARA BOTAR A COR DA BARRA DEPENDENDO DO RESULTADO
+                                case 0:
+                                   element.classList.add("goodResult"); 
+                                   break;
+                                case 1:
+                                    element.classList.add("averageResult");
+                                    break;
+                                case 2:
+                                    element.classList.add("badResult");                                
+                            }
+
+                        </script>
+                    <% end %> 
                     
                     <div class='col-md-12'>
-                        <div id="myColumnChart<%=a[0].id.to_s%>"  class='text-center'></div>
+                        <div id="myColumnChart<%=counter%>"  class='text-center'></div>
                     </div>
                     
-                    <button onclick="drawChart(<%=a[0].id.to_s%>, 9, '<%= t a[1] %>')" class='btn btn-primary' > Ver Gráfico </button>
-                    
+
                     <div class='col-md-12'>
                         <table class="table table-sm">
                             <tbody>
@@ -90,9 +120,9 @@
                             </tbody>
                         </table>
                     </div>
-                    
                 </div>
             </div>
         </div>
+        <% counter += 1 %>    
     <% end %> 
 </div>

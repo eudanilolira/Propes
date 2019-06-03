@@ -18,7 +18,7 @@
             
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
-                <%= form_with model: @Perimetry, local: true do |f| %>
+                <%= form_with model: @perimetry, local: true do |f| %>
                   <% for field in @perimetry.attributes %>
                       <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id'].include? field[0] %>
                         <p class='text-left'>
