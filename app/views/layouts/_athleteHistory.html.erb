@@ -10,24 +10,24 @@
           document.getElementById('myColumnChart' + id).innerHTML = "";
           on = false;
       } else {
-          //ESSA FUNÇÃO É PARA SUMIR COM O GRÁFICO SE APERTAR DE NOVO   
           on = true;
-      }    
-      // Define the chart to be drawn.
-      var data = new google.visualization.DataTable();
-     
-      data.addColumn('string', 'Resultado');
-      data.addColumn('number', 'Resultado_1');
-      data.addRows([
-        ['Resultado', resultado],
+          // Define the chart to be drawn.
+          var data = new google.visualization.DataTable();
+         
+          data.addColumn('string', 'Resultado');
+          data.addColumn('number', 'Resultado_1');
+          data.addRows([
+            ['Resultado', resultado],
+    
+          ]);
+          var options = {'title': titulo, 'height': 300, 'weight': 200 , 'backgroundColor.strokeWidth': 'black'
+    };
+          // Instantiate and draw the chart.
+          var chart = new google.visualization.ColumnChart(document.getElementById('myColumnChart' + id));
+          
+          chart.draw(data, options);
+      }
 
-      ]);
-      var options = {'title': titulo, 'height': 300, 'weight': 200 , 'backgroundColor.strokeWidth': 'black'
-};
-      // Instantiate and draw the chart.
-      var chart = new google.visualization.ColumnChart(document.getElementById('myColumnChart' + id));
-      
-      chart.draw(data, options);
     }
 </script>
 
@@ -80,7 +80,7 @@
                 <div class="card-body row ">
                     
                     <% if a[0].attributes.include? 'result' %>
-                        <button onclick="drawChart(<%=counter%>, 9, '<%= t a[1] %>')" class='btn btn-link ' > Ver Gráfico </button> 
+                        <button onclick="drawChart(<%=counter%>, 9, '<%= t a[1] %>')" class='btn btn-link' id="btn-graphic" > Ver Gráfico </button> 
                         
                         <script language="javascript" type="text/javascript">
                             var element = document.getElementById("headingOne<%=counter%>");

@@ -1,21 +1,16 @@
 <html >
+    <head>
+        <%= javascript_include_tag 'yo_yo', 'data-turbolinks-track': 'reload' %>
+    </head>
     <body>
         <div class='container text-center col-md-8 panel'>
             
             <div class='row'>
                 <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário
+                    Formulário Yo-Yo
                 </h1>
             </div>
 
-             <% if @yo_yo.errors.any? %>
-                 <ul class='alert alert-danger'>
-                    <% @yo_yo.errors.full_messages.each do |message| %>
-                      <li ><%= message %></li>
-                    <% end %>                     
-                 </ul>
-             <% end %>
-            
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
                 <%= form_with model: @yoYo, local: true do |f| %>
