@@ -2,23 +2,23 @@
 
 <script type="text/javascript">
     google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    //google.charts.setOnLoadCallback(drawChart);
     
-    function drawChart() {
+    function drawChart(id, resultado, titulo) {
+
       // Define the chart to be drawn.
       var data = new google.visualization.DataTable();
      
-      data.addColumn('string', 'Element');
-      data.addColumn('number', 'Percentage');
+      data.addColumn('string', 'Resultado');
+      data.addColumn('number', 'Resultado_1');
       data.addRows([
-        ['Nitrogen', 0.78],
-        ['Oxygen', 0.21],
-        ['Other', 0.01]
+        ['Resultado', resultado],
+
       ]);
-      var options = {'title':'How Much Pizza I Ate Last Night', 'height': 300, 'weight': 200 , 'backgroundColor.strokeWidth': 'black'
+      var options = {'title': titulo, 'height': 300, 'weight': 200 , 'backgroundColor.strokeWidth': 'black'
 };
       // Instantiate and draw the chart.
-      var chart = new google.visualization.ColumnChart(document.getElementById('myColumnChart'));
+      var chart = new google.visualization.ColumnChart(document.getElementById('myColumnChart' + id));
       
       chart.draw(data, options);
     }
@@ -66,14 +66,15 @@
                     </div>
                 </button>
             </div>
-            <div id="history_<%=a[0].id.to_s%>" class="collapse" aria-labelledby="heading<%=a[0].id.to_s%>" data-parent="#accordion">
+            <div id="history_<%=a[0].id.to_s%>" class="collapse" aria-labelledby="heading<%=a[0].id.to_s%>" data-parent="#accordion" >
                 <div class="card-body row">
                     
                     
                     <div class='col-md-12'>
-                        <div id="myColumnChart"  class='text-center'></div>
+                        <div id="myColumnChart<%=a[0].id.to_s%>"  class='text-center'></div>
                     </div>
-
+                    
+                    <button onclick="drawChart(<%=a[0].id.to_s%>, 9, '<%= t a[1] %>')" class='btn btn-primary' > Ver Gráfico </button>
                     
                     <div class='col-md-12'>
                         <table class="table table-sm">
