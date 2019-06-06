@@ -1,2 +1,0 @@
-class FunctionalTestController < ApplicationController
-end
