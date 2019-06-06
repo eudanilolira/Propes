@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Including Rails Internalization
 gem 'rails-i18n'
@@ -54,16 +54,17 @@ gem "client_side_validations"
 # CanCan
 gem "cancan"
 
+#Postgres
+gem 'pg', '>= 0.18', '< 2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
-  gem 'pg', '>= 0.18', '< 2.0'
   gem 'cucumber', '~> 3.1.0'
 end
 
 group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
   gem "aws-sdk-s3", require: false
 end
 
@@ -87,5 +88,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'
 

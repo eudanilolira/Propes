@@ -1,0 +1,4 @@
+tmp
+npm-debug.log.*
+development.log
+database.yml
