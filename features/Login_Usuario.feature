@@ -7,7 +7,7 @@ Quero realizar o login
 
   Scenario: Login realizado com sucesso
     Given eu estou na página de login
-    When eu preencho o "Email" com "leo@gmai.com"
+    When eu preencho o "Email" com "leo@gmail.com"
         And eu preencho o "Senha" com "01234"
         And aperto Entrar
     Then o aplicativo deverá me redireciona para o meu perfil de usuário
