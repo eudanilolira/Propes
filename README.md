@@ -41,5 +41,5 @@ O Lacaf (Laboratório de cinesiologia e avaliação funcional) necessitava de um
 O site pode ser acessado através do link: http://propes-app.herokuapp.com/
 
 # Wiki
-Mais informações disponíveis na [Wiki](https://github.com/DaniloLira/Propes/wiki)
+Informações em relação ao Postmortem, reuniões e mais estão disponíveis na [Wiki](https://github.com/DaniloLira/Propes/wiki)
 
