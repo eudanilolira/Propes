@@ -3,6 +3,7 @@ class CreateYoYos < ActiveRecord::Migration[5.2]
     create_table :yo_yos do |t|
       t.decimal :distance
       t.decimal :result
+      t.string :qualitative_result
       t.bigint :user_id
       t.bigint :athlete_id
 

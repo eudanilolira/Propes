@@ -2,7 +2,7 @@ module AthletesHelper
 
     def evaluation_list
         return evaluation_list = [Anamnese, AnkleMobility, BridgeExtension, Cooper, CutaneousFold, 
-        Dynometry, FunctionalTest, Impulsion, Perimetry, Physical, Questionary, TegnerLysholm, YoYo]
+        Dynometry, Impulsion, Perimetry, Physical, Questionary, TegnerLysholm, YoYo]
     end
     
     def athlete_attributes

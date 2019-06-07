@@ -13,17 +13,18 @@
 
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
-                <%= form_with model: @yoYo, local: true do |f| %>
+                <% athlete = Athlete.find(session[:athlete_id]) %>
+                <%= form_with model: @yo_yo, local: true do |f| %>
                   <% for field in @yo_yo.attributes %>
-                      <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id'].include? field[0] %>
+                      <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id',"result","qualitative_result"].include? field[0] %>
                         <p class='text-left'>
                             <%= f.label field[0] %>
-                            <%= f.text_field field[0], class: 'form-control' %>
+                            <%= f.text_field field[0], class: 'form-control'%>
                         </p>
                       <% end %>
                   <% end %>
                   
-                  <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
+                  <p><input type="submit" name="commit" value="Salvar" class="btn salvar" data-disable-with="Salvar"></p>
                 <% end %>
               </div>
             </div>
