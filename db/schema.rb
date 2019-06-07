@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
   create_table "coopers", force: :cascade do |t|
     t.decimal "distance"
     t.decimal "result"
+    t.string "qualitative_result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -185,6 +186,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
   create_table "impulsions", force: :cascade do |t|
     t.decimal "distance"
     t.decimal "result"
+    t.string "qualitative_result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -260,6 +262,8 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.decimal "left_valg"
     t.decimal "left_posture"
     t.string "left_result"
+    t.string "right_qualitative_result"
+    t.string "left_qualitative_result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -276,6 +280,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.decimal "limp"
     t.decimal "support"
     t.decimal "result"
+    t.string "qualitative_result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -313,6 +318,8 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.decimal "left_PL"
     t.decimal "left_CM"
     t.decimal "left_result"
+    t.string "right_qualitative_result"
+    t.string "left_qualitative_result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -322,6 +329,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
   create_table "yo_yos", force: :cascade do |t|
     t.decimal "distance"
     t.decimal "result"
+    t.string "qualitative_result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false

@@ -20,7 +20,7 @@
             ['Resultado', resultado],
     
           ]);
-          var options = {'title': titulo, 'height': 300, 'weight': 200 , 'backgroundColor.strokeWidth': 'black'
+          var options = {'title': titulo, 'height': 300, 'weight': 20 , 'backgroundColor.strokeWidth': 'black'
     };
           // Instantiate and draw the chart.
           var chart = new google.visualization.ColumnChart(document.getElementById('myColumnChart' + id));
@@ -78,27 +78,27 @@
             
             <div id="history_<%=counter%>" class="collapse" aria-labelledby="heading<%=counter%>" data-parent="#accordion" >
                 <div class="card-body row ">
-                    
-                    <% if a[0].attributes.include? 'result' %>
-                        <button onclick="drawChart(<%=counter%>, 9, '<%= t a[1] %>')" class='btn btn-link' id="btn-graphic" > Ver Gráfico </button> 
+
+                    <% if a[0].attributes.include? 'qualitative_result' %>
+                        <button onclick="drawChart(<%=counter%>, <%= a[0].result %> , '<%=  a[1] %>')" class='btn btn-link' id="btn-graphic" > Ver Gráfico </button> 
                         
                         <script language="javascript" type="text/javascript">
-                            var element = document.getElementById("headingOne<%=counter%>");
-                            var result = "<%= a[0].result %>";
                             
-                            switch (result){
-                                // SWITCH PARA BOTAR A COR DA BARRA DEPENDENDO DO RESULTADO
-                                case 0:
-                                   element.classList.add("goodResult"); 
-                                   break;
-                                case 1:
-                                    element.classList.add("averageResult");
-                                    break;
-                                case 2:
-                                    element.classList.add("badResult");                                
+                            var element = document.getElementById("headingOne<%= counter %>");
+                            var qualitative_result = "<%= a[0].qualitative_result %>";
+                            
+                            if (qualitative_result == "Ruim" || qualitative_result == "Muito Ruim" || qualitative_result == "Abaixo da media"  ){
+                                   element.classList.add("badResult"); 
                             }
-
+                            else if (qualitative_result == "Media" ){
+                                    element.classList.add("averageResult");
+                            } 
+                            else {
+                                    element.classList.add("goodResult");
+                            }
+                            
                         </script>
+
                     <% end %> 
                     
                     <div class='col-md-12'>

@@ -18,6 +18,8 @@ class CreateStepDownTests < ActiveRecord::Migration[5.2]
       t.decimal :left_posture
       t.string :left_result
       
+      t.string :right_qualitative_result
+      t.string :left_qualitative_result
       t.bigint :user_id
       t.bigint :athlete_id
       
