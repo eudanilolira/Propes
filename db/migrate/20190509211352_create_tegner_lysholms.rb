@@ -9,7 +9,7 @@ class CreateTegnerLysholms < ActiveRecord::Migration[5.2]
       t.decimal :locking
       t.decimal :limp
       t.decimal :support
-      t.string :result
+      t.decimal :result
       t.bigint :user_id
       t.bigint :athlete_id
 
