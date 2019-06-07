@@ -104,8 +104,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
 
   create_table "coopers", force: :cascade do |t|
     t.decimal "distance"
-    t.decimal "aerobic_capacity"
-    t.decimal "v2max"
+    t.decimal "result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -120,7 +119,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.decimal "supra_ilcia"
     t.decimal "abdomen"
     t.decimal "thigh"
-    t.string "result"
+    t.decimal "result"
     t.decimal "bone_mass_BE"
     t.decimal "bone_mass_BU"
     t.decimal "bone_mass_BF"
@@ -183,40 +182,9 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "functional_tests", force: :cascade do |t|
-    t.decimal "right_PA"
-    t.decimal "right_PM"
-    t.decimal "right_PL"
-    t.decimal "right_CM"
-    t.string "right_result"
-    t.decimal "left_PA"
-    t.decimal "left_PM"
-    t.decimal "left_PL"
-    t.decimal "left_CM"
-    t.string "left_result"
-    t.decimal "right_MMSS"
-    t.decimal "right_moviment"
-    t.decimal "right_pelvis_plane"
-    t.decimal "right_knee_position"
-    t.decimal "right_valg"
-    t.decimal "right_posture"
-    t.string "right_step_result"
-    t.decimal "left_MMSS"
-    t.decimal "left_moviment"
-    t.decimal "left_pelvis_plane"
-    t.decimal "left_knee_position"
-    t.decimal "left_valg"
-    t.decimal "left_posture"
-    t.string "left_step_result"
-    t.bigint "user_id"
-    t.bigint "athlete_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "impulsions", force: :cascade do |t|
     t.decimal "distance"
-    t.decimal "P"
+    t.decimal "result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -240,7 +208,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.decimal "right_leg"
     t.decimal "waist"
     t.decimal "hip"
-    t.string "result"
+    t.decimal "result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -277,6 +245,27 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "step_down_tests", force: :cascade do |t|
+    t.decimal "right_MMSS"
+    t.decimal "right_moviment"
+    t.decimal "right_pelvis_plane"
+    t.decimal "right_knee_position"
+    t.decimal "right_valg"
+    t.decimal "right_posture"
+    t.string "right_result"
+    t.decimal "left_MMSS"
+    t.decimal "left_moviment"
+    t.decimal "left_pelvis_plane"
+    t.decimal "left_knee_position"
+    t.decimal "left_valg"
+    t.decimal "left_posture"
+    t.string "left_result"
+    t.bigint "user_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tegner_lysholms", force: :cascade do |t|
     t.decimal "instability"
     t.decimal "pain"
@@ -286,7 +275,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.decimal "locking"
     t.decimal "limp"
     t.decimal "support"
-    t.string "result"
+    t.decimal "result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
@@ -313,9 +302,26 @@ ActiveRecord::Schema.define(version: 2019_05_13_020153) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "y_tests", force: :cascade do |t|
+    t.decimal "right_PA"
+    t.decimal "right_PM"
+    t.decimal "right_PL"
+    t.decimal "right_CM"
+    t.decimal "right_result"
+    t.decimal "left_PA"
+    t.decimal "left_PM"
+    t.decimal "left_PL"
+    t.decimal "left_CM"
+    t.decimal "left_result"
+    t.bigint "user_id"
+    t.bigint "athlete_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "yo_yos", force: :cascade do |t|
     t.decimal "distance"
-    t.decimal "v2max"
+    t.decimal "result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false

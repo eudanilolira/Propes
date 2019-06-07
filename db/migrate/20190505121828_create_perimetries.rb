@@ -17,7 +17,7 @@ class CreatePerimetries < ActiveRecord::Migration[5.2]
       t.decimal :right_leg
       t.decimal :waist
       t.decimal :hip
-      t.string :result
+      t.decimal :result
       t.bigint :user_id
       t.bigint :athlete_id
 
