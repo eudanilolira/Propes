@@ -8,26 +8,61 @@
                 </h1>
             </div>
 
-             <% if @tegner_lysholm.errors.any? %>
-                 <ul class='alert alert-danger'>
-                    <% @tegner_lysholm.errors.full_messages.each do |message| %>
-                      <li ><%= message %></li>
-                    <% end %>                     
-                 </ul>
-             <% end %>
-            
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
                 <%= form_with model: @tegner_lysholm, local: true do |f| %>
-                  <% for field in @tegner_lysholm.attributes %>
-                      <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id'].include? field[0] %>
-                        <p class='text-left'>
-                            <%= f.label field[0] %>
-                            <%= f.text_field field[0], class: 'form-control' %>
-                        </p>
-                      <% end %>
-                  <% end %>
-                  
+                    <p class='text-left'>
+                        <div class="form-group">
+                          <%= f.label :instability %>
+                          <%= f.select :instability, [['Nunca (5)', 5], 
+                                                    ['Bengala OU Muleta (3)', 3], 
+                                                    ['Impossível (0)', 0]]
+                          %>
+                        </div>
+                        <%= f.label :pain %>
+                        <%= f.select :pain, [['Nunca Falseia (25)', 25], 
+                                            ['Raramente durante exercícios (20)', 20], 
+                                            ['Frequentemente durante exercícios (15)', 15], 
+                                            ['Ocasionalmente em atividades diárias (10)', 10], 
+                                            ['Frequentemente em atividades diárias (5)', 5], 
+                                            ['A cada passo (0)', 0]], 
+                        onchange: "" %>
+
+                        <%= f.label :swelling %>
+                        <%= f.select :swelling, [['Nenhum (10)', 10], 
+                                                ['Com exercícios pesados (6)', 6],
+                                                ['Com exercícios comuns (2)', 2], 
+                                                ['Constante (0)', 0]],
+                        onchange: "" %>
+
+                        <%= f.label :climb_stairs %>
+                        <%= f.select :climb_stairs, [['Nenhum Problema (10)', 10], 
+                                                     ['Levemente Prejudicado (6)', 6], 
+                                                     ['Um degrau de cada vez (2)', 2],
+                                                     ['Impossível (0)', 0]], 
+                        :class => 'form-control' %>
+
+                        <%= f.label :squat %>
+                        <%= f.select :squat, [['Nenhum problema (5)', 5], 
+                                             ['Levemente prejudicado(4)', 4], 
+                                             ['Não além de 90 Graus (2)', 2],
+                                             ['Impossível (0)', 0]], 
+                        onchange: "" %>
+
+                        <%= f.label :locking %>
+                        <%= f.select :locking, [['Nenhum travamento ou sensação (15)', 15],
+                                                ['Tem sensação, mas sem travamento (10)', 10], 
+                                                ['Travamento Ocasional (6)', 6],
+                                                ['Frequente (2)', 2]], 
+                        onchange: "" %>
+                        
+                        <%= f.label :limp %>
+                        <%= f.select :limp, [['Nunca (5)', 5], 
+                                             ['Leve ou periodicamente (3)', 3], 
+                                             ['Intenso e Constante (0)', 0]], 
+                        onchange: "" %>
+                        
+                    </p>
                   <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
                 <% end %>
               </div>
