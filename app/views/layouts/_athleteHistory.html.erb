@@ -102,7 +102,7 @@
                     <% end %> 
                     
                     <div class='col-md-12'>
-                        <div id="myColumnChart<%=counter%>"  class='text-center'></div>
+                        <div id="myColumnChart<%=counter%>" class='text-center'></div>
                     </div>
                     
 
@@ -112,7 +112,7 @@
                                 <% a[0].attributes.each do |at| %>
                                     <% if not ["id", "athlete_id", "updated_at", "created_at", "user_id"].include? at[0] %>
                                         <tr>
-                                            <td><strong> <%= t at[0] %>:</strong></td>
+                                            <td><strong> <%= t at[0] %>: </strong></td>
                                             <td><%= at[1] %></td>
                                         </tr>
                                     <% end %>    
