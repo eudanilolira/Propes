@@ -9,3 +9,6 @@ database.yml
 
 #Ignorar todos os arquivos da pasta tmp
 log/
+
+#
+log/development.log
