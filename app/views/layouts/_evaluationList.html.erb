@@ -4,10 +4,10 @@
             <% athlete_evaluations.each do |e| %>
             <tr>
                 <td><%= link_to t(e[0..-5]), '/' + e , method: :get, class: 'btn col-md-12 font-weight-bold text-left' %></td>
-                <td><input type='checkbox'></input></td>
+                <td><%= check_box_tag 'evaluation' + athlete_evaluations.index(e).to_s, e.to_s  %></td>
             </tr>
             <% end %>
         </tbody>
     </table>
-    <button class='col-md-8 btn btn-primary'> Realizar Avaliações</button>
+    <%= link_to  'Longs', '/' , method: :get, class: 'btn col-md-12 font-weight-bold text-left' %>
 </div>

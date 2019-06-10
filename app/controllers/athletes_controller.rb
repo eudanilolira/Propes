@@ -1,5 +1,4 @@
 class AthletesController < ApplicationController
-  
   def index
     if params[:name]
         @athletes = Athlete.where('name LIKE ?', "%#{params[:name]}%")
