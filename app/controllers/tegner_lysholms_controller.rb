@@ -6,6 +6,15 @@ class TegnerLysholmsController < ApplicationController
     def create
         @tegner_lysholm = TegnerLysholm.new(tegner_lysholm_params)
         
+        result = 0
+		@tegner_lysholm.attributes.each do |a|
+          if not ["updated_at", "created_at", "user_id", "athlete_id", "qualitative_result", "id", "result"].include? a 
+            result += a[1].to_i
+          end
+		end
+
+        @tegner_lysholm.result = result
+        @tegner_lysholm.qualitative_result = calc_result(result)
         @tegner_lysholm.user_id = current_user.id
         @tegner_lysholm.athlete_id = session[:athlete_id]
         
@@ -40,5 +49,18 @@ class TegnerLysholmsController < ApplicationController
     private
     def tegner_lysholm_params
         params.require(:tegner_lysholm).permit( :instability, :pain, :swelling, :climb_stairs, :squat, :locking, :limp, :support)
+    end
+
+    private
+    def calc_result(result)
+        if result < 66
+        	return "Ruim"
+        elsif result < 85
+        	return "Regular"
+        elsif result < 96
+        	return "Bom"
+        elsif result > 96
+        	return "Excelente"
+        end
     end
 end

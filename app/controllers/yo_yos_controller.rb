@@ -11,7 +11,7 @@
 			
 			athlete = Athlete.find(session[:athlete_id])
 
-			@yo_yo.result = (((@yo_yo.distance) * 0.0084) + 36.4)
+			@yo_yo.result = (((@yo_yo.distance) * 0.0084) + 36.4).round(2)
 			@yo_yo.qualitative_result = calc_result(athlete.age, @yo_yo.result, athlete.gender)     
 
 			if @yo_yo.save

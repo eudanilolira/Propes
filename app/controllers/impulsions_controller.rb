@@ -5,6 +5,14 @@ class ImpulsionsController < ApplicationController
     
     def create
         @impulsion = Impulsion.new(impulsion_params)
+
+        begin
+          # MUDAR ESSE 60 PARA O PESO DO ATLETA !!!!!!!!!!!!!!!!!!
+          @impulsion.result = 2.21 * (60) * (@impulsion.distance ** 2)
+          @impulsion.qualitative_result = calc_result(@impulsion.result, Athlete.find(session[:athlete_id]).gender)
+        rescue
+
+        end
         
         @impulsion.user_id = current_user.id
         @impulsion.athlete_id = session[:athlete_id]
@@ -39,6 +47,35 @@ class ImpulsionsController < ApplicationController
 
     private
     def impulsion_params
-        params.require(:impulsion).permit(:distance, :P)
+        params.require(:impulsion).permit(:distance)
+    end
+
+    private
+    def calc_result(form, gender)
+      if gender == "M"
+          if form < 21
+            return "Muito Ruim"
+          elsif form < 34
+            return "Ruim"
+          elsif form < 49
+            return "Media"
+          elsif form < 61
+            return "Acima da Media"
+          else
+            return "Excelente"  
+          end   
+      else
+          if form < 6
+            return "Muito Ruim"
+          elsif form < 16
+            return "Ruim"
+          elsif form < 26
+            return "Media"
+          elsif form < 33
+            return "Acima da Media"
+          else
+            return "Excelente"  
+          end 
+      end
     end
 end

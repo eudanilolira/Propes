@@ -1,3 +1,6 @@
+var evaluation_list = [];
+
+
 function change_to_active(){
     // Get the container element
     var btnContainer = document.getElementById("nav-menu");
@@ -14,3 +17,21 @@ function change_to_active(){
       });
     }    
 }
+
+
+$(document).ready(function (){
+  $('#do_evaluations').click(function (){
+    for (let i = 0; i < 13; i++){
+        if ($('#evaluation' + i).prop("checked") == true){
+            evaluation_list.push($('#evaluation'+ i).val());
+        };
+    };
+    console.log(evaluation_list);
+
+    $.ajax({
+      url: "http://localhost:3000/list_evaluations/set_list?list="+evaluation_list,
+      success: function(data) {
+      }
+    });
+  });
+});

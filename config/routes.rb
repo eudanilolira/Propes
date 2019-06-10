@@ -21,7 +21,10 @@ Rails.application.routes.draw do
   post 'impulsions/new' => 'impulsions#create'
   post 'perimetries/new' => 'perimetries#create'
   post 'ankle_mobilities/new' => 'ankle_mobilities#create'
+  post 'yo_tests/new' => 'yo_tests#create'
+  get 'list_evaluations/set_list' => 'list_evaluations#set_list'
   
+  resources :yo_tests
   resources :bridge_extensions
   resources :concerns
   resources :coopers
