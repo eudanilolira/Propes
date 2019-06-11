@@ -12,17 +12,17 @@ Quero realizar o login
         And aperto Entrar
     Then o aplicativo deverá me redireciona para o meu perfil de usuário
     
-  Scenario: Login com senha faltando
+  Scenario: Login com senha faltando/errada
     Given Estou na página de login
-    When Preencho o campo Email
-        And não preencho o campo Senha
+    When Preencho o campo Email com "leo@gmail.com"
+        And não preencho o campo Senha com ""
         And aperto Entrar
-    Then o sistema deverá me avisar que não coloquei a senha
+    Then o sistema deverá me avisar que senha está incorreta
   
   Scenario: Login com Email faltando
     Given Estou na página de login
-    When Preencho o campo Senha
-        And não preencho o campo Email
+    When Preencho o campo Senha com "01234"
+        And não preencho o campo Email com ""
         And aperto Entrar
     Then o sistema deverá me avisar que não coloquei o email
 
