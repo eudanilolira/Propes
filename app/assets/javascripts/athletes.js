@@ -18,7 +18,6 @@ function change_to_active(){
     }    
 }
 
-
 $(document).ready(function (){
   $('#do_evaluations').click(function (){
     for (let i = 0; i < 13; i++){
