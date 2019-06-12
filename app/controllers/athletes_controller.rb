@@ -1,4 +1,6 @@
 class AthletesController < ApplicationController
+  before_action :set_athlete, only: [:show, :edit, :update, :destroy]
+
   def index
     if params[:name]
         @athletes = Athlete.where('name LIKE ?', "%#{params[:name]}%")

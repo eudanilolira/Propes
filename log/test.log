@@ -547,3 +547,154 @@ FOREIGN KEY ("blob_id")
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (9.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (117.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "propes_test"[0m
+  [1m[35m (374.0ms)[0m  [1m[35mCREATE DATABASE "propes_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  [1m[35m (22.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "anamneses" CASCADE[0m
+  [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "anamneses" ("id" bigserial primary key, "main_complaint" character varying, "history_complaint" character varying, "nature_complaint" character varying, "history_injuries" character varying, "is_accompanying" boolean, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "ankle_mobilities" CASCADE[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE "ankle_mobilities" ("id" bigserial primary key, "right_ankle" decimal, "left_ankle" decimal, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "athletes" CASCADE[0m
+  [1m[35m (22.8ms)[0m  [1m[35mCREATE TABLE "athletes" ("id" bigserial primary key, "name" character varying, "cpf" character varying, "date_birth" date, "age" integer, "gender" character varying, "civil_status" character varying, "degree_education" character varying, "profession" character varying, "address" character varying, "city" character varying, "neighborhood" character varying, "state" character varying, "cep" character varying, "home_phone" character varying, "cell_phone" character varying, "modality" character varying, "position" character varying, "dum" character varying, "dlm" character varying, "smoker" character varying, "alcoholism" character varying, "sah" character varying, "diabetes" character varying, "cardio_deseases" character varying, "exercise_practice" character varying, "fami_alcoholism" character varying, "fami_sah" character varying, "fami_diabetes" character varying, "fami_cardio" character varying, "others" character varying, "avatar" bytea, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "bridge_extensions" CASCADE[0m
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "bridge_extensions" ("id" bigserial primary key, "right_side" character varying, "left_side" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "coopers" CASCADE[0m
+  [1m[35m (22.6ms)[0m  [1m[35mCREATE TABLE "coopers" ("id" bigserial primary key, "distance" decimal, "result" decimal, "qualitative_result" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cutaneous_folds" CASCADE[0m
+  [1m[35m (22.7ms)[0m  [1m[35mCREATE TABLE "cutaneous_folds" ("id" bigserial primary key, "tricipital" decimal, "subescapular" decimal, "average_axilar" decimal, "breastplate" decimal, "supra_ilcia" decimal, "abdomen" decimal, "thigh" decimal, "result" decimal, "bone_mass_BE" decimal, "bone_mass_BU" decimal, "bone_mass_BF" decimal, "bone_mass_BM" decimal, "bm_Result" decimal, "residual_mass" decimal, "fat_mass" decimal, "muscle_mass" decimal, "lean_mass" decimal, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "dynometries" CASCADE[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE "dynometries" ("id" bigserial primary key, "peak_extension_right" decimal, "peak_extension_left" decimal, "peak_extension_deficit" decimal, "peak_flexion_right" decimal, "peak_flexion_left" decimal, "peak_flexion_deficit" decimal, "power_extension_right_180" decimal, "power_extension_left_180" decimal, "power_extesion_deficit_180" decimal, "power_flexion_right_180" decimal, "power_flexion_left_180" decimal, "power_flexion_deficit_180" decimal, "power_extension_right_300" decimal, "power_extension_left_300" decimal, "power_extesion_deficit_300" decimal, "power_flexion_right_300" decimal, "power_flexion_left_300" decimal, "power_flexion_deficit_300" decimal, "job_extension_right_180" decimal, "job_extension_left_180" decimal, "job_extesion_deficit_180" decimal, "job_flexion_right_180" decimal, "job_flexion_left_180" decimal, "job_flexion_deficit_180" decimal, "job_extension_right_300" decimal, "job_extension_left_300" decimal, "job_extesion_deficit_300" decimal, "job_flexion_right_300" decimal, "job_flexion_left_300" decimal, "job_flexion_deficit_300" decimal, "fatigue_extension_right_300" decimal, "fatigue_extension_left_300" decimal, "fatigue_extesion_deficit_300" decimal, "fatigue_flexion_right_300" decimal, "fatigue_flexion_left_300" decimal, "fatigue_flexion_deficit_300" decimal, "IDM_extension" decimal, "IDM_flexion" decimal, "relation_extension_right" decimal, "relation_extension_left" decimal, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "impulsions" CASCADE[0m
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "impulsions" ("id" bigserial primary key, "distance" decimal, "result" decimal, "qualitative_result" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "perimetries" CASCADE[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "perimetries" ("id" bigserial primary key, "left_arm_relaxed" decimal, "right_arm_relaxed" decimal, "left_contracted_arm" decimal, "right_contracted_arm" decimal, "chest" decimal, "abdomen" decimal, "left_proximal_thigh" decimal, "right_proximal_thigh" decimal, "left_middle_thigh" decimal, "right_middle_thigh" decimal, "left_distal_thigh" decimal, "right_distal_thigh" decimal, "left_leg" decimal, "right_leg" decimal, "waist" decimal, "hip" decimal, "result" decimal, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "physicals" CASCADE[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "physicals" ("id" bigserial primary key, "blood_pressure" decimal, "respiratory_frequency" decimal, "heart_rate" decimal, "SpO2" decimal, "weight" decimal, "height" decimal, "imc" decimal, "result" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "questionaries" CASCADE[0m
+  [1m[35m (22.5ms)[0m  [1m[35mCREATE TABLE "questionaries" ("id" bigserial primary key, "question1a" decimal, "question1b" decimal, "question2a" decimal, "question2b" decimal, "question3a" decimal, "question3b" decimal, "question4a" character varying, "question4b" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "step_down_tests" CASCADE[0m
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "step_down_tests" ("id" bigserial primary key, "right_MMSS" decimal, "right_moviment" decimal, "right_pelvis_plane" decimal, "right_knee_position" decimal, "right_valg" decimal, "right_posture" decimal, "right_result" character varying, "left_MMSS" decimal, "left_moviment" decimal, "left_pelvis_plane" decimal, "left_knee_position" decimal, "left_valg" decimal, "left_posture" decimal, "left_result" character varying, "right_qualitative_result" character varying, "left_qualitative_result" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tegner_lysholms" CASCADE[0m
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "tegner_lysholms" ("id" bigserial primary key, "instability" decimal, "pain" decimal, "swelling" decimal, "climb_stairs" decimal, "squat" decimal, "locking" decimal, "limp" decimal, "support" decimal, "result" decimal, "qualitative_result" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "cpf" character varying, "date_birth" character varying, "gender" character varying, "profession" character varying, "address" character varying, "city" character varying, "neighborhood" character varying, "state" character varying, "cep" character varying, "home_phone" character varying, "cell_phone" character varying, "avatar" bytea, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "y_tests" CASCADE[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "y_tests" ("id" bigserial primary key, "right_PA" decimal, "right_PM" decimal, "right_PL" decimal, "right_CM" decimal, "right_result" decimal, "left_PA" decimal, "left_PM" decimal, "left_PL" decimal, "left_CM" decimal, "left_result" decimal, "right_qualitative_result" character varying, "left_qualitative_result" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "yo_yos" CASCADE[0m
+  [1m[35m (22.2ms)[0m  [1m[35mCREATE TABLE "yo_yos" ("id" bigserial primary key, "distance" decimal, "result" decimal, "qualitative_result" character varying, "user_id" bigint, "athlete_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  [1m[35m (22.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190513020153)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190509211849),
+(20190509212113),
+(20190509212652),
+(20190417022701),
+(20190505122746),
+(20190505121828),
+(20190509210423),
+(20190506212113),
+(20190430195742),
+(20190509211957),
+(20190501030447),
+(20190509211615),
+(20190509212347),
+(20190505121445),
+(20190509211352);
+
+[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-06-12 11:49:42.567808"], ["updated_at", "2019-06-12 11:49:42.567808"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

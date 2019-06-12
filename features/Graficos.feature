@@ -7,7 +7,7 @@ Quero ver os resultados em formato de gráficos
 
 
   Scenario: visualização de graficos
-    Given 
-    When 
-        And 
-    Then 
+    Given estou no menu dos atletas
+    When eu clico em um atleta
+    Then vou para o perfil do atleta selecionado
+      And 
