@@ -1,16 +1,8 @@
 #Ignorar todos os arquivos da pasta tmp
 tmp/
 
-#Ignorar todos logs de erro do npm
-npm-debug.log.*
-
 #Ignorar mudanças na database utilizada para evitar conflitos no desenvolvimento
-database.yml
+config/database.yml
 
 #Ignorar todos os arquivos da pasta tmp
 log/
-
-#
-log/development.log
-
-development.log
