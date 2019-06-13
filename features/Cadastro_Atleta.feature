@@ -15,7 +15,7 @@ Scenario: Cadastro com Sucesso
   And clicar no botão Cadastrar
   Then a mensagem "Usuário cadastrado com sucesso" será exibida
   
-Scenario: Cadastro com Sucesso
+Scenario: Cadastro errado
   Given Eu estou na pagina inicial
   And Clico no botão Cadastrar
   Then Eu vou para a pagina de de selação de cadastro
