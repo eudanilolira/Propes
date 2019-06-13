@@ -11,14 +11,28 @@
 				<div class="col-md-11">
 					<%= form_with model: @anamnese, local: true do |f| %>
 						<% for field in @anamnese.attributes %>
-							<% if not ['id','created_at', 'updated_at', 'user_id','athlete_id'].include? field[0] %>
-							<p class='text-left'>
-								<%= f.label field[0] %>
-								<%= f.text_field field[0], class: 'form-control' %>
-							</p>
+							<% if not ['id','created_at', 'updated_at', 'user_id','athlete_id', "is_accompanying"].include? field[0] %>
+								<p class='text-left'>
+									<%= f.label t field[0] %>
+									<%= f.text_field field[0], class: 'form-control' %>
+								</p>
+
+							<% elsif ["is_accompanying"].include? field[0] %>
+
+								<p class='text-left'>
+									<label><%= t field[0] %></label>
+									
+									<div class="radio text-left">
+										<label><input type='radio' name="<%="anamnese[#{field[0].to_s}]"%>" value="Yes"> Sim </label>
+									</div>
+									
+									<div class='radio text-left'>
+										<label><input type='radio' name="<%="anamnese[#{field[0].to_s}]"%>" value="No"> Não </label>
+									</div>                                
+								</p>
 							<% end %>
 						<% end %>
-						<p><%= f.submit 'Salvar', class: 'btn salvar', id:"btn-salvar", disabled: true %></p>
+						<p><%= f.submit 'Realizar avaliação', class: 'btn salvar', id:"btn-salvar" %></p>
 					<% end %>
 				</div>
 			</div>

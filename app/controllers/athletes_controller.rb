@@ -1,5 +1,4 @@
 class AthletesController < ApplicationController
-  before_action :set_athlete, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:name]
@@ -10,9 +9,16 @@ class AthletesController < ApplicationController
   end
   
   def edit
+    @athlete = Athlete.find(params[:id])
   end
   
-  def updated
+  def update
+    @athlete = Athlete.find(params[:id])
+    if @athlete.update_attributes(athlete_params)
+      render 'show'
+    else
+      render 'edit'
+    end
   end
   
   def new

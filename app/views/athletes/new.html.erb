@@ -3,8 +3,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     </head>
 
-
-
     <body>
         <div class='container col-md-7'>
             
@@ -21,7 +19,7 @@
                         <% fi = field[0] %>
                         <% if ['name','cpf', 'cep','profession','address','city',
                                 'neighborhood','state','cell_phone','home_phone',
-                                'modality','date_birth', 'others'].include? fi %>
+                                'modality','date_birth', 'others', 'position', 'age'].include? fi %>
                             <p>
                                 <%= f.label t fi %>
                                 <%= f.text_field fi, class:"form-control" %>
@@ -57,33 +55,47 @@
                                 </select>
                             </p>  
 
+                        <% elsif ['avatar'].include? fi %>
+                            <p>
+                                <label><%= t fi %></label>
+                                <p class='text-left'><%= f.file_field fi, class: 'file_field' %></p>
+                            </p>
 
                         <% elsif ['diabetes','sah','smoker','alcoholism','cardio_deseases',
-                                  'fami_diabetes','fami_alcoholism','fami_cardio', 'fami_sah'].include? fi %>
+                                  'fami_diabetes','fami_alcoholism','fami_cardio', 'fami_sah','exercise_practice'].include? fi %>
 
                             <p>
                                 <label><%= t fi %></label>
                                 
                                 <div class="radio">
-                                    <%= f.label fi, "Sim") %>
-                                    <%= f.radio_button fi, "Yes" %>
+                                    <label><input type='radio' name="<%="athlete[#{fi.to_s}]"%>" value="Yes"> Sim </label>
                                 </div>
+                                
+                                <div class='radio'>
+                                    <label><input type='radio' name="<%="athlete[#{fi.to_s}]"%>" value="No"> Não </label>
+                                </div>                                
+                            </p>
 
+                        <% elsif ['dlm','dum'].include? fi %>
+
+                            <p>
+                                <label><%= t fi %></label>
                                 
                                 <div class="radio">
-                                    <%= f.label fi, "Não") %>
-                                    <%= f.radio_button fi, "No" %>
+                                    <label><input type='radio' name="<%="athlete[#{fi.to_s}]"%>" value="left"> Esquerdo </label>
                                 </div>
+                                
+                                <div class='radio'>
+                                    <label><input type='radio' name="<%="athlete[#{fi.to_s}]"%>" value="right"> Direito </label>
+                                </div>                                
                             </p>
 
                         <% end %>
                     <% end %>
-
-
-
-                    <p><%= f.submit 'Cadastrar', class: 'btn salvar' %></p>
+                </div>
+                    <p><%= f.submit 'Cadastrar', class: 'btn salvar text-center', id:"submit_form" %></p>
                 <% end %>
-              </div>
+              
             </div>
         </div>
     </body>

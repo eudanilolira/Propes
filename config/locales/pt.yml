@@ -1,5 +1,4 @@
 pt:
- hello: "Olá mundo"
  name: "Nome"
  cpf: "CPF"
  date_birth: "Data de nascimento"
@@ -10,6 +9,10 @@ pt:
  neighborhood: "Bairro"
  state: "Estado"
  cep: "CEP"
+ right: "Direito"
+ left: "Esquerdo"
+ Yes: "Sim"
+ No: "Não"
  home_phone: "Telefone"
  cell_phone: "Celular"
  age: "Idade"

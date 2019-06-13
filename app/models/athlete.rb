@@ -18,7 +18,6 @@ class Athlete < ApplicationRecord
     validates :name, presence: true
     validates :cpf, presence: true
     validates :date_birth, presence: true
-    validates :age, presence: true
     validates :gender, presence: true
     validates :civil_status, presence: true
     validates :degree_education, presence: true
