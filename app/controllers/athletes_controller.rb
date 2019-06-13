@@ -25,6 +25,7 @@ class AthletesController < ApplicationController
     if @athlete.save
       redirect_to '/sign_in'
     else
+      puts @athlete.errors.full_messages
       render :new
     end
   end

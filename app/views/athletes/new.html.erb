@@ -1,4 +1,10 @@
 <html >    
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    </head>
+
+
+
     <body>
         <div class='container col-md-7'>
             
@@ -10,23 +16,71 @@
             
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
-                <%= form_with model: @athlete, validate: true, local: true do |f| %>
-                    <% for field in @athlete.attributes %>
-                        
-                        <% if not ['id','created_at', 'updated_at', 'avatar', 'user_id'].include? field[0] %>
-                            <p class='text-left'>
-                                <label><%= t field[0] %></label>
-                                <%= f.text_field field[0], class: 'form-control' %> 
-                            </p>                                
-
-                        <% elsif field[0] == 'avatar' %>
-                            <p class='text-left'>
-                                <label><%= t field[0] %></label>
-                                <p><%= f.file_field field[0], class: 'file_field' %></p>
+                <%= form_with model: @athlete, validate: true do |f| %>
+                    <% for field in @athlete.attributes%>
+                        <% fi = field[0] %>
+                        <% if ['name','cpf', 'cep','profession','address','city',
+                                'neighborhood','state','cell_phone','home_phone',
+                                'modality','date_birth', 'others'].include? fi %>
+                            <p>
+                                <%= f.label t fi %>
+                                <%= f.text_field fi, class:"form-control" %>
                             </p>
+                        
+                        <% elsif fi == 'gender'%>
+                            <p>
+                                <%= f.label t fi %>
+                                <select name="athlete[gender]" id="athlete_gender" class="form-control">
+                                    <option value="M"> Masculino </option>
+                                    <option value="F"> Feminino </option>
+                                </select>
+                            </p>  
+
+                        <% elsif fi == 'degree_education'%>
+                            <p>
+                                <%= f.label t fi %>
+                                <select name="athlete[degree_education]" id="degree_education" class="form-control">
+                                    <option value="Analfabeto"> Analfabeto </option>
+                                </select>
+                            </p>  
+
+                        <% elsif fi == 'civil_status'%>
+                            <p>
+                                <%= f.label t fi %>
+                                <select name="athlete[civil_status]" id="athlete_civil_status" class="form-control">
+                                    <option value="Casado"> Casado </option>
+                                    <option value="Solteiro"> Solteiro </option>
+                                    <option value="Separado"> Separado </option>
+                                    <option value="Divorciado"> Divorciado </option>
+                                    <option value="Viuvo"> Viúvo </option>
+                                    <option value="Outro"> Outro </option>
+                                </select>
+                            </p>  
+
+
+                        <% elsif ['diabetes','sah','smoker','alcoholism','cardio_deseases',
+                                  'fami_diabetes','fami_alcoholism','fami_cardio', 'fami_sah'].include? fi %>
+
+                            <p>
+                                <label><%= t fi %></label>
+                                
+                                <div class="radio">
+                                    <%= f.label fi, "Sim") %>
+                                    <%= f.radio_button fi, "Yes" %>
+                                </div>
+
+                                
+                                <div class="radio">
+                                    <%= f.label fi, "Não") %>
+                                    <%= f.radio_button fi, "No" %>
+                                </div>
+                            </p>
+
                         <% end %>
                     <% end %>
-                      
+
+
+
                     <p><%= f.submit 'Cadastrar', class: 'btn salvar' %></p>
                 <% end %>
               </div>

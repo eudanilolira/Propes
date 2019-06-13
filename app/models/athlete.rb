@@ -15,8 +15,8 @@ class Athlete < ApplicationRecord
     has_many :bridge_extensions
     has_many :dynometries
     
-    validates :name, presence: true, length: {maximum: 60}
-    validates :cpf, presence: true, length: {maximum: 11, minimum: 11}, uniqueness: {case_sensitive: false }
+    validates :name, presence: true
+    validates :cpf, presence: true
     validates :date_birth, presence: true
     validates :age, presence: true
     validates :gender, presence: true
@@ -44,5 +44,4 @@ class Athlete < ApplicationRecord
     validates :fami_sah, presence: true
     validates :fami_diabetes, presence: true
     validates :fami_cardio, presence: true
-    validates :others, presence: true
 end

@@ -34,3 +34,11 @@ $(document).ready(function (){
     });
   });
 });
+
+$(document).ready(function () { 
+  $("#athlete_cpf").mask('000.000.000-00', {placeholder: "000.000.000-00"} );
+  $("#athlete_cep").mask('00000-000', {placeholder: "00000-000"});
+  $("#athlete_home_phone").mask('(00) 0000 0000',{placeholder: "(81) 0000 0000"});
+  $("#athlete_cell_phone").mask('(00) 00000 0000', {placeholder: "(81) 00000 0000"});
+  $("#athlete_date_birth").mask('00/00/0000', {placeholder: "__/__/____"});
+});
