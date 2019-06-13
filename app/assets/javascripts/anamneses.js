@@ -17,3 +17,17 @@ function validate(id){
         $(id).removeClass("is-invalid");
     };
 };
+
+function validate_cpf(id){
+    let invalid_text_id = id + "_invalid_text"
+    let cpf_regex = "([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"
+    let cpf = $(id).val()
+
+    if(cpf_regex.test(cpf)){
+        $(text).remove();
+        $(id).removeClass("is-invalid");
+    }else {
+        $(id).addClass("is-invalid");
+        $(id).after(`<small id= ${invalid_text_id.slice(1)} class='text-danger'> Preencha o campo por favor. </small>`);
+    }
+}
