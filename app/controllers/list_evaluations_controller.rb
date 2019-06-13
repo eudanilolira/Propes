@@ -3,11 +3,13 @@ class ListEvaluationsController < ApplicationController
 
     def set_list
         @@evaluation_list = params[:list].split(",")
+        puts @@evaluation_list
+        next_evaluation()
     end
 
-    def next_evaluation()
+    def next_evaluation
         next_ev = @@evaluation_list[0]
         @@evaluation_list.delete_at(0)
-        return "http://localhost:3000/" + next_ev.to_s
+        redirect_to "/#{next_ev}"
     end
 end

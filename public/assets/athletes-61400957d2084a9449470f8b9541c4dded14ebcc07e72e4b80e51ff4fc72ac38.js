@@ -25,7 +25,13 @@ $(document).ready(function (){
             evaluation_list.push($('#evaluation'+ i).val());
         };
     };
-    $("#do_evaluations").attr("list", evaluation_list);
+    console.log(evaluation_list);
+
+    $.ajax({
+      url: "http://localhost:3000/list_evaluations/set_list?list="+evaluation_list,
+      success: function(data) {
+      }
+    });
   });
 });
 /*
@@ -43,3 +49,4 @@ $(document).ready(function(){
   })
 })
 */
+;

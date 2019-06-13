@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'registers/registred'
   
   root 'sessions#new'
-  
+
   get 'sign_in' => 'sessions#new'
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post 'perimetries/new' => 'perimetries#create'
   post 'ankle_mobilities/new' => 'ankle_mobilities#create'
   post 'yo_tests/new' => 'yo_tests#create'
+  
   get 'list_evaluations/set_list' => 'list_evaluations#set_list'
   
   resources :yo_tests

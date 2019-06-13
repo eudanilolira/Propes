@@ -1,29 +1,24 @@
 <html >
+    <head>
+      <%= javascript_include_tag 'cutaneous_folds'%>
+    </head>
     <body>
-        <div class='container text-center col-md-8 panel'>
+        <div class='container text-center col-md-7 panel'>
             
             <div class='row'>
                 <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário
+                    Dobra Cutânea
                 </h1>
             </div>
-
-             <% if @cutaneous_fold.errors.any? %>
-                 <ul class='alert alert-danger'>
-                    <% @cutaneous_fold.errors.full_messages.each do |message| %>
-                      <li ><%= message %></li>
-                    <% end %>                     
-                 </ul>
-             <% end %>
             
             <div class='row justify-content-md-center'>
               <div class="col-md-11" >
                 <%= form_with model: @cutaneous_fold, local: true do |f| %>
                   <% for field in @cutaneous_fold.attributes %>
-                      <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id'].include? field[0] %>
+                      <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id', 'result'].include? field[0] %>
                         <p class='text-left'>
-                            <%= f.label field[0] %>
-                            <%= f.text_field field[0], class: 'form-control' %>
+                            <%= f.label t field[0] %>
+                            <%= f.number_field field[0], class: 'form-control' %>
                         </p>
                       <% end %>
                   <% end %>

@@ -6,12 +6,10 @@ class CutaneousFold < ApplicationRecord
     validates :supra_ilcia, presence: true
     validates :abdomen, presence: true
     validates :thigh, presence: true
-    validates :result, presence: false
     validates :bone_mass_BE, presence: true
     validates :bone_mass_BU, presence: true
     validates :bone_mass_BF, presence: true
     validates :bone_mass_BM, presence: true
-    validates :bm_Result, presence: true
     validates :residual_mass, presence: true
     validates :fat_mass, presence: true
     validates :muscle_mass, presence: true

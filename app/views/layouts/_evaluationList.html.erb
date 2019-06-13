@@ -1,4 +1,5 @@
 <div class='row justify-content-center'>
+    
     <table class='table table-sm col-md-8 text-center'>
         <tbody>
             <% athlete_evaluations.each do |e| %>
@@ -9,5 +10,5 @@
             <% end %>
         </tbody>
     </table>
-    <%= link_to  'Longs', '/' , method: :get, class: 'btn col-md-12 font-weight-bold text-left' %>
+    <input class='btn col-md-12 font-weight-bold text-left' type='submit' id="do_evaluations" method="post" >
 </div>
