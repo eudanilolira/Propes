@@ -12,7 +12,7 @@ class CoopersController < ApplicationController
         @cooper.qualitative_result = calc_result(athlete.age, @cooper.distance, athlete.gender) 
         
         if @cooper.save
-          redirect_to '/athletes/' + @cooper.athlete_id.to_s
+		  next_evaluation()
         else
           render 'new'
         end

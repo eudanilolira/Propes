@@ -19,7 +19,7 @@ class TegnerLysholmsController < ApplicationController
         @tegner_lysholm.athlete_id = session[:athlete_id]
         
         if @tegner_lysholm.save
-          redirect_to '/athletes/' + @tegner_lysholm.athlete_id.to_s
+          next_evaluation()
         else
           render 'new'
         end

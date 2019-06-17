@@ -10,7 +10,7 @@ class AnkleMobilitiesController < ApplicationController
         @ankle_mobility.athlete_id = session[:athlete_id]
         
         if @ankle_mobility.save
-          redirect_to '/athletes/' + @ankle_mobility.athlete_id.to_s
+          next_evaluation()
         else
           render 'new'
         end

@@ -10,7 +10,7 @@ class CutaneousFoldsController < ApplicationController
         @cutaneous_fold.athlete_id = session[:athlete_id]
         
         if @cutaneous_fold.save
-          redirect_to '/athletes/' + @cutaneous_fold.athlete_id.to_s
+          next_evaluation()
         else
           render 'new'
         end

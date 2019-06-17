@@ -14,7 +14,7 @@ class YTestsController < ApplicationController
         @y_test.left_qualitative_result = calc_result(@y_test.left_result) 
         
         if @y_test.save
-          redirect_to '/athletes/' + @y_test.athlete_id.to_s
+            next_evaluation()
         else
           render 'new'
         end

@@ -10,7 +10,7 @@ class BridgeExtensionsController < ApplicationController
         @bridge_extension.athlete_id = session[:athlete_id]
         
         if @bridge_extension.save
-          redirect_to '/athletes/' + @bridge_extension.athlete_id.to_s
+          next_evaluation()
         else
           render 'new'
         end

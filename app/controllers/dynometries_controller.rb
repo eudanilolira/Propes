@@ -10,7 +10,7 @@ class DynometriesController < ApplicationController
         @dynometry.athlete_id = session[:athlete_id]
         
         if @dynometry.save
-          redirect_to '/athletes/' + @dynometry.athlete_id.to_s
+          next_evaluation()
         else
           render 'new'
         end

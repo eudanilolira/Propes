@@ -15,9 +15,9 @@
 			@yo_yo.qualitative_result = calc_result(athlete.age, @yo_yo.result, athlete.gender)     
 
 			if @yo_yo.save
-			redirect_to '/athletes/' + @yo_yo.athlete_id.to_s
+				next_evaluation()
 			else
-			render 'new'
+				render 'new'
 			end
 		end
 

@@ -10,7 +10,7 @@ class PerimetriesController < ApplicationController
         @perimetry.athlete_id = session[:athlete_id]
         
         if @perimetry.save
-          redirect_to '/athletes/' + @perimetry.athlete_id.to_s
+          next_evaluation()
         else
           render 'new'
         end

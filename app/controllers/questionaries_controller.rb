@@ -10,7 +10,7 @@ class QuestionariesController < ApplicationController
         @questionary.athlete_id = session[:athlete_id]
         
         if @questionary.save
-          redirect_to '/athletes/' + @questionary.athlete_id.to_s
+          next_evaluation()
         else
           render 'new'
         end
