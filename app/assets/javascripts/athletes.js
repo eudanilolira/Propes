@@ -21,25 +21,17 @@ function change_to_active(){
 $(document).ready(function (){
   $('#do_evaluations').click(function (){
     for (let i = 0; i < 13; i++){
+        
         if ($('#evaluation' + i).prop("checked") == true){
             evaluation_list.push($('#evaluation'+ i).val());
         };
     };
-    $("#do_evaluations").attr("list", evaluation_list);
+    console.log(evaluation_list)
+    $.ajax({
+      url: "../list_evaluations/set_list",
+      type: "post",
+      data: { list: JSON.stringify(evaluation_list)}
+    })
+
   });
 });
-/*
-$(document).ready(function () { 
-  $("#athlete_cpf").mask('000.000.000-00', {placeholder: "000.000.000-00"} );
-  $("#athlete_cep").mask('00000-000', {placeholder: "00000-000"});
-  $("#athlete_home_phone").mask('(00) 0000 0000',{placeholder: "(81) 00000000"});
-  $("#athlete_cell_phone").mask('(00) 00000 0000', {placeholder: "(81) 000000000"});
-  $("#athlete_date_birth").mask('00/00/0000', {placeholder: "__/__/____"});
-});
-
-$(document).ready(function(){
-  $("#submit_form").click(function(){
-    alert("Cadastro realizado com sucesso !");
-  })
-})
-*/

@@ -1,6 +1,26 @@
 <html >
     <head>
         <%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script>
+            $(document).ready(function () { 
+                $("#user_cpf").mask('000.000.000-00', {placeholder: "000.000.000-00"} );
+                $("#user_cep").mask('00000-000', {placeholder: "00000-000"});
+                $("#user_home_phone").mask('(00) 00000000',{placeholder: "(81) 00000000"});
+                $("#user_cell_phone").mask('(00) 000000000', {placeholder: "(81) 000000000"});
+                $("#user_date_birth").mask('00/00/0000', {placeholder: "__/__/____"});
+                $("#user_state").mask('AA', {placeholder: "PE"});
+                });
+            });
+
+            $(document).ready(function(){
+                $("#submit_form").click(function(){
+                    alert("Cadastro realizado com sucesso !");
+                })
+            });
+        </script>
+
+
     </head>
     <body>
         <div class='container text-center col-lg-7 col-md-12'>

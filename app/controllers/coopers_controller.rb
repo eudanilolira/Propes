@@ -1,11 +1,10 @@
 class CoopersController < ApplicationController
     def new
-        @cooper = Cooper.new
+		@cooper = Cooper.new
     end
     
     def create
         @cooper = Cooper.new(cooper_params)
-        
         @cooper.user_id = current_user.id
         @cooper.athlete_id = session[:athlete_id]
         athlete = Athlete.find(session[:athlete_id])

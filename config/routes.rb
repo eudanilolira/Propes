@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   post 'ankle_mobilities/new' => 'ankle_mobilities#create'
   post 'yo_tests/new' => 'yo_tests#create'
   
-  get 'list_evaluations/set_list' => 'list_evaluations#set_list'
+  post 'list_evaluations/set_list' => 'list_evaluations#set_list'
   
   resources :yo_tests
   resources :bridge_extensions
