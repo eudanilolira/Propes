@@ -31,7 +31,7 @@ $(document).ready(function (){
       url: "../list_evaluations/set_list",
       type: "post",
       data: { list: JSON.stringify(evaluation_list)}
-    })
+    });
 
   });
 });
