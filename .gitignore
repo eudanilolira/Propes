@@ -2,7 +2,6 @@
 tmp/
 
 #Ignorar mudanças na database utilizada para evitar conflitos no desenvolvimento
-config/database.yml
 
 #Ignorar todos os arquivos da pasta tmp
 log/
