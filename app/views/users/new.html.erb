@@ -36,7 +36,7 @@
                 <%= form_with model: @user, validate: true, local: true do |f| %>
                     <% for field in @user.attributes %>
                         
-                        <% if not ['id','created_at', 'updated_at', 'avatar','password_digest','password'].include? field[0] %>
+                        <% if not ['id','created_at', 'updated_at', 'avatar','password_digest','password', 'role'].include? field[0] %>
                             <p class='text-left'>
                                 <label><%= t field[0] %></label>
                                 <%= f.text_field field[0], class: 'form-control'%> 

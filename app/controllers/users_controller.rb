@@ -23,16 +23,26 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-
-    if @user.save
-      redirect_to @user
-      sign_in 
+    if @user.save  
+      RegisterMailer.register_mail().deliver_now
+      redirect_to 'sign_in'
     else
       render 'new'
     end
     
   end
   
+  def register
+    @user = User.find(params[:id])
+
+    if params[:approved]
+      @user.write_attribute(:approved, true)
+    else
+      @user.destroy
+    end
+
+  end 
+
   def show
     @user = User.find(params[:id])
   end

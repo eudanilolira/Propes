@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> <%= user.name %> está tentando se registrar </h1>
+    <p> Dados do usuário: <br> </p>
+    <p> E-mail: <%= user.email %> </p>
+    <p> CPF: <%= user.cpf %> </p>
+    
+    <p href="http://<%= ENV['SERVER_ADDRESS'] %>/id=<%= @user.id %>&approved=true"> Aceitar o registro </p>
+    <p href="http://<%= ENV['SERVER_ADDRESS'] %>/id=<%= @user.id %>&approved=false"> Recusar o registro </p>
+  </body>
+</html>

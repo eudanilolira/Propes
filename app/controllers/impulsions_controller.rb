@@ -7,7 +7,7 @@ class ImpulsionsController < ApplicationController
         @impulsion = Impulsion.new(impulsion_params)
 
         begin
-          # MUDAR ESSE 60 PARA O PESO DO ATLETA !!!!!!!!!!!!!!!!!!
+          #TODO MUDAR ESSE 60 PARA O PESO DO ATLETA !!!!!!!!!!!!!!!!!!
           @impulsion.result = 2.21 * (60) * (@impulsion.distance ** 2)
           @impulsion.qualitative_result = calc_result(@impulsion.result, Athlete.find(session[:athlete_id]).gender)
         rescue
