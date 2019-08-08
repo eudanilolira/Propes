@@ -1,7 +1,6 @@
 #Ignorar todos os arquivos da pasta tmp
 tmp/
-
-#Ignorar mudanças na database utilizada para evitar conflitos no desenvolvimento
-
+#Ignorar configurações de ambiente
+config/local_env.yml
 #Ignorar todos os arquivos da pasta tmp
 log/
