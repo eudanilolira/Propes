@@ -1,5 +1,5 @@
 Given("Estou na tela principal do sistema") do
-    visit (root_path) 
+    visit("https://google.com")
 end
 
 Given("eu clico no botão Todos os Atletas") do
@@ -7,7 +7,7 @@ Given("eu clico no botão Todos os Atletas") do
 end
 
 Then(" vou para a pagina de busca") do
-    
+    visit('localhost:3000')
 end
 
 When("eu preencho o campo Pesquisar com o nome do atleta") do

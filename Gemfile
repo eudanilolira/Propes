@@ -60,14 +60,14 @@ gem 'pg', '>= 0.18', '< 2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.8'
+  #gem 'rspec-rails', '~> 3.8'
   gem 'rspec-json_expectations'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end
 
 group :production do
-  gem "aws-sdk-s3", require: false
+  #gem "aws-sdk-s3", require: false
 end
 
 group :development do
@@ -80,11 +80,10 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  # gem 'capybara', '>= 2.15'
+  gem 'rspec-rails'
+  gem 'capybara'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

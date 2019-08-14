@@ -2,7 +2,7 @@ module AthletesHelper
 
     def evaluation_list
         return evaluation_list = [Anamnese, AnkleMobility, BridgeExtension, Cooper, CutaneousFold, 
-        Dynometry, Impulsion, Perimetry, Physical, Questionary, TegnerLysholm, YoYo]
+        Dynometry, Impulsion, Perimetry, Questionary, TegnerLysholm, YoYo]
     end
     
     def athlete_attributes
@@ -33,7 +33,7 @@ module AthletesHelper
 
     def athlete_evaluations
         return evaluation_list = ['anamneses/new', 'ankle_mobilities/new', 'bridge_extensions/new', 'coopers/new', 'cutaneous_folds/new', 
-        'dynometries/new', 'functional_tests/new', 'impulsions/new', 'perimetries/new', 'physicals/new', 'questionaries/new', 'tegner_lysholms/new', 'yo_yos/new']    
+        'dynometries/new', 'functional_tests/new', 'impulsions/new', 'perimetries/new', 'questionaries/new', 'tegner_lysholms/new', 'yo_yos/new']    
     end
 
     

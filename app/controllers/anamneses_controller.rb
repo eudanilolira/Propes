@@ -5,7 +5,6 @@ class AnamnesesController < ApplicationController
     
     def create
         @anamnese = Anamnese.new(anamnese_params)
-        
         @anamnese.user_id = current_user.id
         @anamnese.athlete_id = session[:athlete_id]
         

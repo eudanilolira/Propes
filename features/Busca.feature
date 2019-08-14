@@ -1,5 +1,3 @@
-# language: en
-
 Feature: Buscar Atletas
   Para avaliar atletas
   Como avaliador
@@ -10,5 +8,5 @@ Feature: Buscar Atletas
     When eu clico no botão Todos os Atletas
     Then vou para a pagina de buscar
     When eu preencho o campo Pesquisar com o nome do atleta
-        And Aperto procurar
+    And Aperto procurar
     Then quero ver o atleta com o nome pesquisado

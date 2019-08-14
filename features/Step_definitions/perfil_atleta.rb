@@ -1,6 +1,4 @@
-Given("Estou na tela principal do sistema") do
-    visit (root_path) 
-end
+
 
 Given("eu clico no botão Meu Perfil") do
     click_button('Meu Perfil')

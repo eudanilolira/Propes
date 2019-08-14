@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   
   post 'list_evaluations/set_list' => 'list_evaluations#set_list'
   
+  get 'users/unapproveds' => 'users#unapproveds'
+  post 'users/approve' => 'users#approve'
+
   resources :yo_tests
   resources :bridge_extensions
   resources :concerns

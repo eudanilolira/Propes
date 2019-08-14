@@ -44,27 +44,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     arel (9.0.0)
     autoprefixer-rails (9.5.1)
       execjs
-    aws-eventstream (1.0.3)
-    aws-partitions (1.161.0)
-    aws-sdk-core (3.51.0)
-      aws-eventstream (~> 1.0, >= 1.0.2)
-      aws-partitions (~> 1.0)
-      aws-sigv4 (~> 1.1)
-      jmespath (~> 1.0)
-    aws-sdk-kms (1.18.0)
-      aws-sdk-core (~> 3, >= 3.48.2)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.36.1)
-      aws-sdk-core (~> 3, >= 3.48.2)
-      aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.0)
-    aws-sigv4 (1.1.0)
-      aws-eventstream (~> 1.0, >= 1.0.2)
     backports (3.15.0)
     bcrypt (3.1.13)
     bindex (0.7.0)
@@ -88,9 +70,6 @@ GEM
     character_set (1.2.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     client_side_validations (15.0.0)
       jquery-rails (~> 4.3)
       js_regex (~> 3.1)
@@ -137,11 +116,9 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    jmespath (1.4.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -262,8 +239,7 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
-    spring (2.0.2)
-      activesupport (>= 4.2)
+    spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -291,6 +267,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webdrivers (4.1.2)
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (>= 3.0, < 4.0)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -302,13 +282,12 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  aws-sdk-s3
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap
   byebug
   cancan
-  chromedriver-helper
+  capybara
   client_side_validations
   coffee-rails (~> 4.2)
   cucumber-rails
@@ -321,7 +300,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-i18n
   rspec-json_expectations
-  rspec-rails (~> 3.8)
+  rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
@@ -331,6 +310,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webdrivers
 
 RUBY VERSION
    ruby 2.6.1p33

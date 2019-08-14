@@ -1,5 +1,14 @@
 class ApplicationController < ActionController::Base
-    include SessionsHelper
+	rescue_from CanCan::AccessDenied do |exception|
+		if current_user.nil?
+			redirect_to main_app.root_url
+		else
+			redirect_to '/users/' + current_user.id.to_s
+		end 
+	end
+	
+	
+	include SessionsHelper
     include AthletesHelper
 	before_action :set_locale
 	@@evaluation_list = []

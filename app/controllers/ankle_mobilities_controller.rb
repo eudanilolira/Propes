@@ -5,7 +5,6 @@ class AnkleMobilitiesController < ApplicationController
     
     def create
         @ankle_mobility = AnkleMobility.new(ankle_mobility_params)
-        
         @ankle_mobility.user_id = current_user.id
         @ankle_mobility.athlete_id = session[:athlete_id]
         

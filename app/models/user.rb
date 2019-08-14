@@ -1,8 +1,6 @@
 class User < ApplicationRecord
     VALID_EMAIL_FORMAT= /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-    if :approved.nil?
-        self.approved = false
-    end
+
     has_secure_password
     has_one_attached :avatar
     validates :name, presence: true, length: {maximum: 60}

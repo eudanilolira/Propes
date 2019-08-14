@@ -3,7 +3,6 @@ class Athlete < ApplicationRecord
     
     has_many :anamneses
     has_many :questionaries
-    has_many :physicals
     has_many :perimetries
     has_many :cutaneous_folds
     has_many :functional_tests
