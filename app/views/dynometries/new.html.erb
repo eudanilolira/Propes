@@ -4,7 +4,7 @@
             
             <div class='row'>
                 <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário
+                    Formulário Dinamometria
                 </h1>
             </div>
 
@@ -22,7 +22,7 @@
                     <% for field in @dynometry.attributes %>
                         <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id'].include? field[0] %>
                             <p class='text-left'>
-                                <%= f.label field[0] %>
+                                <%=  f.label t field[0] %>
                                 <%= f.text_field field[0], class: 'form-control' %>
                             </p>
                         <% end %>
