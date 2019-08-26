@@ -23,21 +23,17 @@
                     <table class="table table-sm">
                         <tbody>
                             <% for attr in @user.attributes %>
-                                <% if not ["id", "password", "password_digest", "created_at", "updated_at", "avatar"].include? attr[0] %>
+                                <% if not ["id", "password", "password_digest", "created_at", "updated_at", "avatar", "role", "approved"].include? attr[0] %>
                                     <tr>
-                                        <td><p><strong> <%= t attr[0] %>:</strong></p></td>
-                                        <td>  <%= attr[1] %> </td>
+                                        <td><p><strong><%= t attr[0] %>:</strong></p></td>
+                                        <td><%= attr[1] %></td>
                                     </tr>
                                 <% end %>
                             <% end %>
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            
-            
-            
+            </div>           
             <p class="text-center"><%= link_to "Editar", edit_user_path(current_user), class: "btn btn-primary" %></p>
         </div>
         

@@ -1,27 +1,5 @@
 <html >
-    <head>
-        <%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-        <script>
-            $(document).ready(function () { 
-                $("#user_cpf").mask('000.000.000-00', {placeholder: "000.000.000-00"} );
-                $("#user_cep").mask('00000-000', {placeholder: "00000-000"});
-                $("#user_home_phone").mask('(00) 00000000',{placeholder: "(81) 00000000"});
-                $("#user_cell_phone").mask('(00) 000000000', {placeholder: "(81) 000000000"});
-                $("#user_date_birth").mask('00/00/0000', {placeholder: "__/__/____"});
-                $("#user_state").mask('AA', {placeholder: "PE"});
-                });
-            });
-
-            $(document).ready(function(){
-                $("#submit_form").click(function(){
-                    alert("Cadastro realizado com sucesso !");
-                })
-            });
-        </script>
-
-
-    </head>
+    
     <body>
         <div class='container text-center col-lg-7 col-md-12'>
             
@@ -36,10 +14,10 @@
                 <%= form_with model: @user, validate: true, local: true do |f| %>
                     <% for field in @user.attributes %>
                         
-                        <% if not ['id','created_at', 'updated_at', 'avatar','password_digest','password', 'role'].include? field[0] %>
+                        <% if not ['id','created_at', 'updated_at', 'avatar','password_digest','password', 'role', 'approved', 'gender'].include? field[0] %>
                             <p class='text-left'>
                                 <label><%= t field[0] %></label>
-                                <%= f.text_field field[0], class: 'form-control'%> 
+                                <%= f.text_field field[0], data: {mask: getMask(field[0])}, class: 'form-control', placeholder: getPlaceholder(field[0]) %> 
                             </p>                                
 
                         <% elsif field[0] == 'avatar' %>
@@ -47,6 +25,16 @@
                                 <label><%= t field[0] %></label>
                                 <p class='text-left'><%= f.file_field field[0], class: 'file_field' %></p>
                             </p>
+                        
+
+                        <% elsif field[0] == 'gender'%>
+                            <p class='text-left'>
+                                <%= f.label t field[0]%>
+                                <select name="athlete[gender]" id="athlete_gender" class="form-control">
+                                    <option value="M"> Masculino </option>
+                                    <option value="F"> Feminino </option>
+                                </select>
+                            </p>  
                         <% end %>
                     <% end %>
                     
@@ -57,7 +45,7 @@
  
                         <p class='text-left'>
                             <label>Confirmação da Senha</label>
-                            <%= f.password_field :password_confirmation, class: 'form-control' %>
+                            <%= f.password_field :password_confirmation,class: 'form-control' %>
                         </p>   
                         
                       
@@ -67,8 +55,8 @@
               </div>
             </div>
         </div>
-        
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 </html>
 
 

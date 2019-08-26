@@ -32,10 +32,6 @@ body {
     background-color: #3D81B3;
 }
 
-.confirmar_senha {
-    background-color: #FF1512;
-}
-
 .tamanho-form {
     width: 50%;
     margin-bottom: 5px;
@@ -54,8 +50,10 @@ body {
     color: lightgray;
 }
 
-.navbar-light .navbar-nav .nav-link:active {
-    color: #90181B;
+.nav-link {
+    :active {
+        color: black;
+    }
 }
 
 .container{

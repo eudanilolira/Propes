@@ -19,15 +19,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.id == params[:id]
-      @user = User.find(params[:id])
-      if @user.update_attributes(user_params)
-        render 'show'
-      else
-        render 'edit'
-      end
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      render 'show'
     else
-      authorize! :update, @users
+      render 'edit'
     end
   end
   

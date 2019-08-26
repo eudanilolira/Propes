@@ -22,11 +22,27 @@ Rails.application.routes.draw do
   post 'perimetries/new' => 'perimetries#create'
   post 'ankle_mobilities/new' => 'ankle_mobilities#create'
   post 'yo_tests/new' => 'yo_tests#create'
-  
+
   post 'list_evaluations/set_list' => 'list_evaluations#set_list'
   
   get 'users/unapproveds' => 'users#unapproveds'
   post 'users/approve' => 'users#approve'
+
+  post 'anamneses/:id' => 'anamneses#edit'
+  post 'bridge_extensions/:id' => 'bridge_extensions#edit'
+  post 'concerns/:id' => 'concerns#edit'
+  post 'coopers/:id' => 'coopers#edit'
+  post 'cutaneous_folds/:id' => 'cutaneous_folds#edit'
+  post 'dynometries/:id' => 'dynometries#edit'
+  post 'physicals/:id' => 'physicals#edit'
+  post 'questionaries/:id' => 'questionaries#edit'
+  post 'tegner_lysholms/:id' => 'tegner_lysholms#edit'
+  post 'yo_yos/:id' => 'yo_yos#edit'
+  post 'impulsions/:id' => 'impulsions#edit'
+  post 'perimetries/:id' => 'perimetries#edit'
+  post 'ankle_mobilities/:id' => 'ankle_mobilities#edit'
+  post 'yo_tests/:id' => 'yo_tests#edit'
+
 
   resources :yo_tests
   resources :bridge_extensions
