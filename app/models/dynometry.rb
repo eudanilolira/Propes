@@ -13,25 +13,25 @@ class Dynometry < ApplicationRecord
     validates :power_flexion_deficit_180, presence: true
     validates :power_extension_right_300, presence: true
     validates :power_extension_left_300, presence: true
-    validates :power_extesion_deficit_300, presence: true
+    validates :power_extension_deficit_300, presence: true
     validates :power_flexion_right_300, presence: true
     validates :power_flexion_left_300, presence: true
     validates :power_flexion_deficit_300, presence: true
     validates :job_extension_right_180, presence: true
     validates :job_extension_left_180, presence: true
-    validates :job_extesion_deficit_180, presence: true
+    validates :job_extension_deficit_180, presence: true
     validates :job_flexion_right_180, presence: true
     validates :job_flexion_left_180, presence: true
     validates :job_flexion_deficit_180, presence: true
     validates :job_extension_right_300, presence: true
     validates :job_extension_left_300, presence: true
-    validates :job_extesion_deficit_300, presence: true
+    validates :job_extension_deficit_300, presence: true
     validates :job_flexion_right_300, presence: true
     validates :job_flexion_left_300, presence: true
     validates :job_flexion_deficit_300, presence: true
     validates :fatigue_extension_right_300, presence: true
     validates :fatigue_extension_left_300, presence: true
-    validates :fatigue_extesion_deficit_300, presence: true
+    validates :fatigue_extension_deficit_300, presence: true
     validates :fatigue_flexion_right_300, presence: true
     validates :fatigue_flexion_left_300, presence: true
     validates :fatigue_flexion_deficit_300, presence: true

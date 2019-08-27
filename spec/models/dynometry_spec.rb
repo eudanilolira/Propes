@@ -34,8 +34,8 @@ RSpec.describe Dynometry, type: :model do
     dynometry = Dynometry.new(power_extension_left_180: nil)
     expect(dynometry).to_not be_valid
   end
-  it "is not valid without a power_extesion_deficit_180" do
-    dynometry = Dynometry.new(power_extesion_deficit_180: nil)
+  it "is not valid without a power_extension_deficit_180" do
+    dynometry = Dynometry.new(power_extension_deficit_180: nil)
     expect(dynometry).to_not be_valid
   end
   it "is not valid without a power_flexion_right_180" do
@@ -58,8 +58,8 @@ RSpec.describe Dynometry, type: :model do
     dynometry = Dynometry.new(power_extension_left_300: nil)
     expect(dynometry).to_not be_valid
   end
-  it "is not valid without a power_extesion_deficit_300" do
-    dynometry = Dynometry.new(power_extesion_deficit_300: nil)
+  it "is not valid without a power_extension_deficit_300" do
+    dynometry = Dynometry.new(power_extension_deficit_300: nil)
     expect(dynometry).to_not be_valid
   end
   it "is not valid without a power_flexion_right_300" do
@@ -82,8 +82,8 @@ RSpec.describe Dynometry, type: :model do
     dynometry = Dynometry.new(job_extension_left_180: nil)
     expect(dynometry).to_not be_valid
   end
-  it "is not valid without a job_extesion_deficit_180" do
-    dynometry = Dynometry.new(job_extesion_deficit_180: nil)
+  it "is not valid without a job_extension_deficit_180" do
+    dynometry = Dynometry.new(job_extension_deficit_180: nil)
     expect(dynometry).to_not be_valid
   end
   it "is not valid without a job_flexion_right_180" do
@@ -106,8 +106,8 @@ RSpec.describe Dynometry, type: :model do
     dynometry = Dynometry.new(job_extension_left_300: nil)
     expect(dynometry).to_not be_valid
   end
-  it "is not valid without a job_extesion_deficit_300" do
-    dynometry = Dynometry.new(job_extesion_deficit_300: nil)
+  it "is not valid without a job_extension_deficit_300" do
+    dynometry = Dynometry.new(job_extension_deficit_300: nil)
     expect(dynometry).to_not be_valid
   end
   it "is not valid without a job_flexion_right_300" do
@@ -130,8 +130,8 @@ RSpec.describe Dynometry, type: :model do
     dynometry = Dynometry.new(fatigue_extension_left_300: nil)
     expect(dynometry).to_not be_valid
   end
-  it "is not valid without a fatigue_extesion_deficit_300" do
-    dynometry = Dynometry.new(fatigue_extesion_deficit_300: nil)
+  it "is not valid without a fatigue_extension_deficit_300" do
+    dynometry = Dynometry.new(fatigue_extension_deficit_300: nil)
     expect(dynometry).to_not be_valid
   end
   it "is not valid without a fatigue_flexion_right_300" do
