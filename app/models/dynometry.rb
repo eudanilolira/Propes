@@ -7,7 +7,7 @@ class Dynometry < ApplicationRecord
     validates :peak_flexion_deficit, presence: true
     validates :power_extension_right_180, presence: true
     validates :power_extension_left_180, presence: true
-    validates :power_extesion_deficit_180, presence: true
+    validates :power_extension_deficit_180, presence: true
     validates :power_flexion_right_180, presence: true
     validates :power_flexion_left_180, presence: true
     validates :power_flexion_deficit_180, presence: true
