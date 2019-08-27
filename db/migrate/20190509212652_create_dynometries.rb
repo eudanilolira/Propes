@@ -9,31 +9,31 @@ class CreateDynometries < ActiveRecord::Migration[5.2]
       t.decimal :peak_flexion_deficit
       t.decimal :power_extension_right_180
       t.decimal :power_extension_left_180
-      t.decimal :power_extesion_deficit_180
+      t.decimal :power_extension_deficit_180
       t.decimal :power_flexion_right_180
       t.decimal :power_flexion_left_180
       t.decimal :power_flexion_deficit_180
       t.decimal :power_extension_right_300
       t.decimal :power_extension_left_300
-      t.decimal :power_extesion_deficit_300
+      t.decimal :power_extension_deficit_300
       t.decimal :power_flexion_right_300
       t.decimal :power_flexion_left_300
       t.decimal :power_flexion_deficit_300
       t.decimal :job_extension_right_180
       t.decimal :job_extension_left_180
-      t.decimal :job_extesion_deficit_180
+      t.decimal :job_extension_deficit_180
       t.decimal :job_flexion_right_180
       t.decimal :job_flexion_left_180
       t.decimal :job_flexion_deficit_180
       t.decimal :job_extension_right_300
       t.decimal :job_extension_left_300
-      t.decimal :job_extesion_deficit_300
+      t.decimal :job_extension_deficit_300
       t.decimal :job_flexion_right_300
       t.decimal :job_flexion_left_300
       t.decimal :job_flexion_deficit_300
       t.decimal :fatigue_extension_right_300
       t.decimal :fatigue_extension_left_300
-      t.decimal :fatigue_extesion_deficit_300
+      t.decimal :fatigue_extension_deficit_300
       t.decimal :fatigue_flexion_right_300
       t.decimal :fatigue_flexion_left_300
       t.decimal :fatigue_flexion_deficit_300
