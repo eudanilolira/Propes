@@ -32,12 +32,11 @@ class ImpulsionsController < ApplicationController
         end
     end
 
-  def destroy
-    @impulsion = Impulsion.find(params[:id])
-    @impulsion.destroy
-    redirect_to '/athletes/' + @impulsion.athlete_id.to_s
-  end
-
+    def destroy
+      @impulsion = Impulsion.find(params[:id])
+      @impulsion.destroy
+      redirect_to '/athletes/' + @impulsion.athlete_id.to_s
+    end
 
     private
     def impulsion_params

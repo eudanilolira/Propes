@@ -35,12 +35,11 @@
 			end
 		end
 
-	def destroy
-		@yo_yo = YoYo.find(params[:id])
-		@yo_yo.destroy
-		redirect_to '/athletes/' + @yo_yo.athlete_id.to_s
-	end
-
+		def destroy
+			@yo_yo = YoYo.find(params[:id])
+			@yo_yo.destroy
+			redirect_to '/athletes/' + @yo_yo.athlete_id.to_s
+		end
 
 		private
 		def yo_yo_params

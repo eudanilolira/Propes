@@ -30,13 +30,12 @@ class PerimetriesController < ApplicationController
         end
     end
 
-  def destroy
-    @perimetry = Perimetry.find(params[:id])
-    @perimetry.destroy
-    redirect_to '/athletes/' + @perimetry.athlete_id.to_s
-  end
-
-
+    def destroy
+      @perimetry = Perimetry.find(params[:id])
+      @perimetry.destroy
+      redirect_to '/athletes/' + @perimetry.athlete_id.to_s
+    end
+    
     private
     def perimetry_params
         params.require(:perimetry).permit(:left_arm_relaxed, :right_arm_relaxed, :left_contracted_arm, :right_contracted_arm, :chest, :abdomen, :left_proximal_thigh, :right_proximal_thigh,
