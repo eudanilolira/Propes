@@ -50,11 +50,12 @@ class UsersController < ApplicationController
   def approve
     authorize! :update, @users
     @user = User.find(params[:id])
-    if @user.update_attribute(:approved, false)
+    if @user.update_attribute(:approved, true)
       flash[:notice] = "Usuário aprovado com sucesso !"
     else
       flash[:alert] = "Ocorreu algum erro, tente novamente mais tarde !"
     end
+    
     render 'unapproveds'
   end
 

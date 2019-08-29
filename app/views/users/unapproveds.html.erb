@@ -17,7 +17,7 @@
                         </thead>
                      
                         <tbody>
-                            <% @users.each do |u| %>
+                            <% User.all.entries.each do |u| %>
                                 <% if not u.approved %>
                                     <tr>
                                         <td class='text-left'> 
