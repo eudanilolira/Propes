@@ -6,7 +6,8 @@ class Ability
        if user.role == 'admin'
          can :manage, :all
        else
-         cannot :manage, :all
+         cannot :unapproveds , User
+         cannot :show, User
        end
     #
     # The first argument to `can` is the action you are giving the user 

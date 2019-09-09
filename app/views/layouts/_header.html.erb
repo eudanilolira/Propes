@@ -24,7 +24,7 @@
              </li>
 
              <li class='nav-item'>
-                <% if can? :show, @Users %>
+                <% if can? :unapproveds, @Users %>
                   <%= link_to 'Aprovar Usuários', '/users/unapproveds', :class => 'nav-link' %>
                 <% end%>
              </li>

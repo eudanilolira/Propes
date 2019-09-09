@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    authorize! :index, @users
     @users = User.all
+    authorize! :index, @users
   end
 
   def unapproveds
-    authorize! :unapproveds, @users
     @users = User.where(approved: false)
+    authorize! :unapproveds, @users
   end
 
   def new
@@ -16,10 +16,12 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    authorize! :edit, @user
   end
 
   def update
     @user = User.find(params[:id])
+    authorize! :update, @user
     if @user.update_attributes(user_params)
       render 'show'
     else
@@ -38,18 +40,19 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    authorize! :show, @user
   end
 
   def destroy
-    authorize! :update, @users
     @user = User.find(params[:id])
+    authorize! :destroy, @user
     @user.destroy
     redirect_to request.original_url
   end
 
   def approve
-    authorize! :update, @users
     @user = User.find(params[:id])
+    authorize! :approve, @user
     if @user.update_attribute(:approved, true)
       flash[:notice] = "Usuário aprovado com sucesso !"
     else
