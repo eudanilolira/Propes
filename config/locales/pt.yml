@@ -140,6 +140,14 @@ pt:
  IDM_flexion: "Flexão IDM" 
  relation_extension_right: "Reção Q/I direita" 
  relation_extension_left: "Relação extensão esquerda" 
+ right_PA: "PA (Direito)"
+ right_PM: "PM (Direito)"
+ right_PL: "PL (Direito)"
+ right_CM: "CM (Direito)"
+ left_PA: "PA (Esquerdo)"
+ left_PM: "PM (Esquerdo)"
+ left_PL: "PL (Esquerdo)"
+ left_CM: "CM (Esquerdo)"
  
 
 
