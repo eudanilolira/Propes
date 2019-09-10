@@ -33,7 +33,7 @@ module AthletesHelper
 
     def athlete_evaluations
         return evaluation_list = ['anamneses/new', 'ankle_mobilities/new', 'bridge_extensions/new', 'coopers/new', 'cutaneous_folds/new', 
-        'dynometries/new', 'functional_tests/new', 'impulsions/new', 'perimetries/new', 'questionaries/new', 'tegner_lysholms/new', 'yo_yos/new']    
+        'dynometries/new', 'impulsions/new', 'perimetries/new', 'questionaries/new', 'tegner_lysholms/new', 'y_tests/new', 'yo_yos/new']    
     end
 
     

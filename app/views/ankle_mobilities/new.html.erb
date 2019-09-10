@@ -1,29 +1,18 @@
-<html >
-    <body>
-        <div class='container text-center col-md-7 panel'>
-            
-            <div class='row'>
-                <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário Mobilidade de Tornozelo
-                </h1>
-            </div>
+<% content_for :form_title do %> Mobilidade de tornozelo <% end %>
 
-            <div class='row justify-content-md-center'>
-              <div class="col-md-11" >
-                <%= form_with model: @ankle_mobility, local: true do |f| %>
-                  <% for field in @ankle_mobility.attributes %>
-                      <% if not db_attribute(field[0]) %>
-                        <p class='text-left'>
-                            <%= f.label t field[0] %>
-                            <%= f.text_field field[0], class: 'form-control' %>
-                        </p>
-                      <% end %>
-                  <% end %>
-                  
-                  <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
-                <% end %>
-              </div>
-            </div>
-        </div>
-    </body>
-</html>
+<% content_for :form_fields do %>
+	<%= form_with model: @ankle_mobility, local: true do |f| %>
+		<% for field in @ankle_mobility.attributes %>
+			<% if not db_attribute(field[0]) %>
+				<p class='text-left'>
+					<%= f.label t field[0] %>
+					<%= f.text_field field[0], class: 'form-control' %>
+				</p>
+			<% end %>
+		<% end %>
+	
+		<p><%= f.submit 'Realizar avaliação', class: 'btn salvar' %></p>
+	<% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>

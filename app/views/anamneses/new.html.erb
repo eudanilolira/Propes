@@ -1,41 +1,32 @@
-<html>
-	<body>
-		<div class='container text-center col-md-7 panel'>
-			<div class='row'>
-				<h1 class='col-md-12' style='color: #70C4FF;'>
-					Formulário Anamnese
-				</h1>
-			</div>
+<% content_for :form_title do %> Anamnese <% end %>
 
-			<div class='row justify-content-md-center'>
-				<div class="col-md-11">
-					<%= form_with model: @anamnese, local: true do |f| %>
-						<% for field in @anamnese.attributes %>
-							<% if not db_attribute(field[0]) %>
-								<p class='text-left'>
-									<%= f.label t field[0] %>
-									<%= f.text_field field[0], class: 'form-control' %>
-								</p>
+<% content_for  :form_fields do %> 
+	<%= form_with model: @anamnese, local: true do |f| %>
+		<% for field in @anamnese.attributes %>
+			<% if not db_attribute(field[0]) and !("is_accompanying" == field[0]) %>
+				<p class='text-left'>
+					<%= f.label t field[0] %>
+					<%= f.text_field field[0], class: 'form-control' %>
+				</p>
+			<% end %>	
 
-							<% elsif ["is_accompanying"].include? field[0] %>
+			<% if field[0] == "is_accompanying"%>
 
-								<p class='text-left'>
-									<label><%= t field[0] %></label>
-									
-									<div class="radio text-left">
-										<label><input type='radio' name="<%="anamnese[#{field[0].to_s}]"%>" value="Yes"> Sim </label>
-									</div>
-									
-									<div class='radio text-left'>
-										<label><input type='radio' name="<%="anamnese[#{field[0].to_s}]"%>" value="No"> Não </label>
-									</div>                                
-								</p>
-							<% end %>
-						<% end %>
-						<p><%= f.submit 'Realizar avaliação', class: 'btn salvar', id:"btn-salvar" %></p>
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+				<p class='text-left'>
+					<label><%= t field[0] %></label>
+					
+					<div class="radio text-left">
+						<label><input type='radio' name="<%="anamnese[#{field[0].to_s}]"%>" value="Yes"> Sim </label>
+					</div>
+					
+					<div class='radio text-left'>
+						<label><input type='radio' name="<%="anamnese[#{field[0].to_s}]"%>" value="No"> Não </label>
+					</div>                                
+				</p>
+			<% end %>
+		<% end %>
+		<p><%= f.submit 'Realizar avaliação', class: 'btn salvar', id:"btn-salvar" %></p>
+	<% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>

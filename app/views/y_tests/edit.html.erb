@@ -1,8 +1,8 @@
-<% content_for :form_title do %> de edição Questionário <% end %>
+<% content_for :form_title do %> de edição Y test <% end %>
 
 <% content_for :form_fields do %>
-    <%= form_for(@questionary) do |f| %>
-        <% for field in @questionary.attributes %>
+    <%= form_for(@y_test) do |f| %>
+        <% for field in @y_test.attributes %>
             
             <% if not ['id','created_at','user_id','athletes_id','updated_at'].include? field[0] %>
                 <p class='text-left'>
@@ -17,7 +17,7 @@
                 </p>
             <% end %>
         <% end %>
-    
+        
         <p class='text-center'><%= f.submit 'Salvar Alterações', class: 'btn btn-primary' %></p>
     <% end %>
 <% end %>

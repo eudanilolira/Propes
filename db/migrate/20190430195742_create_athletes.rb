@@ -6,6 +6,7 @@ class CreateAthletes < ActiveRecord::Migration[5.2]
       t.date :date_birth
       t.integer :age
       t.float :weight
+      t.float :height
       t.string :gender
       t.string :civil_status
       t.string :degree_education
