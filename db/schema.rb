@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_011426) do
     t.decimal "bone_mass_BU"
     t.decimal "bone_mass_BF"
     t.decimal "bone_mass_BM"
-    t.decimal "bm_Result"
+    t.decimal "bm_result"
     t.decimal "residual_mass_result"
     t.decimal "fat_mass_result"
     t.decimal "muscle_mass_result"
