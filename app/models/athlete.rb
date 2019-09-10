@@ -5,7 +5,6 @@ class Athlete < ApplicationRecord
     has_many :questionaries
     has_many :perimetries
     has_many :cutaneous_folds
-    has_many :functional_tests
     has_many :tegner_lysholms
     has_many :coopers
     has_many :yo_yos

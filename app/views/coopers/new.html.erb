@@ -1,23 +1,14 @@
-<html >
-    <body>
-        <div class='container text-center col-md-7 panel'>
-    
-            <div class='row'>
-                <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Teste de Cooper
-                </h1>
-            </div>
-            
-            <div class='row justify-content-md-center'>
-              <div class="col-md-11 text-left" >
-                <%= form_with model: @cooper, local: true do |f| %>
-                    <label for="cooper_distance"> Distância </label>
-                    <input class="form-control" name="cooper[distance]"  id="distance" /><br>
-              </div>  
-                  <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
-                <% end %>
-              
-            </div>
-        </div>
-    </body>
-</html>
+<% content_for :form_title do %> Cooper <% end %>
+
+<% content_for :form_fields do %>
+    <%= form_with model: @cooper, local: true do |f| %>
+        <p class="text-left">
+             <%= f.label t :distance %>
+             <input class="form-control" name="cooper[distance]"  id="distance" />
+        </p> 
+
+        <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
+    <% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>

@@ -1,114 +1,102 @@
-<html >
-    <body>
-        <div class='container text-center col-md-7 panel'>
-            
-            <div class='row'>
-                <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário Dinamometria
-                </h1>
-            </div>
+<% if @dynometry.errors.any? %>
+    <ul class='alert alert-danger'>
+    <% @dynometry.errors.full_messages.each do |message| %>
+        <li ><%= message %></li>
+    <% end %>                     
+    </ul>
+<% end %>
 
-             <% if @dynometry.errors.any? %>
-                 <ul class='alert alert-danger'>
-                    <% @dynometry.errors.full_messages.each do |message| %>
-                      <li ><%= message %></li>
-                    <% end %>                     
-                 </ul>
-             <% end %>
-            
-            
-            <div class='row justify-content-md-center'>
-              <div class="col-md-11" >
-                <%= form_with model: @dynometry, local: true do |f| %>
-                    <table class="table table-sm text-center"> 
-                            <tr>
-                                <td colspan="2" rowspan="2"> </td>
-                                <th colspan="3"> Extensão </th>
-                                <th colspan="3"> Flexão </th>
-                            </tr>
+<% content_for :form_title do %> Dinamometria <% end %>
 
-                            <tr>
-                                <% for i in 0..1 %>
-                                    <td> D </td>
-                                    <td> E </td>
-                                    <td> Deficit </td>
-                                <% end %>
-                            </tr>
+<% content_for :form_fields do %>
+    <%= form_with model: @dynometry, local: true do |f| %>
+        <table class="table table-sm text-center"> 
+                <tr>
+                    <td colspan="2" rowspan="2"> </td>
+                    <th colspan="3"> Extensão </th>
+                    <th colspan="3"> Flexão </th>
+                </tr>
 
-                            <tr>
-                                <td> Pico de Torque </td>
-                                <td> 60° </td>
+                <tr>
+                    <% for i in 0..1 %>
+                        <td> D </td>
+                        <td> E </td>
+                        <td> Deficit </td>
+                    <% end %>
+                </tr>
 
-                                <% for i in [:peak_extension_right, :peak_extension_left, :peak_extension_deficit,
-                                             :peak_flexion_right, :peak_flexion_left, :peak_flexion_deficit]%>
-                                    <td> <%= f.text_field i, style: "width: 50px;" %></td>
-                                <% end%>
-                            </tr>
+                <tr>
+                    <td> Pico de Torque </td>
+                    <td> 60° </td>
 
-                            <tr>
-                                <td rowspan="2"> Potência </td>
-                                <td> 180°/s </td>
+                    <% for i in [:peak_extension_right, :peak_extension_left, :peak_extension_deficit,
+                                    :peak_flexion_right, :peak_flexion_left, :peak_flexion_deficit]%>
+                        <td> <%= f.text_field i, style: "width: 50px;" %></td>
+                    <% end%>
+                </tr>
 
-                                <% for i in [:power_extension_right_180, :power_extension_left_180, :power_extension_deficit_180,
-                                             :power_flexion_right_180, :power_flexion_left_180, :power_flexion_deficit_180]%>
-                                    <td> <%= f.text_field i, style: "width: 50px;" %> </td>
-                                <% end%>
-                            </tr>
+                <tr>
+                    <td rowspan="2"> Potência </td>
+                    <td> 180°/s </td>
 
-                            <tr>
-                                <td> 300°/s </td>
+                    <% for i in [:power_extension_right_180, :power_extension_left_180, :power_extension_deficit_180,
+                                    :power_flexion_right_180, :power_flexion_left_180, :power_flexion_deficit_180]%>
+                        <td> <%= f.text_field i, style: "width: 50px;" %> </td>
+                    <% end%>
+                </tr>
 
-                                <% for i in [:power_extension_right_300, :power_extension_left_300, :power_extension_deficit_300,
-                                             :power_flexion_right_300, :power_flexion_left_300, :power_flexion_deficit_300]%>
-                                    <td> <%= f.text_field i, style: "width: 50px;" %></td>
-                                <% end%>
-                            </tr>
+                <tr>
+                    <td> 300°/s </td>
 
-                            <tr>
-                                <td rowspan="2"> Trabalho </td>
-                                <td> 180°/s </td>
+                    <% for i in [:power_extension_right_300, :power_extension_left_300, :power_extension_deficit_300,
+                                    :power_flexion_right_300, :power_flexion_left_300, :power_flexion_deficit_300]%>
+                        <td> <%= f.text_field i, style: "width: 50px;" %></td>
+                    <% end%>
+                </tr>
 
-                                <% for i in [:job_extension_right_180, :job_extension_left_180, :job_extension_deficit_180,
-                                             :job_flexion_right_180, :job_flexion_left_180, :job_flexion_deficit_180]%>
-                                    <td> <%= f.text_field i, style: "width: 50px;" %></td>
-                                <% end%>
-                            </tr>
+                <tr>
+                    <td rowspan="2"> Trabalho </td>
+                    <td> 180°/s </td>
 
-                            <tr>
-                                <td> 300°/s </td>
+                    <% for i in [:job_extension_right_180, :job_extension_left_180, :job_extension_deficit_180,
+                                    :job_flexion_right_180, :job_flexion_left_180, :job_flexion_deficit_180]%>
+                        <td> <%= f.text_field i, style: "width: 50px;" %></td>
+                    <% end%>
+                </tr>
 
-                                <% for i in [:job_extension_right_300, :job_extension_left_300, :job_extension_deficit_300,
-                                             :job_flexion_right_300, :job_flexion_left_300, :job_flexion_deficit_300]%>
-                                    <td> <%= f.text_field i, style: "width: 50px;" %></td>
-                                <% end%>
-                            </tr>
+                <tr>
+                    <td> 300°/s </td>
 
-                            <tr>
-                                <td> Indice de Fadiga </td>
-                                <td> 300°/s </td>
+                    <% for i in [:job_extension_right_300, :job_extension_left_300, :job_extension_deficit_300,
+                                    :job_flexion_right_300, :job_flexion_left_300, :job_flexion_deficit_300]%>
+                        <td> <%= f.text_field i, style: "width: 50px;" %></td>
+                    <% end%>
+                </tr>
 
-                                <% for i in [:fatigue_extension_right_300, :fatigue_extension_left_300, :fatigue_extension_deficit_300,
-                                             :fatigue_flexion_right_300, :fatigue_flexion_left_300, :fatigue_flexion_deficit_300]%>
-                                    <td> <%= f.text_field i, style: "width: 50px;" %></td>
-                                <% end%>
-                            </tr>
+                <tr>
+                    <td> Indice de Fadiga </td>
+                    <td> 300°/s </td>
 
-                            <tr>
-                                <td colspan="2"> IDM </td>
-                                <td colspan="3"> <%= f.text_field :IDM_extension %></td>
-                                <td colspan="3"> <%= f.text_field :IDM_flexion %></td>
-                            </tr>
+                    <% for i in [:fatigue_extension_right_300, :fatigue_extension_left_300, :fatigue_extension_deficit_300,
+                                    :fatigue_flexion_right_300, :fatigue_flexion_left_300, :fatigue_flexion_deficit_300]%>
+                        <td> <%= f.text_field i, style: "width: 50px;" %></td>
+                    <% end%>
+                </tr>
 
-                            <tr>
-                                <td colspan="2"> Relação Q/I</td>
-                                <td> <%= f.text_field :relation_extension_right, style: "width: 50px;" %></td>
-                                <td> <%= f.text_field :relation_extension_left, style: "width: 50px;" %></td>
-                            </tr>
-                    <table>
-                  <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
-                <% end %>
-              </div>
-            </div>
-        </div>
-    </body>
-</html>
+                <tr>
+                    <td colspan="2"> IDM </td>
+                    <td colspan="3"> <%= f.text_field :IDM_extension %></td>
+                    <td colspan="3"> <%= f.text_field :IDM_flexion %></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"> Relação Q/I</td>
+                    <td> <%= f.text_field :relation_extension_right, style: "width: 50px;" %></td>
+                    <td> <%= f.text_field :relation_extension_left, style: "width: 50px;" %></td>
+                </tr>
+        <table>
+        <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
+    <% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>

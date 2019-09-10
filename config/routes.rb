@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   post 'impulsions/new' => 'impulsions#create'
   post 'perimetries/new' => 'perimetries#create'
   post 'ankle_mobilities/new' => 'ankle_mobilities#create'
-  post 'yo_tests/new' => 'yo_tests#create'
+  post 'y_tests/new' => 'y_tests#create'
 
   post 'list_evaluations/set_list' => 'list_evaluations#set_list'
   
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   post 'impulsions/:id' => 'impulsions#edit'
   post 'perimetries/:id' => 'perimetries#edit'
   post 'ankle_mobilities/:id' => 'ankle_mobilities#edit'
-  post 'yo_tests/:id' => 'yo_tests#edit'
+  post 'y_tests/:id' => 'y_tests#edit'
 
 
   resources :yo_tests
@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   resources :questionaries
   resources :tegner_lysholms
   resources :yo_yos
+  resources :y_tests
   resources :impulsions
   resources :perimetries
   

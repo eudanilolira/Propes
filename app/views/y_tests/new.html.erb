@@ -1,34 +1,20 @@
-<html >
-    <head>
-        <%= javascript_include_tag 'y_test', 'data-turbolinks-track': 'reload' %>
-    </head>
-    <body>
-        <div class='container text-center col-md-7 panel'>
-            
-            <div class='row'>
-                <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário Y Balance Test
-                </h1>
-            </div>
 
-            <div class='row justify-content-md-center'>
-              <div class="col-md-11" >
-                <% athlete = Athlete.find(session[:athlete_id]) %>
-                <%= form_with model: @y_test, local: true do |f| %>
-                  <% for field in @y_test.attributes %>
-                      <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id',
-                                 "left_result","left_qualitative_result", "right_qualitative_result", "right_result"].include? field[0] %>
-                        <p class='text-left'>
-                            <%= f.label field[0] %>
-                            <%= f.text_field field[0], class: 'form-control'%>
-                        </p>
-                      <% end %>
-                  <% end %>
-                  
-                  <p><input type="submit" name="commit" value="Salvar" class="btn salvar" data-disable-with="Salvar"></p>
-                <% end %>
-              </div>
-            </div>
-        </div>
-    </body>
-</html>
+<% content_for :form_title do %> Y test<% end %>
+
+<% content_for :form_fields do %>
+    <% athlete = Athlete.find(session[:athlete_id]) %>
+    <%= form_with model: @y_test, local: true do |f| %>
+        <% for field in @y_test.attributes %>
+            <% if not ['id','created_at', 'updated_at', 'user_id','athlete_id', "left_result","left_qualitative_result", "right_qualitative_result", "right_result"].include? field[0] %>
+                <p class='text-left'>
+                    <%= f.label field[0] %>
+                    <%= f.text_field field[0], class: 'form-control'%>
+                </p>
+            <% end %>
+        <% end %>
+        
+        <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
+    <% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>

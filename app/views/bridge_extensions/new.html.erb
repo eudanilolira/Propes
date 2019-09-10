@@ -1,48 +1,37 @@
-<html >
-    <body>
-        <div class='container text-center col-md-7 panel'>
-            
-            <div class='row'>
-                <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário Extensão de Ponte
-                </h1>
-            </div>
+<% content_for :form_title do %> Extensão de ponte <% end %>
 
-            <div class='row justify-content-md-center'>
-              <div class="col-md-11" >
-                <%= form_with model: @bridge_extension, local: true do |f| %>
-                  <% for field in @bridge_extension.attributes %>
-                        <% fi = field[0] %>
-                        <% if ['left_side','right_side'].include? fi %>
-                            <p>
-                                <h4><%= t fi %></h4>
-                                
-                                <div class="radio">
-                                    <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Sem Queda">
-										<%= image_tag('nao-queda.jpg', :size => "200x200")%>
-									</label>
+<% content_for :form_fields do %>
+    <%= form_with model: @bridge_extension, local: true do |f| %>
+        <% for field in @bridge_extension.attributes %>
+            <% fi = field[0] %>
+            <% if ['left_side','right_side'].include? fi %>
+                <p>
+                    <h4><%= t fi %></h4>
+                    
+                    <div class="radio">
+                        <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Sem Queda">
+                            <%= image_tag('nao-queda.jpg', :size => "200x200")%>
+                        </label>
 
-                                    <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Queda Leve">
-										<%= image_tag('queda-leve.jpg', :size => "200x200") %>
-									</label>
-                                </div>                                
-                                <div class='radio'>
-                                    <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Queda Moderada">
-										<%= image_tag('queda-moderada.jpg', :size => "200x200")%>
-									</label>
+                        <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Queda Leve">
+                            <%= image_tag('queda-leve.jpg', :size => "200x200") %>
+                        </label>
+                    </div>                                
+                    <div class='radio'>
+                        <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Queda Moderada">
+                            <%= image_tag('queda-moderada.jpg', :size => "200x200")%>
+                        </label>
 
-                                    <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Queda Acentuada">
-										<%= image_tag('queda-acentuada.jpg', :size => "200x200")%>
-									</label>
-                                </div>                                
-                            </p>
-                        <% end %>
-                  <% end %>
-                  
-                  <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
-                <% end %>
-              </div>
-            </div>
-        </div>
-    </body>
-</html>
+                        <label><input type='radio' name="<%="bridge_extension[#{fi.to_s}]"%>" value="Queda Acentuada">
+                            <%= image_tag('queda-acentuada.jpg', :size => "200x200")%>
+                        </label>
+                    </div>                                
+                </p>
+            <% end %>
+        <% end %>
+        
+        <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
+    <% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>

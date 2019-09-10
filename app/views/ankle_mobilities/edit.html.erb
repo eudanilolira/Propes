@@ -1,32 +1,21 @@
-<html >
-    <body>
-        <div class='container col-md-7'>
-            
-            <div class='row text-center'>
-                <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Modificação da Avaliação
-                </h1>
-            </div>
-            
-            <div class='row justify-content-md-center'>
-                <div class="col-md-11" >
-                    <%= form_for(@ankle_mobility) do |f| %>
-                        <% for field in @ankle_mobility.attributes %>
-                            <% if not_db_attribute(field[0]) %>
-                                <p class='text-left'>
-                                    <label><%= t field[0] %></label>
-                                    <% if field[0] != 'avatar'%>
-                                        <%= f.text_field field[0], class: 'form-control'%> 
-                                    <% else %>
-                                        <p class='text-left'><%= f.file_field field[0], class: 'file_field' %></p>
-                                    <% end %>
-                                </p>                                
-                        <% end %>
+<% content_for :form_title do %> de edição Mobilidade de tornozelo <% end %>
 
-                        <p class='text-center'><%= f.submit 'Salvar Alterações', class: 'btn btn-primary' %></p>
+<% content_for :form_fields do %>
+    <%= form_for(@ankle_mobility) do |f| %>
+        <% for field in @ankle_mobility.attributes %>
+            <% if not_db_attribute(field[0]) %>
+                <p class='text-left'>
+                    <label><%= t field[0] %></label>
+                    <% if field[0] != 'avatar'%>
+                        <%= f.text_field field[0], class: 'form-control'%> 
+                    <% else %>
+                        <p class='text-left'><%= f.file_field field[0], class: 'file_field' %></p>
                     <% end %>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+                </p>                                
+        <% end %>
+
+        <p class='text-center'><%= f.submit 'Salvar Alterações', class: 'btn btn-primary' %></p>
+    <% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>

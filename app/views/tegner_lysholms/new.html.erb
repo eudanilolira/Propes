@@ -1,88 +1,77 @@
-<html >
-    <body>
-        <div class='container text-center col-md-7 panel'>
-            
-            <div class='row'>
-                <h1 class='col-md-12' style='color: #70C4FF;'>
-                    Formulário de Tegner Lysholm
-                </h1>
-            </div>
+<% content_for :form_title do %> Tegner Lysholm <% end %>
 
-            <div class='row justify-content-md-center'>
-              <div class="col-md-11" >
-                <%= form_with model: @tegner_lysholm, local: true do |f| %>
-                    <p class='text-left'>
-							<%= f.label :instability %>
-								<select name="tegner_lysholm[instability]" id="tegner_lysholm_instability" class="form-control">
-									<option value="25">Nunca Falseia ()</option>
-									<option value="20">Raramente durante exercícios (20)</option>
-									<option value="15">Frequentemente durante exercícios (15)</option>
-									<option value="10">Ocasionalmente em atividades diárias (10)</option>
-									<option value="5">Frequentemente em atividades diárias (5)</option>
-									<option value="0">A cada passo (0)</option>
-								</select>
-							
-							<%= f.label :pain %>
-								<select name="tegner_lysholm[pain]" id="tegner_lysholm_pain" class="form-control">
-									<option value="25">Nenhuma (25)</option>
-									<option value="20">Insconstante ou leve durante exercícios pesados (20)</option>
-									<option value="15">Marcada durante exercícios pesados (15)</option>
-									<option value="10">Marcarda durante ou após caminhar mais de 2km (10)</option>
-									<option value="5">Marcada durante ou após caminhar menos de 2km (5)</option>
-									<option value="0">constante (0)</option>
-								</select>
+<% content_for :form_fields do %>
+	<%= form_with model: @tegner_lysholm, local: true do |f| %>
+		<p class='text-left'>
+				<%= f.label t :instability %>
+					<select name="tegner_lysholm[instability]" id="tegner_lysholm_instability" class="form-control">
+						<option value="25">Nunca Falseia (25)</option>
+						<option value="20">Raramente durante exercícios (20)</option>
+						<option value="15">Frequentemente durante exercícios (15)</option>
+						<option value="10">Ocasionalmente em atividades diárias (10)</option>
+						<option value="5">Frequentemente em atividades diárias (5)</option>
+						<option value="0">A cada passo (0)</option>
+					</select>
+				
+				<%= f.label t :pain %>
+					<select name="tegner_lysholm[pain]" id="tegner_lysholm_pain" class="form-control">
+						<option value="25">Nenhuma (25)</option>
+						<option value="20">Insconstante ou leve durante exercícios pesados (20)</option>
+						<option value="15">Marcada durante exercícios pesados (15)</option>
+						<option value="10">Marcarda durante ou após caminhar mais de 2km (10)</option>
+						<option value="5">Marcada durante ou após caminhar menos de 2km (5)</option>
+						<option value="0">constante (0)</option>
+					</select>
 
-							<%= f.label :swelling %>
-								<select name="tegner_lysholm[swelling]" id="tegner_lysholm_swelling" class="form-control">
-									<option value="10">Nenhum (10)</option>
-									<option value="6">Com exercícios pesados (6)</option>
-									<option value="2">Com exercícios comuns (2)</option>
-									<option value="0">Constante (0)</option>
-								</select>
+				<%= f.label t :swelling %>
+					<select name="tegner_lysholm[swelling]" id="tegner_lysholm_swelling" class="form-control">
+						<option value="10">Nenhum (10)</option>
+						<option value="6">Com exercícios pesados (6)</option>
+						<option value="2">Com exercícios comuns (2)</option>
+						<option value="0">Constante (0)</option>
+					</select>
 
-							<%= f.label :climb_stairs %>
-								<select name="tegner_lysholm[climb_stairs]" id="tegner_lysholm_climb_stairs" class="form-control">
-									<option value="10">Nenhum Problema (10)</option>
-									<option value="6">Levemente Prejudicado (6)</option>
-									<option value="2">Um degrau de cada vez (2)</option>
-									<option value="0">Impossível (0)</option>
-								</select>
+				<%= f.label t :climb_stairs %>
+					<select name="tegner_lysholm[climb_stairs]" id="tegner_lysholm_climb_stairs" class="form-control">
+						<option value="10">Nenhum Problema (10)</option>
+						<option value="6">Levemente Prejudicado (6)</option>
+						<option value="2">Um degrau de cada vez (2)</option>
+						<option value="0">Impossível (0)</option>
+					</select>
 
-							<%= f.label :squat %>
-								<select name="tegner_lysholm[squat]" id="tegner_lysholm_squat" class="form-control">
-									<option value="5">Nenhum problema (5)</option>
-									<option value="4">Levemente prejudicado(4)</option>
-									<option value="2">Não além de 90 Graus (2)</option>
-									<option value="0">Impossível (0)</option>
-								</select>
+				<%= f.label t :squat %>
+					<select name="tegner_lysholm[squat]" id="tegner_lysholm_squat" class="form-control">
+						<option value="5">Nenhum problema (5)</option>
+						<option value="4">Levemente prejudicado(4)</option>
+						<option value="2">Não além de 90 Graus (2)</option>
+						<option value="0">Impossível (0)</option>
+					</select>
 
-							<%= f.label :locking %>
-							<select name="tegner_lysholm[locking]" id="tegner_lysholm_locking" class="form-control">
-								<option value="15">Nenhum travamento ou sensação (15)</option>
-								<option value="10">Tem sensação, mas sem travamento (10)</option>
-								<option value="6">Travamento Ocasional (6)</option>
-								<option value="2">Frequente (2)</option>
-							</select>
-							
-							<%= f.label :limp %>
-							<select name="tegner_lysholm[limp]" id="tegner_lysholm_limp" class="form-control">
-								<option value="5">Nunca (5)</option>
-								<option value="3">Leve ou periodicamente (3)</option>
-								<option value="0">Intenso e Constante (0)</option>
-							</select>
+				<%= f.label t :locking %>
+				<select name="tegner_lysholm[locking]" id="tegner_lysholm_locking" class="form-control">
+					<option value="15">Nenhum travamento ou sensação (15)</option>
+					<option value="10">Tem sensação, mas sem travamento (10)</option>
+					<option value="6">Travamento Ocasional (6)</option>
+					<option value="2">Frequente (2)</option>
+				</select>
 
-							<%= f.label :support %>
-							<select name="tegner_lysholm[support]" id="tegner_lysholm_support" class="form-control">
-								<option value="5">Nunca (5)</option>
-								<option value="3">Bengala ou Muleta (3)</option>
-								<option value="0">Impossível (0)</option>
-							</select>
+				<%=  f.label t :limp %>
+				<select name="tegner_lysholm[limp]" id="tegner_lysholm_limp" class="form-control">
+					<option value="5">Nunca (5)</option>
+					<option value="3">Leve ou periodicamente (3)</option>
+					<option value="0">Intenso e Constante (0)</option>
+				</select>
 
-                    </p>
-                  <p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
-                <% end %>
-              </div>
-            </div>
-        </div>
-    </body>
-</html>
+				<%=  f.label t :support %>
+				<select name="tegner_lysholm[support]" id="tegner_lysholm_support" class="form-control">
+					<option value="5">Nunca (5)</option>
+					<option value="3">Bengala ou Muleta (3)</option>
+					<option value="0">Impossível (0)</option>
+				</select>
+
+		</p>
+		<p><%= f.submit 'Salvar', class: 'btn salvar' %></p>
+	<% end %>
+<% end %>
+
+<%= render '/layouts/evaluation' %>
