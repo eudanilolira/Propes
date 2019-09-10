@@ -1,2 +1,0 @@
-class Cutaneous < ApplicationRecord
-end

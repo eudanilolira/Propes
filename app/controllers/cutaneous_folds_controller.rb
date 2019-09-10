@@ -39,7 +39,7 @@ class CutaneousFoldsController < ApplicationController
 
     private
     def cutaneous_fold_params
-        params.require(:cutaneous_fold).permit(:tricipital, :subescapular, :average_axilar, :breastplate, :supra_ilcia, :abdomen, :thigh, :result, :bone_mass_BE, :bone_mass_BU, 
-                                               :bone_mass_BF, :bone_mass_BM, :bm_Result, :residual_mass, :fat_mass, :muscle_mass, :lean_mass)
+        params.require(:cutaneous_fold).permit(:tricipital, :subescapular, :average_axilar, :breastplate, :supra_ilcia, :abdomen, :thigh, :bone_mass_BE, :bone_mass_BU, 
+                                               :bone_mass_BF, :bone_mass_BM,)
     end
 end

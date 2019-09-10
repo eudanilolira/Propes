@@ -9,15 +9,18 @@ class CreateCutaneousFolds < ActiveRecord::Migration[5.2]
       t.decimal :abdomen
       t.decimal :thigh
       t.decimal :result
+      t.string :qualitative_result
       t.decimal :bone_mass_BE
       t.decimal :bone_mass_BU
       t.decimal :bone_mass_BF
       t.decimal :bone_mass_BM
-      t.decimal :bm_Result
-      t.decimal :residual_mass
-      t.decimal :fat_mass
-      t.decimal :muscle_mass
-      t.decimal :lean_mass
+      
+      t.decimal :bm_result
+      t.decimal :residual_mass_result
+      t.decimal :fat_mass_result
+      t.decimal :muscle_mass_result
+      t.decimal :lean_mass_result
+
       t.bigint :user_id
       t.bigint :athlete_id
 

@@ -7,7 +7,9 @@
 <% content_for :form_fields do %>
 	<%= form_with model: @cutaneous_fold, local: true do |f| %>
 		<% for field in @cutaneous_fold.attributes %>
-			<% if not ['id','created_at', 'updated_at', 'user_id','athlete_id', 'result'].include? field[0] %>
+			<% if not ['id','created_at', 'updated_at', 'user_id','athlete_id',
+			 		   'bm_result', 'residual_mass_result', 'fat_mass_result', 
+			 		   'muscle_mass_result', 'lean_mass_result', 'result', 'qualitative_result' ].include? field[0] %>
 				<p class='text-left'>
 					<%= f.label t field[0] %>
 					<%= f.number_field field[0], class: 'form-control' %>
