@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_011426) do
     t.decimal "supra_ilcia"
     t.decimal "abdomen"
     t.decimal "thigh"
-    t.decimal "result"
+    t.decimal "cutaneous_fold_result"
     t.string "qualitative_result"
     t.decimal "bone_mass_BE"
     t.decimal "bone_mass_BU"

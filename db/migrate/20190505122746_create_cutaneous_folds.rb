@@ -8,7 +8,7 @@ class CreateCutaneousFolds < ActiveRecord::Migration[5.2]
       t.decimal :supra_ilcia
       t.decimal :abdomen
       t.decimal :thigh
-      t.decimal :result
+      t.decimal :cutaneous_fold_result
       t.string :qualitative_result
       t.decimal :bone_mass_BE
       t.decimal :bone_mass_BU
