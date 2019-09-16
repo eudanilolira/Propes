@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_011426) do
+ActiveRecord::Schema.define(version: 2019_09_16_140231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,11 +213,11 @@ ActiveRecord::Schema.define(version: 2019_06_19_011426) do
     t.decimal "right_leg"
     t.decimal "waist"
     t.decimal "hip"
-    t.decimal "result"
     t.bigint "user_id"
     t.bigint "athlete_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "qualitativeResult"
   end
 
   create_table "questionaries", force: :cascade do |t|
