@@ -5,11 +5,6 @@ class UsersController < ApplicationController
     authorize! :index, @users
   end
 
-  def unapproveds
-    @users = User.where(approved: false)
-    authorize! :unapproveds, @users
-  end
-
   def new
     @user = User.new
   end
@@ -51,22 +46,28 @@ class UsersController < ApplicationController
     redirect_to request.original_url
   end
 
+  def unapproveds
+    @users = User.where(approved: false)
+    authorize! :unapproveds, @users
+  end
+
   def approve
     @user = User.find(params[:id])
     authorize! :approve, @user
-    if @user.update_attribute(:approved, true)
+
+    if @user.update_column(:approved, true)
       flash[:notice] = "Usuário aprovado com sucesso !"
     else
       flash[:alert] = "Ocorreu algum erro, tente novamente mais tarde !"
     end
     
-    render 'unapproveds'
+    redirect_to '/users/unapproveds'
   end
 
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :cpf, :date_birth, :gender, :profession,
-     :address, :city, :neighborhood, :state, :cep, :home_phone, :cell_phone)
+     :address, :city, :neighborhood, :state, :cep, :home_phone, :cell_phone, :approved)
   end
 
 end

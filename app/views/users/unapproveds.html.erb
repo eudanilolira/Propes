@@ -17,22 +17,20 @@
                         </thead>
                      
                         <tbody>
-                            <% User.all.entries.each do |u| %>
-                                <% if not u.approved %>
-                                    <tr>
-                                        <td class='text-left'> 
-                                            <% if not u.avatar.attached? %>
-                                                <image class="rounded-circle" <%= image_tag("Missing_avatar.svg.png", :size => "40x40") %> 
-                                            <% else %>    
-                                                <image class="rounded-circle" <%= image_tag(u.avatar, :size => "40x40") %>
-                                            <% end %>
-                                            <a><%= u.name %></a> 
-                                        </td>
-                                        <td> <%= u.email%></td>
-                                        <td> <%= button_to "Aprovar", {:controller => "users", :action => "approve", :id => u.id}, {:method => :post, :class => "btn btn-primary"}  %></td>
-                                        <td> <%= button_to "Recusar", u , method: :delete , :class => "btn btn-danger", data: {confirm: "Você irá rejeitar o cadastro de: " + u.name} %></td>
-                                    </tr>
-                                <% end %>
+                            <% @users.each do |u| %>
+                                <tr>
+                                    <td class='text-left'> 
+                                        <% if not u.avatar.attached? %>
+                                            <image class="rounded-circle" <%= image_tag("Missing_avatar.svg.png", :size => "40x40") %> 
+                                        <% else %>    
+                                            <image class="rounded-circle" <%= image_tag(u.avatar, :size => "40x40") %>
+                                        <% end %>
+                                        <a><%= u.name %></a> 
+                                    </td>
+                                    <td> <%= u.email%></td>
+                                    <td> <%= button_to "Aprovar", {:controller => "users", :action => "approve", :id => u.id}, {:method => :post, :class => "btn btn-primary"}  %></td>
+                                    <td> <%= button_to "Recusar", u , method: :delete , :class => "btn btn-danger", data: {confirm: "Você irá rejeitar o cadastro de: " + u.name} %></td>
+                                </tr>
                             <% end %>        
                         </tbody>
                         
