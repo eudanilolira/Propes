@@ -26,7 +26,9 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-    if @user.save  
+    
+    if @user.save 
+      @user.update_column(:approved, false) 
       redirect_to '/sign_in'
     else
       puts @user.errors.full_messages

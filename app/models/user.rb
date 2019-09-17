@@ -1,6 +1,5 @@
 class User < ApplicationRecord
     attr_accessor :approved
-
     VALID_EMAIL_FORMAT= /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
     has_secure_password
@@ -19,12 +18,7 @@ class User < ApplicationRecord
     validates :cep, presence: true
     validates :home_phone, presence: false
     validates :cell_phone, presence: true
+    validates :approved, presence: false
     
-
-    before_save :default_values
     before_save { self.email = email.downcase }
-
-    def default_values
-        self.approved = false
-    end
 end
