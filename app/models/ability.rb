@@ -6,6 +6,13 @@ class Ability
        if user.role == 'admin'
          can :manage, :all
        else
+         if !user.approved
+          cannot :index, :all
+          cannot :show, :all
+          cannot :edit, :all
+          can :new, User
+          can :create, User
+         end 
          cannot :unapproveds , User
          cannot :show, User
        end

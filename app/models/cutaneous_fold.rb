@@ -22,9 +22,7 @@ class CutaneousFold < ApplicationRecord
         measures_sum = self.tricipital + self.subescapular + self.average_axilar + self.breastplate + self.supra_ilcia  
         
         if athlete.gender == 'M'
-            
-            sum = (measures_sum + self.abdomen ) ** 2 #macho2
-            
+            sum = (measures_sum + self.abdomen ) ** 2 
             self.cutaneous_fold_result = 1.112 - ((0.00043499*(measures_sum + self.thigh )) + 0.00000055*(sum) - ((0.0002882* athlete.age)))
         elsif athlete.gender == 'F'
             sum = (measures_sum + self.abdomen + self.thigh)*(measures_sum + self.abdomen)
