@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize! :destroy, @user
     @user.destroy
-    redirect_to request.original_url
+    redirect_to '/users'
   end
 
   def unapproveds
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :cpf, :date_birth, :gender, :profession,
-     :address, :city, :neighborhood, :state, :cep, :home_phone, :cell_phone, :approved)
+     :address, :city, :neighborhood, :state, :cep, :home_phone, :cell_phone)
   end
 
 end
