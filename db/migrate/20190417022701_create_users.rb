@@ -15,7 +15,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :cep 
       t.string :home_phone 
       t.string :cell_phone 
-      t.boolean :approved
+      t.string :approved
       t.binary :avatar, :limit => 10.megabyte
       t.timestamps
     end

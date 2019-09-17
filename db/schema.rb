@@ -291,7 +291,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_013318) do
     t.string "cep"
     t.string "home_phone"
     t.string "cell_phone"
-    t.boolean "approved"
+    t.string "approved"
     t.binary "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

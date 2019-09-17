@@ -37,17 +37,17 @@ Anamnese.create(id: "1", main_complaint: "Dor na perna esquerda", history_compla
 
 user = User.new(id: "1", name: "Danilo da Rocha Lira Araújo", cpf: "19237899496" , date_birth: "09/06/1999" , gender: "M",
 address: "Rua das vitrines, 284 ", city: "Recife" , neighborhood: "Beira Rio" , state: "PE" ,
-cep: "60780695" , home_phone: "81996625003" , cell_phone: "81992686003", approved: true, email: "drla@cin.ufpe.br", 
+cep: "60780695" , home_phone: "81996625003" , cell_phone: "81992686003", approved: "true", email: "drla@cin.ufpe.br", 
 password: "0123456789", password_confirmation: "0123456789", role: "admin")
 
 user2 = User.new(id: "2", name: "Leonardo de Oliveira Lima", cpf: "19237299496" , date_birth: "09/06/1998" , gender: "M",
 address: "Rua das Alamedas, 185 ", city: "Recife" , neighborhood: "Madalena" , state: "PE" ,
-cep: "60780995" , home_phone: "81996625003" , cell_phone: "81998686003", approved: false, email: "leo2@cin.ufpe.br", 
+cep: "60780995" , home_phone: "81996625003" , cell_phone: "81998686003", approved: "false", email: "leo2@cin.ufpe.br", 
 password: "0123456789", password_confirmation: "0123456789")
 
 user3 = User.new(id: "3", name: "Gabriel Estevam Longuinhos", cpf: "19237289496" , date_birth: "19/06/1998" , gender: "M",
 address: "Rua da Torre, 502", city: "Olinda" , neighborhood: "Patinhos" , state: "PE" ,
-cep: "60720995" , home_phone: "81996625053" , cell_phone: "81998686003", approved: false, email: "gel@cin.ufpe.br", 
+cep: "60720995" , home_phone: "81996625053" , cell_phone: "81998686003", approved: "false", email: "gel@cin.ufpe.br", 
 password: "0123456789", password_confirmation: "0123456789")
 
 user.save
