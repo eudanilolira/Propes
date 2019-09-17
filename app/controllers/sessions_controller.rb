@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
         sign_in 
         redirect_to @user
     else
-      if !@user.approved
-        flash[:alert] = 'Aguarde aprovação do administrado'
+      if @user.approved != true
+        flash[:alert] = 'Aguarde aprovação do administrador'
       end
       
       if @user.authenticate(params[:session][:password])
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
       end
 
       render 'new'
+
     end
   end
 
