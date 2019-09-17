@@ -6,13 +6,19 @@ class SessionsController < ApplicationController
   
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
-    if @user && @user.authenticate(params[:session][:password])
+    if @user && @user.authenticate(params[:session][:password]) && @user.approved
         sign_in 
         redirect_to @user
     else
-      flash[:alert] = 'E-mail ou senha incorretos !'
-      render 'new'
+      if !@user.approved
+        flash[:alert] = 'Aguarde aprovação do administrado'
+      end
       
+      if @user.authenticate(params[:session][:password])
+        flash[:alert] = 'E-mail ou senha incorretos !'
+      end
+
+      render 'new'
     end
   end
 
