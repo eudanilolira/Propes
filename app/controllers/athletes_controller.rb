@@ -54,6 +54,6 @@ class AthletesController < ApplicationController
      :degree_education, :profession, :address, :city, :neighborhood, :state, :cep,  
      :home_phone, :cell_phone, :modality, :position, :dum , :dlm, :smoker , :alcoholism,  
      :sah, :diabetes, :cardio_deseases, :exercise_practice, :fami_alcoholism, :fami_sah,  
-     :fami_diabetes, :fami_cardio, :others, :avatar)
+     :fami_diabetes, :fami_cardio, :others, :avatar, :weight, :height)
   end
 end

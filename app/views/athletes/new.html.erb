@@ -33,7 +33,7 @@
                 <%= form_with model: @athlete, validate: true do |f| %>
                     <% for field in @athlete.attributes%>
                         <% fi = field[0] %>
-                        <% if ['name','cpf', 'cep','profession','address','city',
+                        <% if ['name','cpf', 'cep','profession','address','city', 'weight', 'height',
                                 'neighborhood','state','cell_phone','home_phone',
                                 'modality','date_birth', 'others', 'position', 'age'].include? fi %>
                             <p>

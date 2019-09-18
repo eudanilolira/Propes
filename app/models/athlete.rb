@@ -13,6 +13,8 @@ class Athlete < ApplicationRecord
     has_many :bridge_extensions
     has_many :dynometries
     
+    validates :weight, presence: true
+    validates :height, presence: true
     validates :name, presence: true
     validates :cpf, presence: true
     validates :date_birth, presence: true
