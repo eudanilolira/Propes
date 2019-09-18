@@ -23,7 +23,7 @@
                     <table class="table table-sm">
                         <tbody>
                             <% for attr in @user.attributes %>
-                                <% if not ["id", "password", "password_digest", "created_at", "updated_at", "avatar", "role", "approved"].include? attr[0] %>
+                                <% if not ["id", "password", "password_digest", "created_at", "updated_at", "avatar", "role", "aprovado"].include? attr[0] %>
                                     <tr>
                                         <td><p><strong><%= t attr[0] %>:</strong></p></td>
                                         <td><%= attr[1] %></td>

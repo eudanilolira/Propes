@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save 
-      @user.update_column(:approved, "false") 
+      @user.update_column(:aprovado, false) 
       redirect_to '/sign_in'
     else
       puts @user.errors.full_messages
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def unapproveds
-    @users = User.where(approved: "false")
+    @users = User.where(aprovado: false)
     authorize! :unapproveds, @users
   end
 
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize! :approve, @user
 
-    if @user.update_column(:approved, "true")
+    if @user.update_column(:aprovado, true)
       flash[:notice] = "Usuário aprovado com sucesso !"
     else
       flash[:alert] = "Ocorreu algum erro, tente novamente mais tarde !"
