@@ -39,6 +39,14 @@
                                 <%= f.label t fi %>
                                 <select name="athlete[degree_education]" id="degree_education" class="form-control">
                                     <option value="Analfabeto"> Analfabeto </option>
+                                    <option value="Ensino Fundamental Incompleto"> Ensino Fundamental Incompleto </option>
+                                    <option value="Ensino Fundamental Completo"> Ensino Fundamental Completo </option>
+                                    <option value="Ensino Médio Incompleto"> Ensino Médio Incompleto </option>
+                                    <option value="Ensino Médio Completo"> Ensino Médio Completo </option>
+                                    <option value="Superior Incompleto"> Superior Incompleto </option>
+                                    <option value="Superior em andamento"> Superior em andamento </option>
+                                    <option value="Superior Completo"> Superior Completo </option>
+                                    <option value="Pós Graduação"> Pós Graduação </option>
                                 </select>
                             </p>  
 
@@ -92,7 +100,7 @@
                         <% end %>
                     <% end %>
                 </div>
-                    <p><%= f.submit 'Salvar Alterações', class:'btn btn-primary text-center'%></p>
+                    <p class='text-center'><%= f.submit 'Salvar Alterações', class: 'btn btn-primary' %></p>
                 <% end %>
               
             </div>
