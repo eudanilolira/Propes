@@ -1,3 +1,10 @@
 {
-    "explorer.sortOrder": "type"
+    "explorer.sortOrder": "type",
+    "files.exclude": {
+        "bin": true,
+        "log": true,
+        "storage": true,
+        "tmp": true,
+        "vendor": true
+    }
 }

@@ -9,7 +9,7 @@ class Ability
          if user.aprovado != true
           cannot :index, :all
           cannot :show, :all
-          cannot :edit, :all
+          can :edit, User
           can :new, User
           can :create, User
          else
