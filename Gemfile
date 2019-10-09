@@ -39,6 +39,8 @@ gem 'jquery-rails'
 # For bootstrap
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+gem "nokogiri", ">= 1.10.4"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
