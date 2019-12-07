@@ -2,7 +2,7 @@ module AthletesHelper
 
     def evaluation_list
         return evaluation_list = [Anamnese, AnkleMobility, BridgeExtension, Cooper, CutaneousFold, 
-        Dynometry, Impulsion, Perimetry, Questionary, TegnerLysholm, YoYo]
+        Dynometry, Impulsion, Perimetry, Questionary, TegnerLysholm, YoYo, YTest]
     end
     
     def athlete_attributes
@@ -22,8 +22,7 @@ module AthletesHelper
         for evaluation in evaluation_list
             evaluation.all.each do |e|
                 if e.athlete_id == athlete_id
-                    athlete_evaluations.append([e,evaluation.table_name])
-                    
+                    athlete_evaluations.append([e,evaluation.table_name]) 
                 end
             end
         end

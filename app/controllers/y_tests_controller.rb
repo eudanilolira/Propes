@@ -8,8 +8,8 @@ class YTestsController < ApplicationController
 
     @y_test.user_id = current_user.id
     @y_test.athlete_id = session[:athlete_id]
-    @y_test.right_result = ((right_PA + right_PM + right_PL) / (right_CM * 3)) * 100
-    @y_test.left_result = ((left_PA + left_PM + left_PL) / (left_CM * 3)) * 100
+    @y_test.right_result = ((@y_test.right_PA + @y_test.right_PM + @y_test.right_PL) / (@y_test.right_CM * 3)) * 100
+    @y_test.left_result = ((@y_test.left_PA + @y_test.left_PM + @y_test.left_PL) / (@y_test.left_CM * 3)) * 100
     @y_test.right_qualitative_result = calc_result(@y_test.right_result)
     @y_test.left_qualitative_result = calc_result(@y_test.left_result)
 
